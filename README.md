@@ -1,0 +1,3 @@
+# The Chocolate Factory
+
+A Django e-commerce store. Coming soon...
