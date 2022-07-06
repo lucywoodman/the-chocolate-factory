@@ -4,6 +4,9 @@
 .AppleDouble
 .LSOverride
 
+### VisualStudioCode ###
+.vscode/*
+
 ### Django ###
 *.log
 *.pot
