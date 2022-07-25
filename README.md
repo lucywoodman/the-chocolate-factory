@@ -63,7 +63,7 @@ Nina, 26, single. Works remotely and travels the world - a "digital nomad". Love
 9. As a consumer, I want to see the products by category to narrow down my search.
 10. As a consumer, I want to filter the products to narrow down my search.
 11. As a consumer, I want to search products so I can find something specific.
-12. As a consumer, I want to add products to my cart so I can save them for purchasing and see how much I will spend.
+12. As a consumer, I want to add products to my cart so I can save them for purchasing later.
 13. As a consumer, I want to remove products from my cart if I change my mind.
 14. As a consumer, I want to adjust the quantities of items in my card so I can buy more/less of the same item.
 15. As a consumer, I want to a checkout process so I can review my cart and add my details to complete my purchase.
