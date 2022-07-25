@@ -84,7 +84,29 @@ The priorities are "critical", "need", "nice to have", "want". I made sure to ge
 
 Feature	| Importance	| Feasibility/Viability | Priority
 --- | :---: | :---: | ---
-Landing page |	7|	10|	need
+Responsive design | 22 | 22 | critical
+Accessible design | 21 | 18 | critical
+Secure data | 20 | 6 | need
+Awesome homepage | 4 | 21 | nice to have
+Newsletter subscribe | 5 | 3 | want
+Newsletter unsubscribe | 6 | 2 | want
+Create a profile | 7 | 23 | need
+View products | 23 | 20 | critical
+Product category pages | 13 | 19 | need
+Product filters | 12 | 14 | nice to have
+Search form | 9 | 13 | nice to have
+Add products to cart | 17 | 12 | need
+Remove products from cart | 8 | 11 | nice to have
+Edit qty of products in cart | 3 | 5 | want
+Cart review and checkout | 16 | 9 | need
+Provide payment details | 18 | 8 | need
+Process payment | 19 | 7 | need
+Autofill saved data at checkout | 1 | 4 | want
+Action feedback | 10 | 10 | need
+Add products to store | 15 | 17 | critical
+Update products in store | 14 | 16 | need
+Remove products from store | 11 | 15 | need
+Send newsletters | 2 | 1 | want
 
 <details><summary>Priority chart</summary>
 <img src="docs/planning/priority-chart.png">
