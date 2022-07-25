@@ -5,7 +5,7 @@
 .LSOverride
 
 ### VisualStudioCode ###
-.vscode/*
+.vscode/
 
 ### Django ###
 *.log
