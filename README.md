@@ -78,7 +78,7 @@ Nina, 26, single. Works remotely and travels the world - a "digital nomad". Love
 22. As the store owner, I want to delete products when they're no longer available.
 23. As the store owner, I want to send newsletters to our mailing list to share store news and updates.
 
-I ranked the user stories by order of importance and how feasible/viable they are to complete. This let me chart the resulting numbers (see priority chart below) to help work out whether or not to include the features in the project given the constraints.
+I ranked the user stories by order of importance and how feasible/viable they are to complete. This let me chart the resulting numbers (see priority chart below) to help work out whether or not to include the features in the project given the constraints. The chart was created in a [Jupyter notebook with `matplotlib`](/docs/planning/priority-chart.md).
 
 The priorities are "critical", "need", "nice to have", "want". I made sure to get all of the "critical" and "needed" features into the first version of the app, and any "nice to haves" that I had time for. The "wants" can be added to a later version.
 
