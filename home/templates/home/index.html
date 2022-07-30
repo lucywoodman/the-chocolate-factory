@@ -1,6 +1,23 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block page_header %}
+<div class="container pt-7">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
 {% block content %}
-    <h1 class="display-4 text-success">It works!</h1>
+    <div class="container h-100 w-90">
+        <div class="row h-100">
+            <div class="col-7 col-md-6 my-auto">
+                <h1 class="display-4">The best craft chocolate in the world.</h1>
+            </div>
+            <div class="my-5">
+                <a href="" class="btn btn-lg rounded-0 py-3">Explore Store</a>
+            </div>
+        </div>
+    </div>
 {% endblock %}
