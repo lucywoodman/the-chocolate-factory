@@ -12,7 +12,10 @@
     {% endblock %}
 
     {% block corecss %}
-        <!-- Bootstrap CSS -->
+        <!-- Vendor CSS -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;500;800;900&display=swap" rel="stylesheet">
         <link href="{% static 'css/base.css' %}" rel="stylesheet">
     {% endblock %}
 
@@ -31,8 +34,9 @@
     {% endblock %}
 
     {% block corejs %}
-        <!-- Bootstrap JS -->
+        <!-- Vendor JS -->
         <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script src="https://kit.fontawesome.com/c363a15e17.js" crossorigin="anonymous"></script>
     {% endblock %}
   </body>
 </html>
