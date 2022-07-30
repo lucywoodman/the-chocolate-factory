@@ -14,5 +14,6 @@ $theme-colors: map-merge($theme-colors, $brand-colors);
 // add extra spacers
 $custom-spacers: (
     6: $spacer * 2,
+    7: $spacer * 10,
 );
 $spacers: map-merge($spacers, $custom-spacers);
