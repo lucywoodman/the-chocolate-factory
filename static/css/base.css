@@ -16369,13 +16369,6 @@ textarea.form-control-lg {
   width: 1.5rem;
 }
 
-.search-icon {
-  position: absolute;
-  left: 8px;
-  top: 8px;
-  z-index: 99;
-}
-
 .theme-btn {
   font-size: 1.13rem;
   font-weight: 500;
