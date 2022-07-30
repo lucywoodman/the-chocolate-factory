@@ -7,15 +7,15 @@
             <form method="GET" action="" class="d-flex">
                 <div class="input-group w-100">
                     <span class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
-                    <input class="form-control rounded-0 ps-6" type="search" placeholder="What do you want to search for?" aria-label="Search">
-                    <button class="input-group-text rounded-0" type="submit">Search</button>
+                    <input class="form-control border-dark rounded-0 ps-6" type="text" name="q" placeholder="What do you want to search for?" aria-label="Search">
+                    <button class="input-group-text border-dark rounded-0" type="submit">Search</button>
                 </div>
             </form>
         </div>
         <div class="col-12 col-lg-4 my-auto">
             <ul class="nav justify-content-end my-0">
                 <li class="nav-item dropdown">
-                    <a class="nav-link" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link text-black" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                         <div class="text-center">
                             <i class="fa-solid fa-user"></i>
                             <p class="my-0">Account</p>
@@ -34,10 +34,10 @@
                         {% endif %}
                     </div>
                 </li>
-                <li class="list-inline-item">
+                <li class="nav-item">
                     <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="">
                         <div class="text-center">
-                            <div><i class="fa-solid fa-bag-shopping"></i></div>
+                            <i class="fa-solid fa-bag-shopping"></i>
                             <p class="my-0">
                                 {% if grand_total %}
                                     ${{ grand_total|floatformat:2 }}
