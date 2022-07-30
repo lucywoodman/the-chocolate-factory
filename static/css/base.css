@@ -16376,4 +16376,10 @@ textarea.form-control-lg {
   z-index: 99;
 }
 
+.theme-btn {
+  font-size: 1.13rem;
+  font-weight: 500;
+  border: 2px solid #000;
+}
+
 /*# sourceMappingURL=base.css.map */
