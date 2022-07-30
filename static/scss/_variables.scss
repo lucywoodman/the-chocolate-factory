@@ -1,0 +1,18 @@
+// override base font-family
+$font-family-base: 'Alegreya Sans', $font-family-sans-serif;
+
+// set brand colours
+$brand-colors: (
+    "primary": #4EB0B9,
+    "brand-pink": #F2A094,
+    "brand-gold": #F7C665,
+    "brand-dgreen": #1C6162,
+    "brand-dblue": #005E84,
+);
+$theme-colors: map-merge($theme-colors, $brand-colors);
+
+// add extra spacers
+$custom-spacers: (
+    6: $spacer * 2,
+);
+$spacers: map-merge($spacers, $custom-spacers);

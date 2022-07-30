@@ -1,0 +1,14 @@
+// add extra widths
+$custom-widths: (
+    "width": (
+      property: width,
+      class: w,
+      values: (
+        90: 90%,
+      )
+    )
+);
+$utilities: map-merge($utilities, $custom-widths);
+
+// import utilities api to allow utility map merge to work
+@import "./bootstrap-5.2.0/scss/utilities/api";

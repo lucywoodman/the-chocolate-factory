@@ -1,19 +1,17 @@
-// set default sans-serif (copied from node_modules/bootstrap/scss/_variables.scss)
-$font-family-sans-serif:      system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+@import "./bootstrap-5.2.0/scss/functions";
+@import "./bootstrap-5.2.0/scss/variables";
+@import "./bootstrap-5.2.0/scss/mixins";
 
-// override base font-family
-$font-family-base: 'Alegreya Sans', $font-family-sans-serif;
+// import custom variables
+@import "./variables";
 
-// set branding colours
-$brand-pink: #F2A094;
-$brand-gold: #F7C665;
-$brand-blue: #4EB0B9;
-$brand-green: #1C6162;
-$brand-dblue: #005E84;
+@import "./bootstrap-5.2.0/scss/maps";
+@import "./bootstrap-5.2.0/scss/utilities";
 
-// override primary colour
-$primary: $brand-blue;
+// import custom utilities
+@import "./utilities";
 
-// import bootstrap
 @import "./bootstrap-5.2.0/scss/bootstrap";
 
+// import custom styles
+@import "./custom";
