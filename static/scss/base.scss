@@ -1,0 +1,21 @@
+// import Alegreya Sans from Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;500;800;900&display=swap');
+// set default sans-serif (copied from node_modules/bootstrap/scss/_variables.scss)
+$font-family-sans-serif:      system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+// override base font-family
+$font-family-base: 'Alegreya Sans', $font-family-sans-serif;
+
+// set branding colours
+$brand-pink: #F2A094;
+$brand-gold: #F7C665;
+$brand-blue: #4EB0B9;
+$brand-green: #1C6162;
+$brand-dblue: #005E84;
+
+// override primary colour
+$primary: $brand-blue;
+
+// import bootstrap
+@import "./bootstrap-5.2.0/scss/bootstrap";
+
