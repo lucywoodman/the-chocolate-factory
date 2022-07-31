@@ -1,5 +1,5 @@
 {% load static %}
-<header class="container-fluid w-90 pt-2">
+<header class="container-lg pt-2">
     <nav id="topnav" class="navbar navbar-expand-lg d-none d-lg-flex">
         <div class="col-12 col-lg-4 my-auto text-center text-lg-start">
             <a class="navbar-brand" href="{% url 'home' %}">
@@ -54,10 +54,11 @@
             </ul>
         </div>
     </nav>
-    <nav class="navbar navbar-expand-lg w-100 py-0">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+    <nav class="navbar navbar-expand-lg w-100 py-0 px-2">
+        <button class="navbar-toggler border-0 rounded-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#main-nav" aria-controls="main-nav">
+            <i class="fa-solid fa-bars"></i>
         </button>
+        {% include './offcanvas.html' %}
         {% include './mobile-top-header.html' %}
         {% include './main-nav.html' %}
     </nav>
