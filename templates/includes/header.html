@@ -1,5 +1,5 @@
 {% load static %}
-<header class="container-fluid w-90">
+<header class="container-fluid w-90 pt-2">
     <nav class="navbar navbar-expand-lg">
         <div class="col-12 col-lg-4 my-auto text-center text-lg-start">
             <a class="navbar-brand" href="{% url 'home' %}">
@@ -53,6 +53,12 @@
                 </li>
             </ul>
         </div>
+    </nav>
+    <nav class="navbar navbar-expand-lg w-100 py-0">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        {% include './main-nav.html' %}
     </nav>
 </header>
 
