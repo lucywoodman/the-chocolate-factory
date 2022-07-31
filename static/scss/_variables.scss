@@ -2,8 +2,10 @@
 $font-family-base: 'Alegreya Sans', $font-family-sans-serif;
 
 // set brand colours
+$primary: #4EB0B9;
+
 $brand-colors: (
-    "primary": #4EB0B9,
+    "primary": $primary,
     "brand-pink": #F2A094,
     "brand-gold": #F7C665,
     "brand-dgreen": #1C6162,

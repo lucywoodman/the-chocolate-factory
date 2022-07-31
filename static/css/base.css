@@ -7897,7 +7897,7 @@ textarea.form-control-lg {
   --bs-btn-disabled-color: #6c757d;
   --bs-btn-disabled-border-color: transparent;
   --bs-btn-box-shadow: none;
-  --bs-btn-focus-shadow-rgb: 49, 132, 253;
+  --bs-btn-focus-shadow-rgb: 66, 150, 157;
   text-decoration: underline;
 }
 .btn-link:focus {
@@ -16418,6 +16418,14 @@ textarea.form-control-lg {
 .nav-link:hover {
   color: black;
   background: white;
+}
+
+#topnav {
+  border-bottom: 1px solid #42969d;
+}
+
+#main-nav {
+  border-top: 1px solid #7ac4cb;
 }
 
 /*# sourceMappingURL=base.css.map */

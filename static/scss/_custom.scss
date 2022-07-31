@@ -21,3 +21,11 @@ $icon-dimensions: 1.5rem;
   color: black;
   background: white;
 }
+
+#topnav {
+  border-bottom: 1px solid shade-color($primary, 15);
+}
+
+#main-nav {
+  border-top: 1px solid tint-color($primary, 25);
+}
