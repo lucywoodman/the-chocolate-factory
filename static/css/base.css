@@ -16415,4 +16415,9 @@ textarea.form-control-lg {
   border: 2px solid #000;
 }
 
+.nav-link:hover {
+  color: black;
+  background: white;
+}
+
 /*# sourceMappingURL=base.css.map */

@@ -15,3 +15,9 @@ $icon-dimensions: 1.5rem;
   font-weight: 500;
   border: 2px solid #000;
 }
+
+// tweak nav link hovers
+.nav-link:hover {
+  color: black;
+  background: white;
+}
