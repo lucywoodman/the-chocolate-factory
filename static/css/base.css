@@ -352,8 +352,28 @@
   --bs-border-opacity: 1;
 }
 
+.w-25 {
+  width: 25% !important;
+}
+
+.w-50 {
+  width: 50% !important;
+}
+
+.w-75 {
+  width: 75% !important;
+}
+
 .w-90 {
   width: 90% !important;
+}
+
+.w-100 {
+  width: 100% !important;
+}
+
+.w-auto {
+  width: auto !important;
 }
 
 .mw-100 {
@@ -10903,7 +10923,7 @@ textarea.form-control-lg {
   .offcanvas-sm {
     position: fixed;
     bottom: 0;
-    z-index: 1045;
+    z-index: 1052;
     display: flex;
     flex-direction: column;
     max-width: 100%;
@@ -10991,7 +11011,7 @@ textarea.form-control-lg {
   .offcanvas-md {
     position: fixed;
     bottom: 0;
-    z-index: 1045;
+    z-index: 1052;
     display: flex;
     flex-direction: column;
     max-width: 100%;
@@ -11079,7 +11099,7 @@ textarea.form-control-lg {
   .offcanvas-lg {
     position: fixed;
     bottom: 0;
-    z-index: 1045;
+    z-index: 1052;
     display: flex;
     flex-direction: column;
     max-width: 100%;
@@ -11167,7 +11187,7 @@ textarea.form-control-lg {
   .offcanvas-xl {
     position: fixed;
     bottom: 0;
-    z-index: 1045;
+    z-index: 1052;
     display: flex;
     flex-direction: column;
     max-width: 100%;
@@ -11255,7 +11275,7 @@ textarea.form-control-lg {
   .offcanvas-xxl {
     position: fixed;
     bottom: 0;
-    z-index: 1045;
+    z-index: 1052;
     display: flex;
     flex-direction: column;
     max-width: 100%;
@@ -11342,7 +11362,7 @@ textarea.form-control-lg {
 .offcanvas {
   position: fixed;
   bottom: 0;
-  z-index: 1045;
+  z-index: 1052;
   display: flex;
   flex-direction: column;
   max-width: 100%;
@@ -12157,8 +12177,28 @@ textarea.form-control-lg {
   --bs-border-opacity: 1;
 }
 
+.w-25 {
+  width: 25% !important;
+}
+
+.w-50 {
+  width: 50% !important;
+}
+
+.w-75 {
+  width: 75% !important;
+}
+
 .w-90 {
   width: 90% !important;
+}
+
+.w-100 {
+  width: 100% !important;
+}
+
+.w-auto {
+  width: auto !important;
 }
 
 .mw-100 {
