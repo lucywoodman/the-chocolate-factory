@@ -1,28 +1,27 @@
 <li class="list-inline-item">
-    <a class="nav-link d-block d-lg-none" href="#" id="mobile-search" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <a class="nav-link d-block d-lg-none" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
         <div class="text-center">
-            <i class="fas fa-search fa-lg"></i>
+            <i class="fa-solid fa-magnifying-glass"></i>
             <p class="my-0">Search</p>
         </div>
     </a>
-    <div class="dropdown-menu border-0 w-100 p-3 rounded-0 my-0" aria-labelledby="mobile-search">
+    <div class="dropdown-menu border-0 rounded-0 w-100 p-3 mt-2" aria-labelledby="mobile-search">
         <form method="GET" action="" class="d-flex">
             <div class="input-group w-100">
-                <span class="input-group-text border-dark border-end-0 rounded-0 bg-white pe-0"><i class="fa-solid fa-magnifying-glass"></i></span>
-                <input class="form-control border-dark border-start-0 rounded-0" type="text" name="q" placeholder="What do you want to search for?" aria-label="Search">
+                <input class="form-control border-dark rounded-0" type="text" name="q" placeholder="What do you want to search for?" aria-label="Search">
                 <button class="input-group-text btn btn-brand-dblue border-dark rounded-0" type="submit">Search</button>
             </div>
         </form>
     </div>
 </li>
-<li class="list-inline-item dropdown">
-    <a class="nav-link text-black" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+<li class="list-inline-item">
+    <a class="nav-link d-block d-lg-none" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
         <div class="text-center">
             <i class="fa-solid fa-user"></i>
             <p class="my-0">Account</p>
         </div>
     </a>
-    <div class="dropdown-menu border-0" aria-labelledby="user-options">
+    <div class="dropdown-menu border-0 rounded-0 w-100 p-3 mt-2" aria-labelledby="user-options">
         {% if request.user.is_authenticated %}
             {% if request.user.is_superuser %}
                 <a href="" class="dropdown-item">Product Management</a>
@@ -36,7 +35,7 @@
     </div>
 </li>
 <li class="list-inline-item">
-    <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="">
+    <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link d-block d-lg-none" href="">
         <div class="text-center">
             <i class="fa-solid fa-bag-shopping"></i>
             <p class="my-0">
