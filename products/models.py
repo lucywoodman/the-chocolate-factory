@@ -15,6 +15,9 @@ TYPE = (
 class Category(models.Model):
     """Class for the category model"""
 
+    class Meta:
+        verbose_name_plural = "Categories"
+
     name = models.CharField(max_length=256)
     nice_name = models.CharField(max_length=256, null=True, blank=True)
 
