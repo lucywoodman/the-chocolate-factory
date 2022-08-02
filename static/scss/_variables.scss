@@ -3,15 +3,24 @@ $font-family-base: 'Alegreya Sans', $font-family-sans-serif;
 
 // set brand colours
 $primary: #4EB0B9;
+$brand-pink: #F2A094;
+$brand-gold: #F7C665;
+$brand-dgreen: #1C6162;
+$brand-dblue: #005E84;
 
 $brand-colors: (
     "primary": $primary,
-    "brand-pink": #F2A094,
-    "brand-gold": #F7C665,
-    "brand-dgreen": #1C6162,
-    "brand-dblue": #005E84,
+    "brand-pink": $brand-pink,
+    "brand-gold": $brand-gold,
+    "brand-dgreen": $brand-dgreen,
+    "brand-dblue": $brand-dblue,
 );
 $theme-colors: map-merge($theme-colors, $brand-colors);
+
+// set default link styling
+$link-color: $brand-dblue;
+$link-hover-color: shade-color($brand-pink, 15);
+$link-decoration: none;
 
 // add extra spacers
 $custom-spacers: (
