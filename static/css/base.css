@@ -4576,12 +4576,6 @@
     display: none !important;
   }
 }
-/*!
- * Bootstrap  v5.2.0 (https://getbootstrap.com/)
- * Copyright 2011-2022 The Bootstrap Authors
- * Copyright 2011-2022 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
- */
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
@@ -4653,8 +4647,8 @@
   --bs-border-radius-xl: 1rem;
   --bs-border-radius-2xl: 2rem;
   --bs-border-radius-pill: 50rem;
-  --bs-link-color: #0d6efd;
-  --bs-link-hover-color: #0a58ca;
+  --bs-link-color: #005E84;
+  --bs-link-hover-color: #ce887e;
   --bs-code-color: #d63384;
   --bs-highlight-bg: #fff3cd;
 }
@@ -4824,7 +4818,7 @@ sup {
 
 a {
   color: var(--bs-link-color);
-  text-decoration: underline;
+  text-decoration: none;
 }
 a:hover {
   color: var(--bs-link-hover-color);
@@ -7435,7 +7429,6 @@ textarea.form-control-lg {
   line-height: var(--bs-btn-line-height);
   color: var(--bs-btn-color);
   text-align: center;
-  text-decoration: none;
   vertical-align: middle;
   cursor: pointer;
   user-select: none;
@@ -7898,7 +7891,7 @@ textarea.form-control-lg {
   --bs-btn-disabled-border-color: transparent;
   --bs-btn-box-shadow: none;
   --bs-btn-focus-shadow-rgb: 66, 150, 157;
-  text-decoration: underline;
+  text-decoration: none;
 }
 .btn-link:focus {
   color: var(--bs-btn-color);
@@ -8219,7 +8212,6 @@ textarea.form-control-lg {
   font-weight: 400;
   color: var(--bs-dropdown-link-color);
   text-align: inherit;
-  text-decoration: none;
   white-space: nowrap;
   background-color: transparent;
   border: 0;
@@ -8393,7 +8385,6 @@ textarea.form-control-lg {
   font-size: var(--bs-nav-link-font-size);
   font-weight: var(--bs-nav-link-font-weight);
   color: var(--bs-nav-link-color);
-  text-decoration: none;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
 @media (prefers-reduced-motion: reduce) {
@@ -8540,7 +8531,6 @@ textarea.form-control-lg {
   margin-right: var(--bs-navbar-brand-margin-end);
   font-size: var(--bs-navbar-brand-font-size);
   color: var(--bs-navbar-brand-color);
-  text-decoration: none;
   white-space: nowrap;
 }
 .navbar-brand:hover, .navbar-brand:focus {
@@ -9298,7 +9288,6 @@ textarea.form-control-lg {
   padding: var(--bs-pagination-padding-y) var(--bs-pagination-padding-x);
   font-size: var(--bs-pagination-font-size);
   color: var(--bs-pagination-color);
-  text-decoration: none;
   background-color: var(--bs-pagination-bg);
   border: var(--bs-pagination-border-width) solid var(--bs-pagination-border-color);
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -9640,7 +9629,6 @@ textarea.form-control-lg {
   display: block;
   padding: var(--bs-list-group-item-padding-y) var(--bs-list-group-item-padding-x);
   color: var(--bs-list-group-color);
-  text-decoration: none;
   background-color: var(--bs-list-group-bg);
   border: var(--bs-list-group-border-width) solid var(--bs-list-group-border-color);
 }
@@ -11501,6 +11489,47 @@ textarea.form-control-lg {
     mask-position: -200% 0%;
   }
 }
+.icon {
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.theme-btn {
+  font-size: 1.13rem;
+  font-weight: 500;
+  border: 2px solid #000;
+}
+
+a:hover:not(.img-link),
+a:active:not(.img-link) {
+  border-bottom: 1px solid #ce887e;
+}
+
+.nav-link:hover .nav-link:active {
+  color: black;
+  background: white;
+}
+
+.img-link {
+  transition: all 0.2s ease-in-out;
+}
+
+.img-link:hover,
+.img-link:active {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+#topnav {
+  border-bottom: 1px solid #42969d;
+}
+
+#main-nav {
+  border-top: 1px solid #7ac4cb;
+}
+
 .clearfix::after {
   display: block;
   clear: both;
@@ -16400,32 +16429,6 @@ textarea.form-control-lg {
   .d-print-none {
     display: none !important;
   }
-}
-.icon {
-  align-items: center;
-  display: inline-flex;
-  justify-content: center;
-  height: 1.5rem;
-  width: 1.5rem;
-}
-
-.theme-btn {
-  font-size: 1.13rem;
-  font-weight: 500;
-  border: 2px solid #000;
-}
-
-.nav-link:hover {
-  color: black;
-  background: white;
-}
-
-#topnav {
-  border-bottom: 1px solid #42969d;
-}
-
-#main-nav {
-  border-top: 1px solid #7ac4cb;
 }
 
 /*# sourceMappingURL=base.css.map */
