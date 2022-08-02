@@ -16,10 +16,25 @@ $icon-dimensions: 1.5rem;
   border: 2px solid #000;
 }
 
-// tweak nav link hovers
-.nav-link:hover {
+// tweak link hovers
+a:hover:not(.img-link),
+a:active:not(.img-link) {
+  border-bottom: 1px solid $link-hover-color;
+}
+
+.nav-link:hover
+.nav-link:active {
   color: black;
   background: white;
+}
+
+.img-link {
+  transition: $transition-base;
+}
+
+.img-link:hover,
+.img-link:active {
+  box-shadow: $box-shadow;
 }
 
 #topnav {
