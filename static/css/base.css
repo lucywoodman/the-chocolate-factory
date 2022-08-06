@@ -11503,14 +11503,13 @@ textarea.form-control-lg {
   border: 2px solid #000;
 }
 
-a:hover:not(.img-link),
-a:active:not(.img-link) {
-  border-bottom: 1px solid #ce887e;
-}
-
-.nav-link:hover .nav-link:active {
+.link-big-underline:hover,
+.link-big-underline:active {
   color: black;
-  background: white;
+  text-decoration: underline;
+  text-decoration-thickness: 4px;
+  text-underline-offset: 3px;
+  text-decoration-color: #F7C665;
 }
 
 .img-link {
