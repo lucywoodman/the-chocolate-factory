@@ -2,20 +2,17 @@
 {% load static %}
 
 {% block page_header %}
-<div class="container pt-5 pt-lg-7">
+<div class="container pt-5 pt-lg-5 pb-lg-3">
     <div class="row">
-        <div class="col"></div>
+        <div class="col">
+            <h1 class="display-4">Full Range</h1>
+        </div>
     </div>
 </div>
 {% endblock %}
 
 {% block content %}
-    <div class="container-fluid bg-white">
-        <div class="row">
-            <div class="col text-center mt-4">
-                <h2>Products</h2>
-            </div>
-        </div>
+    <div class="container-fluid bg-white pt-4">
         <div class="row">
             <div class="col-10 offset-1">
                 <div class="row mt-1 mb-2">
@@ -31,7 +28,7 @@
                                     </a>
                                 {% else %}
                                     <a href="" class="img-link">
-                                        <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}" class="card-img-top img-fluid">
+                                        <img src="{{ MEDIA_URL }}default.png" alt="{{ product.name }}" class="card-img-top img-fluid">
                                     </a>
                                 {% endif %}
                                 <div class="card-body">
