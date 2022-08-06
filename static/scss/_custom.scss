@@ -35,6 +35,22 @@ $icon-dimensions: 1.5rem;
   box-shadow: $box-shadow;
 }
 
+// tweak accordions
+.accordion-button:focus {
+  box-shadow: none;
+}
+
+.accordion-button:not(.collapsed) {
+  color: black;
+  background-color: white;
+  box-shadow: none;
+}
+
+.accordion-button:not(.collapsed)::after {
+  background-image: var(--bs-accordion-btn-icon);
+}
+
+// main nav bottom horizontal line
 #topnav {
   border-bottom: 1px solid shade-color($primary, 15);
 }
