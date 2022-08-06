@@ -3,7 +3,7 @@
         <button type="button" class="btn-close text-reset ms-2 mt-1" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
-        <form method="GET" action="" class="d-flex">
+        <form method="GET" action="{% url 'products' %}" class="d-flex">
             <div class="input-group w-100">
                 <input class="form-control border-dark rounded-0" type="text" name="q" placeholder="What do you want to search for?" aria-label="Search">
                 <button class="input-group-text btn btn-brand-dblue border-dark rounded-0" type="submit">Search</button>
