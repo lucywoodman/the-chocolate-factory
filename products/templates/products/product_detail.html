@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_header %}
+<div class="container pt-5 pt-lg-5">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid bg-white pt-4">
+        <div class="row">
+            <div class="col-12 col-md-5 offset-md-1">
+                <div>
+                    {% if product.image %}
+                        <img class="w-100" src="{{ product.image.url }}" alt="{{ product.name }}">
+                    {% else %}
+                        <img class="w-100" src="{{ MEDIA_URL }}default.png" alt="{{ product.name }}">
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-12 col-md-5 pt-4 px-5">
+                <p class="fs-4">{{ product.category.get_nice_name }}</p>
+                <p class="display-5">{{ product.name }}</p>
+                <div class="d-flex justify-content-between">
+                    <p class="lead font-weight-bold text-secondary fs-3 ">£{{ product.price }}</p>
+                    <p class="lead font-weight-bold text-secondary fs-3">{{ product.weight }}g</p>
+                </div>
+                <p>{{ product.details }}</p>
+                <div class="accordion accordion-flush" id="product-accordion">
+                    <div class="accordion-item">
+                        <p class="accordion-header" id="producer">
+                            <button class="accordion-button collapsed text-uppercase px-0 py-2" type="button" data-bs-toggle="collapse" data-bs-target="#product-producer" aria-expanded="false" aria-controls="product-producer">
+                            About the Producer
+                            </button>
+                        </p>
+                        <div id="product-producer" class="accordion-collapse collapse" aria-labelledby="producer" data-bs-parent="#product-accordion">
+                            <div class="accordion-body px-0">Details about the producer go here.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <p class="accordion-header" id="ingredients">
+                            <button class="accordion-button collapsed text-uppercase px-0 py-2" type="button" data-bs-toggle="collapse" data-bs-target="#product-ingredients" aria-expanded="false" aria-controls="product-ingredients">
+                            Ingredients
+                            </button>
+                        </p>
+                        <div id="product-ingredients" class="accordion-collapse collapse" aria-labelledby="ingredients" data-bs-parent="#product-accordion">
+                            <div class="accordion-body px-0">{{ product.ingredients }}</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <p class="accordion-header" id="allergies">
+                            <button class="accordion-button collapsed text-uppercase px-0 py-2" type="button" data-bs-toggle="collapse" data-bs-target="#product-allergies" aria-expanded="false" aria-controls="product-allergies">
+                            Allergy Information
+                            </button>
+                        </p>
+                        <div id="product-allergies" class="accordion-collapse collapse" aria-labelledby="allergies" data-bs-parent="#product-accordion">
+                            <div class="accordion-body px-0">Details about the product allergies go here.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
