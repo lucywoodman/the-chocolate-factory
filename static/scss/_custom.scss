@@ -16,6 +16,12 @@ $icon-dimensions: 1.5rem;
   border: 2px solid #000;
 }
 
+// reduce font size for account + cart text
+#topnav .nav-link,
+#mobiletopnav .list-inline-item > .nav-link {
+  font-size: $font-size-sm;
+}
+
 // tweak link hovers
 .link-big-underline:hover,
 .link-big-underline:active {
