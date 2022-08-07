@@ -10,8 +10,13 @@
             </div>
         </form>
         <ul class="navbar-nav w-auto mx-auto my-4">
-            <li class="nav-item mx-3">
-                <a href="{% url 'products' %}" class="nav-link">Full Range</a>
+            <li class="nav-item dropdown mx-3">
+                <a href="{% url 'products' %}" class="nav-link" id="our-range-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Our Range</a>
+                <div class="dropdown-menu border-0" aria-labelledby="our-range-link">
+                    <a href="{% url 'products' %}" class="dropdown-item">Full Range</a>
+                    <a href="{% url 'products' %}?category=chocolate_bars" class="dropdown-item">Chocolate Bars</a>
+                    <a href="{% url 'products' %}?category=chocolate_buttons" class="dropdown-item">Chocolate Buttons</a>
+                </div>
             </li>
             <li class="nav-item dropdown mx-3">
                 <a href="#" class="nav-link" id="gifts-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gifts</a>
