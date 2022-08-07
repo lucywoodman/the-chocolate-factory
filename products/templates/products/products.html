@@ -7,53 +7,51 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container-fluid bg-white">
-        <div class="container pt-4">
-            <div class="row">
-                <div class="col">
-                    <h1 class="display-5 fw-bold pb-4">
-                        {% if search_term %}
-                            Results for: "{{ search_term }}"
-                        {% elif current_categories %}
-                            {% for c in current_categories %}
-                                {{ c.get_nice_name }}
-                            {% endfor %}
-                        {% else %}
-                            All Products
-                        {% endif %}
-                    </h1>
-                </div>
+    <div class="container pt-4">
+        <div class="row">
+            <div class="col">
+                <h1 class="display-5 fw-bold pb-4">
+                    {% if search_term %}
+                        Results for: "{{ search_term }}"
+                    {% elif current_categories %}
+                        {% for c in current_categories %}
+                            {{ c.get_nice_name }}
+                        {% endfor %}
+                    {% else %}
+                        All Products
+                    {% endif %}
+                </h1>
             </div>
-            <div class="row">
-                <div class="col-md-12 col-lg-3">
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a href="" class="nav-link px-0">Sorting option</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-12 col-lg-9">
-                    <div class="row">
-                        {% for product in products %}
-                            <div class="col-xs-12 col-sm-6 col-lg-4">
-                                <div class="card h-100 border-0 text-center">
-                                    {% if product.image %}
-                                        <a href="{% url 'product_detail' product.id %}" class="img-link">
-                                            <img src="{{ product.image.url }}" alt="{{ product.name }}" class="card-img-top img-fluid">
-                                        </a>
-                                    {% else %}
-                                        <a href="{% url 'product_detail' product.id %}" class="img-link">
-                                            <img src="{{ MEDIA_URL }}default.png" alt="{{ product.name }}" class="card-img-top img-fluid">
-                                        </a>
-                                    {% endif %}
-                                    <div class="card-body">
-                                        <p class="card-title fs-5 "><a href="{% url 'product_detail' product.id %}">{{ product.name }}</a></p>
-                                        <p class="lead font-weight-bold text-secondary">£{{ product.price }}</p>
-                                    </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-lg-3">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a href="" class="nav-link px-0">Sorting option</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-12 col-lg-9">
+                <div class="row">
+                    {% for product in products %}
+                        <div class="col-xs-12 col-sm-6 col-lg-4">
+                            <div class="card h-100 border-0 text-center">
+                                {% if product.image %}
+                                    <a href="{% url 'product_detail' product.id %}" class="img-link">
+                                        <img src="{{ product.image.url }}" alt="{{ product.name }}" class="card-img-top img-fluid">
+                                    </a>
+                                {% else %}
+                                    <a href="{% url 'product_detail' product.id %}" class="img-link">
+                                        <img src="{{ MEDIA_URL }}default.png" alt="{{ product.name }}" class="card-img-top img-fluid">
+                                    </a>
+                                {% endif %}
+                                <div class="card-body">
+                                    <p class="card-title fs-5 "><a href="{% url 'product_detail' product.id %}">{{ product.name }}</a></p>
+                                    <p class="lead font-weight-bold text-secondary">£{{ product.price }}</p>
                                 </div>
                             </div>
-                        {% endfor %}
-                    </div>
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
