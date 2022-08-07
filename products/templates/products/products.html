@@ -6,10 +6,14 @@
     <div class="row">
         <div class="col">
             <h1 class="display-5 fw-bold">
-                {% if request.GET.q %}
-                    Results for: "{{ request.GET.q }}"
+                {% if search_term %}
+                    Results for: "{{ search_term }}"
+                {% elif current_categories %}
+                    {% for c in current_categories %}
+                    {{ c.get_nice_name }}
+                    {% endfor %}
                 {% else %}
-                    Products
+                    All Products
                 {% endif %}
             </h1>
         </div>
