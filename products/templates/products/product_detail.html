@@ -28,6 +28,19 @@
                     <p class="lead font-weight-bold text-secondary fs-3 ">£{{ product.price }}</p>
                     <p class="lead font-weight-bold text-secondary fs-3">{{ product.weight }}g</p>
                 </div>
+                <form class="form border-top pt-3" action="{% url 'add_to_bag' product.id %}" method="POST">
+                    {% csrf_token %}
+                    <div class="row mb-4">
+                        <label class="col-md-1 col-form-label" for="id_qty_{{ product.id }}">QTY</label>
+                        <div class="col-md-2">
+                            <input class="form-control rounded-0 border-0 border-bottom border-dark fs-5" type="number" name="quantity" value="1" min="1" max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
+                        </div>
+                        <div class="col-md-9 d-flex justify-content-end">
+                            <input type="submit" class="btn btn-outline-dark rounded-0 py-2 px-4 theme-btn" value="Add to bag">
+                        </div>
+                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                    </div>
+                </form>
                 <p>{{ product.details }}</p>
                 <div class="accordion accordion-flush" id="product-accordion">
                     <div class="accordion-item">
