@@ -1,6 +1,6 @@
-<ul class="mt-3 flex-grow-1 d-flex justify-content-end">
-    <li class="list-inline-item px-3 d-lg-none">
-        <a class="nav-link d-block d-lg-none" id="user-options" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+<ul class="mt-3 flex-grow-1 d-flex justify-content-end d-lg-none">
+    <li class="list-inline-item px-3">
+        <a class="nav-link d-block" id="user-options" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
             <div class="text-center">
                 <i class="fa-solid fa-user"></i>
                 <p class="my-0">Account</p>
@@ -19,7 +19,7 @@
             {% endif %}
         </div>
     </li>
-    <li class="list-inline-item px-3 d-lg-none">
+    <li class="list-inline-item px-3">
         <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link link-big-underline" data-bs-toggle="offcanvas" href="#view-bag" role="button" aria-controls="view-bag">
             <div class="text-center">
                 <i class="fa-solid fa-bag-shopping"></i>
