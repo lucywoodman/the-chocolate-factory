@@ -56,6 +56,11 @@ $icon-dimensions: 1.5rem;
   background-image: var(--bs-accordion-btn-icon);
 }
 
+// tweak offcanvas
+.offcanvas-header h4 {
+  margin-top: 1rem;
+}
+
 // main nav bottom horizontal line
 #topnav {
   border-bottom: 1px solid shade-color($primary, 15);

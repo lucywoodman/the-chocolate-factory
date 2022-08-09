@@ -11540,6 +11540,10 @@ textarea.form-control-lg {
   background-image: var(--bs-accordion-btn-icon);
 }
 
+.offcanvas-header h4, .offcanvas-header .h4 {
+  margin-top: 1rem;
+}
+
 #topnav {
   border-bottom: 1px solid #42969d;
 }

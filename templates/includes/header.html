@@ -38,7 +38,7 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link link-big-underline" href="{% url 'view_bag' %}">
+                    <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link link-big-underline" data-bs-toggle="offcanvas" href="#view-bag" role="button" aria-controls="view-bag">
                         <div class="text-center">
                             <i class="fa-solid fa-bag-shopping"></i>
                             <p class="my-0">
@@ -54,6 +54,7 @@
             </ul>
         </div>
     </nav>
+    {% include 'bag/bag.html' %}
     <nav id="mobiletopnav" class="navbar navbar-expand-lg w-100 py-0">
         <button class="navbar-toggler border-0 rounded-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#main-nav" aria-controls="main-nav">
             <i class="fa-solid fa-bars"></i>
