@@ -1,6 +1,7 @@
 from django.db import models
 from django.db.models.signals import pre_save
 from django.utils.text import slugify
+from producers.models import Producer
 
 TYPE = (
     (0, "milk"),
@@ -35,7 +36,7 @@ class Product(models.Model):
     category = models.ForeignKey(
         Category, on_delete=models.SET_NULL, blank=True, null=True
     )
-    # producer = models.ForeignKey(Producer, on_delete=models.CASCADE)
+    producer = models.ForeignKey(Producer, on_delete=models.CASCADE)
     name = models.CharField(max_length=256)
     sku = models.CharField(max_length=10)
     slug = models.SlugField(max_length=256, unique=True, blank=True, null=True)
