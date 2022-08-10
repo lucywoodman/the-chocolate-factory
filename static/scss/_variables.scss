@@ -3,16 +3,16 @@ $font-family-base: 'Alegreya Sans', $font-family-sans-serif;
 $font-size-base: 1.25rem;
 
 // set brand colours
-$primary: #4EB0B9;
+$primary: #F7C665;
+$brand-blue: #4EB0B9;
 $brand-pink: #F2A094;
-$brand-gold: #F7C665;
 $brand-dgreen: #1C6162;
 $brand-dblue: #005E84;
 
 $brand-colors: (
     "primary": $primary,
+    "brand-blue": $brand-blue,
     "brand-pink": $brand-pink,
-    "brand-gold": $brand-gold,
     "brand-dgreen": $brand-dgreen,
     "brand-dblue": $brand-dblue,
 );
