@@ -20,12 +20,12 @@
         </div>
     </li>
     <li class="list-inline-item px-3">
-        <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link link-big-underline" data-bs-toggle="offcanvas" href="#view-bag" role="button" aria-controls="view-bag">
+        <a class="{% if grand_total %}border border-light{% endif %} text-black nav-link link-big-underline" data-bs-toggle="offcanvas" href="#view-bag" role="button" aria-controls="view-bag">
             <div class="text-center">
                 <i class="fa-solid fa-bag-shopping"></i>
                 <p class="my-0">
                     {% if grand_total %}
-                        ${{ grand_total|floatformat:2 }}
+                        £{{ grand_total|floatformat:2 }}
                     {% else %}
                         £0.00
                     {% endif %}
