@@ -3,9 +3,63 @@
         <h3 class="offcanvas-title" id="view-bag-label">Your bag ({{ product_count }})</h3>
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
-    <div class="offcanvas-body mx-2">
+    <div class="offcanvas-body d-flex flex-column mx-2">
         {% if bag_items %}
-            <div class="table-responsive rounded"></div>
+            {% if free_delivery_delta > 0 %}
+            <div class="mb-5">
+                You're £{{ free_delivery_delta }} away from free shipping!
+                <div class="progress rounded-0" style="height: 10px;">
+                    <div class="progress-bar bg-primary" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+            {% endif %}
+            {% for item in bag_items %}
+            <div class="row flex-fill mb-3">
+                <div class="col-sm-4">
+                    <div>
+                        {% if item.product.image %}
+                            <img class="w-100" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                        {% else %}
+                            <img class="w-100" src="{{ MEDIA_URL }}default.png" alt="{{ item.product.name }}">
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-sm-8">
+                    <div class="row mt-2 mb-3">
+                        <div class="col fw-bold">
+                            {{ item.product.name }}
+                        </div>
+                        <div class="col text-end">
+                            <i class="icon text-secondary fa-solid fa-trash-can"></i>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <i class="icon-sm fa-solid fa-minus me-3"></i> {{ item.quantity }} <i class="icon-sm fa-solid fa-plus ms-3"></i>
+                        </div>
+                        <div class="col text-end">
+                            £{{ item.product.price }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <div class="row align-self-end">
+                <div class="col mb-3">
+                    <p>Subtotal</p>
+                    <p>Shipping</p>
+                    <h4>Total</h4>
+                </div>
+                <div class="col text-end mb-3">
+                    <p>£{{ total|floatformat:2 }}</p>
+                    <p>£{{ delivery|floatformat:2 }}</p>
+                    <h4>£{{ grand_total|floatformat:2 }}</h4>
+                </div>
+                <div class="d-grid">
+                    <a href="" class="btn btn-primary rounded-0 py-2 theme-btn"><i class="icon fa-solid fa-lock px-1"></i> Secure Checkout <i class="icon fa-solid fa-arrow-right px-1"></i></a>
+                </div>
+            </div>
+            
         {% else %}
             <p class="lead mb-5">Your bag is empty.</p>
         {% endif %}
