@@ -1,53 +1,42 @@
-from django.shortcuts import get_object_or_404, redirect, reverse, render
 from django.contrib import messages
 from django.db.models import Q
-from .models import Product, Category, Flavour
+from .models import Product
+from django.views import generic
 
 
-def full_range_products(request):
+class FullProductRange(generic.ListView):
     """A view to return the full range of products, including sort/search queries"""
 
-    products = Product.objects.all()
-    query = None
-    category = None
+    model = Product
+    context_object_name = "products"
+    template_name = "products/products.html"
 
-    if request.GET:
-        if "category" in request.GET:
-            category = request.GET["category"]
-            products = products.filter(category__slug=category)
-            category = Category.objects.filter(slug=category)
-
-        if "flavour" in request.GET:
-            flavour = request.GET["flavour"]
-            products = products.filter(flavour__slug=flavour)
-
-        if "q" in request.GET:
-            query = request.GET["q"]
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if "q" in self.request.GET:
+            query = self.request.GET.get("q")
             if not query:
                 messages.error(
-                    request, "You didn't enter any search criteria."
+                    self.request, "You didn't enter any search criteria."
                 )
-                return redirect(reverse("products"))
+            qs = Q(name__icontains=query) | Q(details__icontains=query)
+            context["products"] = Product.objects.filter(qs)
 
-            queries = Q(name__icontains=query) | Q(details__icontains=query)
-            products = products.filter(queries)
+        if "category" in self.request.GET:
+            category = self.request.GET.get("category")
+            context["products"] = Product.objects.filter(
+                category__slug=category
+            )
 
-    context = {
-        "products": products,
-        "search_term": query,
-        "current_category": category,
-    }
+        if "flavour" in self.request.GET:
+            flavour = self.request.GET.get("flavour")
+            context["products"] = Product.objects.filter(flavour__slug=flavour)
 
-    return render(request, "products/products.html", context)
+        return context
 
 
-def product_detail(request, product_id):
-    """A view to return single product details"""
+class ProductDetail(generic.DetailView):
+    """Class for the product details view"""
 
-    product = get_object_or_404(Product, pk=product_id)
-
-    context = {
-        "product": product,
-    }
-
-    return render(request, "products/product_detail.html", context)
+    model = Product
+    context_object_name = "product"
