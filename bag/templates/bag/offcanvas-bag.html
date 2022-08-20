@@ -1,3 +1,4 @@
+{% load bag_tools %}
 <div class="offcanvas offcanvas-end" tabindex="-1" id="view-bag" aria-labelledby="view-bag-label">
     <div class="offcanvas-header mx-2 mt-1">
         <h3 class="offcanvas-title" id="view-bag-label">Your bag ({{ product_count }})</h3>
@@ -33,7 +34,7 @@
                         </div>
                         <div class="row">
                             <div class="col">QTY x {{ item.quantity }}</div>
-                            <div class="col text-end">£{{ item.product.price }}</div>
+                            <div class="col text-end">£{{ item.product.price | calc_subtotal:item.quantity }}</div>
                         </div>
                     </div>
                 </div>
@@ -47,8 +48,12 @@
                 </div>
                 <div class="col text-end mb-3">
                     <p>£{{ total|floatformat:2 }}</p>
-                    <p>£{{ delivery|floatformat:2 }}</p>
-                    <h4>£{{ grand_total|floatformat:2 }}</h4>
+                        {% if delivery == 0 %}
+                            <p>FREE</p>
+                            {% else %}
+                            <p>£{{ delivery|floatformat:2 }}</p>
+                        {% endif %}
+                        <h4>£{{ grand_total|floatformat:2 }}</h4>
                 </div>
                 <div class="d-grid">
                     <a href="" class="btn btn-primary rounded-0 py-2 mb-2 theme-btn"><i class="icon fa-solid fa-lock px-1"></i> Secure Checkout <i class="icon fa-solid fa-arrow-right px-1"></i></a>
