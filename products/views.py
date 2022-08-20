@@ -11,8 +11,13 @@ class FullProductRange(generic.ListView):
     context_object_name = "products"
     template_name = "products/products.html"
 
+    def get_ordering(self):
+        ordering = self.request.GET.get("order_by")
+        return ordering
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+
         if "q" in self.request.GET:
             query = self.request.GET.get("q")
             if not query:
