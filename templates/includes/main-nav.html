@@ -3,27 +3,28 @@
         <li class="nav-item dropdown mx-3">
             <a href="{% url 'products' %}" class="nav-link text-black link-big-underline" id="our-range-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Our Range</a>
             <div class="dropdown-menu rounded-0 border-0" aria-labelledby="our-range-link">
-                <a href="{% url 'products' %}" class="dropdown-item">Full Range</a>
+                <a href="{% url 'products' %}" class="dropdown-item">All Products</a>
                 <a href="{% url 'products' %}?category=chocolate_bars" class="dropdown-item">Chocolate Bars</a>
                 <a href="{% url 'products' %}?category=chocolate_buttons" class="dropdown-item">Chocolate Buttons</a>
             </div>
         </li>
         <li class="nav-item dropdown mx-3">
-            <a href="#" class="nav-link text-black link-big-underline" id="gifts-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gifts</a>
-            <div class="dropdown-menu rounded-0 border-0" aria-labelledby="gifts-link">
-                <a href="" class="dropdown-item">An item</a>
-            </div>
-        </li>
-        <li class="nav-item dropdown mx-3">
             <a href="#" class="nav-link text-black link-big-underline" id="flavours-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Flavours</a>
             <div class="dropdown-menu rounded-0 border-0" aria-labelledby="flavours-link">
-                <a href="" class="dropdown-item">An item</a>
+                <a href="{% url 'products' %}?flavour=mint" class="dropdown-item">Mint</a>
+                <a href="{% url 'products' %}?flavour=coffee" class="dropdown-item">Coffee</a>
+                <a href="{% url 'products' %}?flavour=chilli" class="dropdown-item">Chilli</a>
+                <a href="{% url 'products' %}?flavour=orange" class="dropdown-item">Orange</a>
+                <a href="{% url 'products' %}?flavour=fruity" class="dropdown-item">Fruity</a>
+                <a href="{% url 'products' %}?flavour=nutty" class="dropdown-item">Nutty</a>
             </div>
         </li>
         <li class="nav-item dropdown mx-3">
             <a href="#" class="nav-link text-black link-big-underline" id="vegan-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Vegan</a>
             <div class="dropdown-menu rounded-0 border-0" aria-labelledby="vegan-link">
-                <a href="" class="dropdown-item">An item</a>
+                <a href="" class="dropdown-item">All Vegan Products</a>
+                <a href="" class="dropdown-item">Vegan Chocolate Bars</a>
+                <a href="" class="dropdown-item">Vegan Chocolate Buttons</a>
             </div>
         </li>
     </ul>

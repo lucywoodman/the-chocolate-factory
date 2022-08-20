@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404, redirect, reverse, render
 from django.contrib import messages
 from django.db.models import Q
-from .models import Product, Category
+from .models import Product, Category, Flavour
 
 
 def full_range_products(request):
@@ -16,6 +16,11 @@ def full_range_products(request):
             categories = request.GET["category"]
             products = products.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
+
+        if "flavour" in request.GET:
+            flavours = request.GET["flavour"]
+            products = products.filter(flavour__name__in=flavours)
+            flavours = Flavour.objects.filter(name__in=flavours)
 
         if "q" in request.GET:
             query = request.GET["q"]
