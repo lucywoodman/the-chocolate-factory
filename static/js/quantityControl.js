@@ -49,7 +49,7 @@ $(document).ready(() => {
 
     /**
      * Decrement quantity of product
-
+     *
      * @param {event} e - the click event
      */
     $('.decrement-qty').click(function(e) {
