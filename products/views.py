@@ -1,6 +1,6 @@
 from django.contrib import messages
 from django.db.models import Q
-from .models import Product
+from .models import Product, Category
 from django.views import generic
 
 
@@ -26,12 +26,15 @@ class FullProductRange(generic.ListView):
                 )
             qs = Q(name__icontains=query) | Q(details__icontains=query)
             context["products"] = Product.objects.filter(qs)
+            context["search_term"] = query
 
         if "category" in self.request.GET:
             category = self.request.GET.get("category")
             context["products"] = Product.objects.filter(
                 category__slug=category
             )
+            current_category = Category.objects.filter(slug=category)
+            context["current_category"] = current_category
 
         if "flavour" in self.request.GET:
             flavour = self.request.GET.get("flavour")

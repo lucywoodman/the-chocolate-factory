@@ -13,9 +13,9 @@
                 <h1 class="display-5 fw-bold pb-4">
                     {% if search_term %}
                         Results for: "{{ search_term }}"
-                    {% elif current_categories %}
-                        {% for c in current_categories %}
-                            {{ c.get_nice_name }}
+                    {% elif current_category %}
+                        {% for c in current_category %}
+                            {{ c.name }}
                         {% endfor %}
                     {% else %}
                         All Products
@@ -30,8 +30,8 @@
                     <ul class="dropdown-menu" aria-labelledby="sortDropdown">
                         <li><a href="{% url 'products' %}?order_by=name" class="dropdown-item">Name (A - Z)</a></li>
                         <li><a href="{% url 'products' %}?order_by=-name" class="dropdown-item">Name (Z - A)</a></li>
-                        <li><a href="{% url 'products' %}?order_by=-price" class="dropdown-item">Price (lowest first)</a></li>
-                        <li><a href="{% url 'products' %}?order_by=price" class="dropdown-item">Price (highest first)</a></li>
+                        <li><a href="{% url 'products' %}?order_by=price" class="dropdown-item">Price (lowest first)</a></li>
+                        <li><a href="{% url 'products' %}?order_by=-price" class="dropdown-item">Price (highest first)</a></li>
                     </ul>
                 </div>
                 <h4>Filter by type</h4>
