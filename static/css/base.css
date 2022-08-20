@@ -11573,6 +11573,20 @@ input::-webkit-inner-spin-button {
   background-color: #f8f9fa;
 }
 
+.qty-container {
+  margin: 1rem 0;
+}
+
+@media (min-width: 576px) {
+  .bag-item {
+    margin-right: 1rem;
+  }
+}
+@media (min-width: 992px) {
+  .qty-container {
+    margin: 0;
+  }
+}
 .clearfix::after {
   display: block;
   clear: both;

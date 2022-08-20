@@ -91,3 +91,19 @@ input::-webkit-inner-spin-button {
 .bag-item {
   background-color: $gray-100;
 }
+
+.qty-container {
+  margin: $spacer 0;
+}
+
+@include media-breakpoint-up(sm) {
+  .bag-item {
+    margin-right: $spacer;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .qty-container {
+    margin: 0;
+  }
+}
