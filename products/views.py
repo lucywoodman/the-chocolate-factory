@@ -13,14 +13,13 @@ def full_range_products(request):
 
     if request.GET:
         if "category" in request.GET:
-            categories = request.GET["category"]
-            products = products.filter(category__name__in=categories)
-            categories = Category.objects.filter(name__in=categories)
+            category = request.GET["category"]
+            products = products.filter(category__name=category)
+            categories = Category.objects.filter(name=category)
 
         if "flavour" in request.GET:
-            flavours = request.GET["flavour"]
-            products = products.filter(flavour__name__in=flavours)
-            flavours = Flavour.objects.filter(name__in=flavours)
+            flavour = request.GET["flavour"]
+            products = products.filter(flavour__name=flavour)
 
         if "q" in request.GET:
             query = request.GET["q"]
