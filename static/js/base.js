@@ -1,11 +1,32 @@
 /**
+* @fileOverview Base JavaScript functionality for The Chocolate Factory
+* @author Lucy Woodman
+*/
+
+/**
+ * Display Boostrap toast messages.
+ * 
+ * Adapted from code from Bootstrap 5 docs
+ */
+let toastElList = [].slice.call(document.querySelectorAll('.toast'));
+let toastList = toastElList.map(function (toastEl) {
+    /* Set toast initialisation options */
+    let option = {
+        animation: true,
+        autohide: false,
+        delay: 5000,
+    };
+let bsToast = new bootstrap.Toast(toastEl, option);
+bsToast.show();
+});
+
+/**
  * Allow increment/decrement of product quantities
  * while preventing out-of-bounds selection by
  * disabling buttons.
  * 
  * Adapted from code by: Code Institute
- *  */
-
+ */
 $(document).ready(() => {
     /**
      * Disable +/- buttons outside 1-99 range
