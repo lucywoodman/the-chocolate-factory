@@ -34,7 +34,7 @@
                                 {{ item.product.name }}
                             </div>
                             <div class="col-lg-3 qty-container">
-                                <form class="form update-form" action="" method="POST">
+                                <form class="form update-form" action="{% url 'adjust_bag' item.item_id %}" method="POST">
                                     {% csrf_token %}
                                     <div class="form-group">
                                         <div class="input-group">
@@ -52,16 +52,19 @@
                                         </div>
                                     </div>
                                 </form>
+                                <div class="text-center">
+                                    <a href="#" class="update-link text-info"><small>Update qty</small></a>
+                                </div>
                             </div>
                             <div class="col d-lg-none d-flex justify-content-between align-items-center">
                                 £{{ item.product.price }}
-                                <i class="icon text-secondary fa-solid fa-trash-can"></i>
+                                <a href="#"><i class="icon text-secondary fa-solid fa-trash-can"></i></a>
                             </div>
                             <div class="col-lg-2 text-end d-none d-lg-block">
                                 £{{ item.product.price }}
                             </div>
                             <div class="col-lg-1 text-end d-none d-lg-block">
-                                <i class="icon text-secondary fa-solid fa-trash-can"></i>
+                                <a href="#" class="remove-link" id="remove_{{ item.item_id }}"><i class="icon text-danger fa-solid fa-trash-can"></i></a>
                             </div>
                         </div>
                     </div>
@@ -102,4 +105,36 @@
             <a href="{% url 'products' %}" class="btn rounded-0 py-2 theme-btn">Continue Shopping <i class="icon fa-solid fa-arrow-left px-1"></i></a>
         {% endif %}
     </div>
+{% endblock %}
+
+{% block loadpostjs %}
+<script type="text/javascript">
+    /**
+     * Handle the update quantity link
+     * 
+     * @param {event} e - the click event
+     */
+    $('.update-link').click(function(e) {
+        let form = $(this).parent().prev('.update-form');
+        console.log(form);
+        form.submit();
+    });
+
+    /**
+     * Handle the remove product link
+     * 
+     * @param {event} e - the click event
+     */
+    $('.remove-link').click(function(e) {
+        let csrfToken = "{{ csrf_token }}";
+        let itemId = $(this).attr('id').split('remove_')[1];
+        let url = `/bag/remove/${itemId}`;
+        let data = {'csrfmiddlewaretoken': csrfToken};
+
+        $.post(url, data)
+            .done(function() {
+                location.reload();
+            });
+    })
+</script>
 {% endblock %}
