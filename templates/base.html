@@ -23,7 +23,26 @@
 
   </head>
   <body class="d-flex flex-column min-vh-100 bg-primary">
+
+    <!-- Toast messages -->
+    {% if messages %}
+        <aside class="message-container">
+            {% for message in messages %}
+                <!-- Include success toast -->
+                {% include 'includes/toasts/toast_success.html' %}
+            {% endfor %}
+        </aside>
+    {% endif %}
     
+    <!-- Free delivery threshold banner -->
+    <div class="container-fluid">
+        <div class="col">
+            <div class="row text-center bg-brand-blue py-2">
+                <p class="fw-bold mb-0">Free UK delivery on all orders over £{{ free_delivery_threshold }}!</p>
+            </div>
+        </div>
+    </div>
+
     <!-- Include header -->
     {% include 'includes/header.html' %}
 
@@ -42,7 +61,8 @@
         <script src="https://kit.fontawesome.com/c363a15e17.js" crossorigin="anonymous"></script>
 
         <!-- Project JS -->
-        <script src="{% static 'js/quantityControl.js' %}"></script>
+        <script src="{% static 'js/base.js' %}"></script>
+        <!-- <script src="{% static 'js/quantityControl.js' %}"></script> -->
     {% endblock %}
 
     {% block loadpostjs %}
