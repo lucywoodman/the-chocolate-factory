@@ -9,15 +9,6 @@ $icon-dimensions: 1rem;
   width: $icon-dimensions;
 }
 
-.icon-sm {
-  align-items: center;
-  display: inline-flex;
-  justify-content: center;
-  height: $icon-dimensions * 0.9;
-  width: $icon-dimensions * 0.9;
-  border: 1px solid $gray-400;
-}
-
 // tweak button class
 .theme-btn {
   font-size: 1.13rem;
@@ -75,6 +66,16 @@ $icon-dimensions: 1rem;
 // tweak offcanvas
 .offcanvas-header h4 {
   margin-top: 1rem;
+}
+
+.qty_input input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.qty_input input[type=number] {
+  -moz-appearance: textfield;
 }
 
 // main nav bottom horizontal line
