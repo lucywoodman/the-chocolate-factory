@@ -31,9 +31,22 @@
                 <form class="form border-top pt-3" action="{% url 'add_to_bag' product.id %}" method="POST">
                     {% csrf_token %}
                     <div class="row mb-4">
-                        <label class="col-md-1 col-form-label" for="id_qty_{{ product.id }}">QTY</label>
-                        <div class="col-md-2">
-                            <input class="form-control rounded-0 border-0 border-bottom border-dark fs-5" type="number" name="quantity" value="1" min="1" max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <button class="decrement-qty btn btn-outline-dark rounded-0 theme-btn" data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
+                                            <i class="fa-solid fa-minus"></i>
+                                        </button>
+                                    </div>
+                                    <input class="form-control qty_input rounded-0 border-0 fs-5 px-1 text-center" type="number" name="quantity" value="1" min="1" max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
+                                    <div class="input-group-append">
+                                        <button class="increment-qty btn btn-outline-dark rounded-0 theme-btn" data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="col-md-9 d-flex justify-content-end">
                             <input type="submit" class="btn btn-outline-dark rounded-0 py-2 px-4 theme-btn" value="Add to bag">
