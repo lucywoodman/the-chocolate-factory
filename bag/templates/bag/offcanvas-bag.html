@@ -6,7 +6,7 @@
     <div class="offcanvas-body d-flex flex-column mx-2">
         {% if bag_items %}
             {% if free_delivery_delta > 0 %}
-            <div class="mb-5">
+            <div class="mb-4">
                 You're £{{ free_delivery_delta }} away from free shipping!
                 <div class="progress rounded-0" style="height: 10px;">
                     <div class="progress-bar bg-primary" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
@@ -26,38 +26,14 @@
                         </div>
                     </div>
                     <div class="col-sm-8">
-                        <div class="row mt-2 mb-3">
-                            <div class="col fw-bold">
+                        <div class="row mb-3">
+                            <div class="col mt-2 fw-bold">
                                 {{ item.product.name }}
-                            </div>
-                            <div class="col text-end">
-                                <i class="icon text-secondary fa-solid fa-trash-can"></i>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col">
-                                <form class="form update-form" action="" method="POST">
-                                    {% csrf_token %}
-                                    <div class="form-group">
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <button class="decrement-qty btn btn-sm btn-outline-dark rounded-0 theme-btn" data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
-                                                    <i class="fa-solid fa-minus fa-sm"></i>
-                                                </button>
-                                            </div>
-                                            <input class="form-control form-control-sm qty_input rounded-0 border-0 fs-5 px-1 text-center" type="number" name="quantity" value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
-                                            <div class="input-group-append">
-                                                <button class="increment-qty btn btn-sm btn-outline-dark rounded-0 theme-btn" data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
-                                                    <i class="fa-solid fa-plus fa-sm"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="col text-end">
-                                £{{ item.product.price }}
-                            </div>
+                            <div class="col">QTY x {{ item.quantity }}</div>
+                            <div class="col text-end">£{{ item.product.price }}</div>
                         </div>
                     </div>
                 </div>
@@ -76,6 +52,7 @@
                 </div>
                 <div class="d-grid">
                     <a href="" class="btn btn-primary rounded-0 py-2 mb-2 theme-btn"><i class="icon fa-solid fa-lock px-1"></i> Secure Checkout <i class="icon fa-solid fa-arrow-right px-1"></i></a>
+                    <a href="{% url 'view_bag' %}" class="btn btn-brand-pink rounded-0 py-2 mb-2 theme-btn"> View Bag <i class="icon fa-solid fa-arrow-right px-1"></i></a>
                     <a href="{% url 'products' %}" class="btn rounded-0 py-2 theme-btn">Continue Shopping <i class="icon fa-solid fa-arrow-left px-1"></i></a>
                 </div>
             </div>
