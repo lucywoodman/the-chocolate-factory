@@ -8,8 +8,7 @@ TYPE = (
     (1, "white"),
     (2, "dark"),
     (3, "black"),
-    (4, "mixed"),
-    (5, "alternative"),
+    (4, "vegan"),
 )
 
 
