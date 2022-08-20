@@ -47,6 +47,9 @@ class Flavour(models.Model):
 class Allergy(models.Model):
     """Class for the allergy model"""
 
+    class Meta:
+        verbose_name_plural = "Allergies"
+
     name = models.CharField(max_length=256)
     nice_name = models.CharField(max_length=256, null=True, blank=True)
 
