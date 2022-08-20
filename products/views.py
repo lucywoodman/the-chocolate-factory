@@ -9,17 +9,17 @@ def full_range_products(request):
 
     products = Product.objects.all()
     query = None
-    categories = None
+    category = None
 
     if request.GET:
         if "category" in request.GET:
             category = request.GET["category"]
-            products = products.filter(category__name=category)
-            categories = Category.objects.filter(name=category)
+            products = products.filter(category__slug=category)
+            category = Category.objects.filter(slug=category)
 
         if "flavour" in request.GET:
             flavour = request.GET["flavour"]
-            products = products.filter(flavour__name=flavour)
+            products = products.filter(flavour__slug=flavour)
 
         if "q" in request.GET:
             query = request.GET["q"]
@@ -35,7 +35,7 @@ def full_range_products(request):
     context = {
         "products": products,
         "search_term": query,
-        "current_categories": categories,
+        "current_category": category,
     }
 
     return render(request, "products/products.html", context)

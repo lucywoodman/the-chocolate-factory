@@ -3,15 +3,15 @@ from .models import Category, Flavour, Allergy, Product
 
 
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ("nice_name", "name")
+    list_display = ("name", "slug")
 
 
 class FlavourAdmin(admin.ModelAdmin):
-    list_display = ("nice_name", "name")
+    list_display = ("name", "slug")
 
 
 class AllergyAdmin(admin.ModelAdmin):
-    list_display = ("nice_name", "name")
+    list_display = ("name", "slug")
 
 
 class ProductAdmin(admin.ModelAdmin):

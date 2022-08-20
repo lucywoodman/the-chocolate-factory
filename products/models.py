@@ -20,28 +20,20 @@ class Category(models.Model):
         verbose_name_plural = "Categories"
 
     name = models.CharField(max_length=256)
-    nice_name = models.CharField(max_length=256, null=True, blank=True)
+    slug = models.SlugField(max_length=256, unique=True, blank=True, null=True)
 
     def __str__(self):
         return self.name
-
-    def get_nice_name(self):
-        """Returns nice_name"""
-        return self.nice_name
 
 
 class Flavour(models.Model):
     """Class for the flavour model"""
 
     name = models.CharField(max_length=256)
-    nice_name = models.CharField(max_length=256, null=True, blank=True)
+    slug = models.SlugField(max_length=256, unique=True, blank=True, null=True)
 
     def __str__(self):
         return self.name
-
-    def get_nice_name(self):
-        """Returns nice_name"""
-        return self.nice_name
 
 
 class Allergy(models.Model):
@@ -51,14 +43,10 @@ class Allergy(models.Model):
         verbose_name_plural = "Allergies"
 
     name = models.CharField(max_length=256)
-    nice_name = models.CharField(max_length=256, null=True, blank=True)
+    slug = models.SlugField(max_length=256, unique=True, blank=True, null=True)
 
     def __str__(self):
         return self.name
-
-    def get_nice_name(self):
-        """Returns nice_name"""
-        return self.nice_name
 
 
 class Product(models.Model):
@@ -96,3 +84,6 @@ def slug_pre_save(instance, *args, **kwargs):
 
 
 pre_save.connect(slug_pre_save, sender=Product)
+pre_save.connect(slug_pre_save, sender=Category)
+pre_save.connect(slug_pre_save, sender=Flavour)
+pre_save.connect(slug_pre_save, sender=Allergy)
