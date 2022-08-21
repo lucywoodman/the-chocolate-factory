@@ -3,20 +3,19 @@
 {% load bag_tools %}
 
 {% block page_header %}
-<div class="container pt-5 pt-lg-7">
-    <div class="row">
-        <div class="col"></div>
+    <div class="container pt-5">
+        <div class="row">
+            <div class="col">
+                <h1 class="display-5 fw-bold pb-3">
+                    Your bag ({{ product_count }})
+                </h1>
+            </div>
+        </div>
     </div>
-</div>
 {% endblock %}
 
 {% block content %}
     <div class="container pt-4">
-        <div class="row">
-            <div class="col">
-                <h1 class="display-5 fw-bold pb-4">Your bag ({{ product_count }})</h1>
-            </div>
-        </div>
         {% if bag_items %}
         <div class="row">
             <div class="col-sm-12 col-lg-8">

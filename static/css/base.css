@@ -11561,14 +11561,6 @@ input::-webkit-inner-spin-button {
   -moz-appearance: textfield;
 }
 
-#topnav {
-  border-bottom: 1px solid #d2a856;
-}
-
-#main-nav {
-  border-top: 1px solid #f9d48c;
-}
-
 .bag-item {
   background-color: #f8f9fa;
 }
