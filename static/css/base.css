@@ -11579,6 +11579,10 @@ input::-webkit-inner-spin-button {
     margin: 0;
   }
 }
+.message-container {
+  z-index: 9999;
+}
+
 .clearfix::after {
   display: block;
   clear: both;

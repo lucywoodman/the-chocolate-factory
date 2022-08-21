@@ -28,8 +28,16 @@
     {% if messages %}
         <aside class="message-container">
             {% for message in messages %}
-                <!-- Include success toast -->
-                {% include 'includes/toasts/toast_success.html' %}
+                {% with message.level as level %}
+                    {% if level == 40 %} <!-- error -->
+                        {% include 'includes/toasts/toast_error.html' %}
+                    {% elif level == 30 %} <!-- warning -->
+                        {% include 'includes/toasts/toast_warning.html' %}
+                    {% elif level == 25 %} <!-- success -->
+                        {% include 'includes/toasts/toast_success.html' %}
+                    {% else %} <!-- default = info -->
+                        {% include 'includes/toasts/toast_info.html' %}
+                {% endwith %}
             {% endfor %}
         </aside>
     {% endif %}

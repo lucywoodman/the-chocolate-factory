@@ -98,3 +98,8 @@ input::-webkit-inner-spin-button {
     margin: 0;
   }
 }
+
+// ensure bootstrap toast messages are on top
+.message-container {
+  z-index: 9999;
+}
