@@ -19,6 +19,9 @@
         <link href="{% static 'css/base.css' %}" rel="stylesheet">
     {% endblock %}
 
+    {% block extracss %}
+    {% endblock %}
+
     <title>The Choocolate Factory{% block extra_title %}{% endblock %}</title>
 
   </head>
@@ -72,7 +75,6 @@
 
         <!-- Project JS -->
         <script src="{% static 'js/base.js' %}"></script>
-        <!-- <script src="{% static 'js/quantityControl.js' %}"></script> -->
     {% endblock %}
 
     {% block loadpostjs %}

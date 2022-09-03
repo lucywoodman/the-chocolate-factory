@@ -2,6 +2,10 @@
 {% load static %}
 {% load bag_tools %}
 
+{% block extracss %}
+    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
 {% block page_header %}
     <div class="container pt-5">
         <div class="row">
@@ -20,13 +24,13 @@
             <div class="col-sm-12 col-lg-5 offset-lg-1">
                 <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                     {% csrf_token %}
-                    <fieldset class="px-3 mb-3">
+                    <fieldset class="mb-3">
                         <legend class="fieldset-label small px-2 w-auto">Contact Information</legend>
                         {{ order_form.full_name | as_crispy_field }}
                         {{ order_form.email | as_crispy_field }}
                         {{ order_form.phone_number | as_crispy_field }}
                     </fieldset>
-                    <fieldset class="px-3 mb-3">
+                    <fieldset class="mb-3">
                         <legend class="fieldset-label small px-2 w-auto">Shipping</legend>
                         {{ order_form.street_address1 | as_crispy_field }}
                         {{ order_form.street_address2 | as_crispy_field }}
@@ -46,9 +50,8 @@
                             {% endif %}
                         </div>
                     </fieldset>
-                    <fieldset class="px-3">
+                    <fieldset class="">
                         <legend class="fieldset-label small px-2 w-auto">Payment</legend>
-                        <!-- STRIPE -->
                         <div class="mb-3" id="card-element"></div>
                         <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
                     </fieldset>
@@ -61,7 +64,7 @@
                     </div>
                 </form>
             </div>
-            <div class="col-sm-12 col-lg-5 order-1 order-lg-2">
+            <div class="col-sm-12 col-lg-4 ms-5 order-1 order-lg-2">
                 <h2 class="mb-4">Your order ({{ product_count }})</h2>
                 {% for item in bag_items %}
                     <div class="row mb-3 p-3 bg-grey">
@@ -104,4 +107,11 @@
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block loadpostjs %}
+    {{ block.super }}
+    {{ stripe_public_key | json_script:"id_stripe_public_key"}}
+    {{ client_secret | json_script:"id_client_secret"}}
+    <script src="{% static 'checkout/js/checkout.js' %}"></script>
 {% endblock %}
