@@ -27,13 +27,11 @@
                         </div>
                     </div>
                     <div class="col-sm-8">
-                        <div class="row mb-3">
-                            <div class="col mt-2 fw-bold">
-                                {{ item.product.name }}
+                        <div class="row mt-2 mb-3">
+                            <div class="col">
+                                <span class="fw-bold">{{ item.product.name }}</span><br>
+                                <span class="small">QTY x {{ item.quantity }}</span>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">QTY x {{ item.quantity }}</div>
                             <div class="col text-end">£{{ item.product.price | calc_subtotal:item.quantity }}</div>
                         </div>
                     </div>
@@ -56,7 +54,7 @@
                         <h4>£{{ grand_total|floatformat:2 }}</h4>
                 </div>
                 <div class="d-grid">
-                    <a href="" class="btn btn-primary rounded-0 py-2 mb-2 theme-btn"><i class="icon fa-solid fa-lock px-1"></i> Secure Checkout <i class="icon fa-solid fa-arrow-right px-1"></i></a>
+                    <a href="{% url 'checkout' %}" class="btn btn-primary rounded-0 py-2 mb-2 theme-btn"><i class="icon fa-solid fa-lock px-1"></i> Secure Checkout <i class="icon fa-solid fa-arrow-right px-1"></i></a>
                     <a href="{% url 'view_bag' %}" class="btn btn-brand-pink rounded-0 py-2 mb-2 theme-btn"> View Bag <i class="icon fa-solid fa-arrow-right px-1"></i></a>
                     <a href="{% url 'products' %}" class="btn rounded-0 py-2 theme-btn">Continue Shopping <i class="icon fa-solid fa-arrow-left px-1"></i></a>
                 </div>
