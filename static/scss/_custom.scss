@@ -78,7 +78,8 @@ input::-webkit-inner-spin-button {
   -moz-appearance: textfield;
 }
 
-// bag custom styles
+// bag + checkout custom styles
+.bg-grey,
 .bag-item {
   background-color: $gray-100;
 }
