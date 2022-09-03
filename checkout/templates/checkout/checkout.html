@@ -52,8 +52,11 @@
                     </fieldset>
                     <fieldset class="">
                         <legend class="fieldset-label small px-2 w-auto">Payment</legend>
+                        <!-- Stripe elements -->
                         <div class="mb-3" id="card-element"></div>
                         <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
+                        <!-- Pass the client_secret to the view to capture the pid -->
+                        <input type="hidden" value="{{ client_secret }}" name="client_secret">
                     </fieldset>
                     <div class="mt-5 mb-2">
                         <div class="d-flex align-items-start justify-content-between">
