@@ -8,9 +8,9 @@
 * https://stripe.com/docs/stripe-js
 */
 
-let stripe_public_key = $('#id_stripe_public_key').text().slice(1, -1);
-let client_secret = $('#id_client_secret').text().slice(1, -1);
-const stripe = Stripe(stripe_public_key);
+let stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
+let clientSecret = $('#id_client_secret').text().slice(1, -1);
+const stripe = Stripe(stripePublicKey);
 
 let elements = stripe.elements();
 let style = {
@@ -40,4 +40,30 @@ card.addEventListener('change', function(e) {
     } else {
         errorDiv.textContent = '';
     }
+});
+
+// Handle form submission
+let form = document.getElementById('payment-form');
+
+form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    card.update({'disabled': true});
+    $('#submit-button').attr('disabled', true);
+    stripe.confirmCardPayment(clientSecret, {
+        payment_method: {
+            card: card,
+        }
+    }).then(function(result) {
+        let errorDiv = document.getElementById('card-errors');
+        if (result.error) {
+            let html = `<i class="icon fa-solid fa-xmark"></i> ${result.error.message}`;
+            $(errorDiv).html(html);
+            card.update({'disabled': false});
+            $('#submit-button').attr('disabled', false);
+        } else {
+            if (result.paymentIntent.status === 'succeeded') {
+                form.submit();
+            }
+        }
+    });
 });
