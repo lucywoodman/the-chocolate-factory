@@ -12,7 +12,7 @@
                 <h1 class="display-5 fw-bold pb-3">
                     Thank you!
                 </h1>
-                <p class="small">Your order details are below. A confirmation email will also be sent to {{ order.email }}.</p>
+                <p class="small">Your order is confirmed. You'll receive a confirmation email shortly.</p>
             </div>
         </div>
     </div>
@@ -20,6 +20,97 @@
 
 {% block content %}
     <div class="container pt-4">
-        
+        <div class="row">
+            <div class="col-sm-12 col-lg-8 border">
+                <div class="row border-bottom p-4">
+                    <div class="col">
+                        <p class="fw-bold">Order #</p>
+                        <p class="small">{{ order.order_number }}</p>
+                    </div>
+                    <div class="col">
+                        <p class="fw-bold">Date</p>
+                        <p class="small">{{ order.date|date:"fA - jS M Y" }}</p>
+                    </div>
+                </div>
+                <div class="row px-4 pt-4 pb-3">
+                    <p class="fw-bold">Customer information</p>
+                    <p>{{ order.full_name }}</p>
+                    <p>{{ order.email }}</p>
+                </div>
+                <div class="row border-bottom px-4 pb-4">
+                    <div class="col">
+                        <p class="fw-bold">Shipping address</p>
+                        <p>
+                            {{ order.street_address1 }}<br>
+                            {% if order.street_address2 %}
+                                {{ order.street_address2 }}<br>
+                            {% endif %}
+                            {{ order.town_or_city }}<br>
+                            {% if order.county %}
+                                {{ order.county }}<br>
+                            {% endif %}
+                            {{ order.postcode }}<br>
+                            {{ order.country }}
+                        </p>
+                    </div>
+                    <div class="col">
+                        <p class="fw-bold">Billing address</p>
+                        <p>
+                            {{ order.street_address1 }}<br>
+                            {% if order.street_address2 %}
+                                {{ order.street_address2 }}<br>
+                            {% endif %}
+                            {{ order.town_or_city }}<br>
+                            {% if order.county %}
+                                {{ order.county }}<br>
+                            {% endif %}
+                            {{ order.postcode }}<br>
+                            {{ order.country }}
+                        </p>
+                    </div>
+                </div>
+                <div class="row p-4">
+                    <p class="fw-bold">Your order summary</p>
+                    <div class="col">
+                        {% for item in order.orderitems.all %}
+                        <div class="row py-2">
+                            <div class="col-4 col-lg-1">
+                                {% if item.product.image %}
+                                    <img class="w-100" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                                {% else %}
+                                    <img class="w-100" src="{{ MEDIA_URL }}default.png" alt="{{ item.product.name }}">
+                                {% endif %}
+                            </div>
+                            <div class="col d-flex flex-column justify-content-center">
+                                <div class="row mt-2 mb-3">
+                                    <div class="col flex-grow">
+                                        <span class="small me-2 text-secondary">{{ item.quantity }}x</span>
+                                        {{ item.product.name }}
+                                        <span class="ms-2 small text-secondary">at £{{ item.product.price }} each</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="row border p-4">
+                    <div class="col mb-3">
+                        <p>Subtotal</p>
+                        <p>Shipping</p>
+                        <h4>Total</h4>
+                    </div>
+                    <div class="col text-end mb-3">
+                        <p>£{{ order.order_total|floatformat:2 }}</p>
+                        {% if delivery == 0 %}
+                            <p>FREE</p>
+                            {% else %}
+                            <p>£{{ order.delivery_cost|floatformat:2 }}</p>
+                        {% endif %}
+                        <h4>£{{ order.grand_total|floatformat:2 }}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}
