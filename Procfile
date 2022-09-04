@@ -1,2 +1,2 @@
-web: gunicorn the-chocolate-factory.wsgi
+web: gunicorn base_project.wsgi
 release: python manage.py migrate
