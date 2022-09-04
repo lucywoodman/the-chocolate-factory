@@ -1,0 +1,19 @@
+Thank you for your purchase!
+
+Hi {{ order.full_name }}, we're so excited that you chose to shop with us. Your order information is below.
+
+Order #{{ order.order_number }}
+Date: {{ order.date|date:"fA - jS M Y" }}
+
+Subtotal: {{ order.order_total }}
+Delivery: {{ order.delivery_cost }}
+Total: {{ order.grand_total }}
+
+Your order will be shipped to:
+{{ order.street_address1 }} in {{ order.town_or_city }}, {{ order.country }}.
+
+We're always aiming to deliver within 3-5 working days but occasionally may take a little longer if we're very busy.
+
+If you have any questions, feel free to get in touch at {{ contact_email }}.
+
+Thanks again!
