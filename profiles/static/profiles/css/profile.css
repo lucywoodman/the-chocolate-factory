@@ -8,3 +8,8 @@
 #id_default_country option:first-child {
     color: #aab7c4;
 }
+
+#profile-form input:focus,
+#profile-form input:active {
+  box-shadow: 0 1px 3px 0 #cfd7df;
+}
