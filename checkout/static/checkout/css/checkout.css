@@ -6,9 +6,6 @@
   border: 1px solid transparent;
   border-radius: 0px;
   background-color: white;
-  box-shadow: 0 1px 3px 0 #e6ebf1;
-  -webkit-transition: box-shadow 150ms ease;
-  transition: box-shadow 150ms ease;
 }
 
 .StripeElement--focus,
@@ -30,7 +27,13 @@
     right: .5rem;
 }
 
+#payment-form .form-select:invalid,
+#payment-form .form-select option[value=""] {
+  color: #aab7c4;
+}
+
 #payment-form .form-control,
+#payment-form .form-select,
 #card-element {
     color: #000;
     border: 1px solid #000;
