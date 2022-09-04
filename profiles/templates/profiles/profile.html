@@ -10,7 +10,11 @@
         <div class="row">
             <div class="col">
                 <h1 class="display-5 fw-bold pb-3">
-                    {{ profile.user.username }}'s Profile
+                    {% if profile.user.first_name %}
+                        {{ profile.user.first_name }}'s Profile
+                    {% else %}
+                        Your Profile
+                    {% endif %}
                 </h1>
             </div>
         </div>
@@ -21,13 +25,15 @@
     <div class="container pt-4">
         <div class="row">
             <div class="col-sm-12 col-lg-5">
+                <p class="fw-bold mb-4">Your details</p>
                 <form action="{% url 'profile' %}" method="POST" id="profile-form">
                     {% csrf_token %}
                     {{ form|crispy }}
                     <button class="btn btn-primary rounded-0 py-2 theme-btn">Update profile</button>
                 </form>
             </div>
-            <div class="col-sm-12 col-lg-6 margin-left-lg">
+            <div class="col-sm-12 col-lg-6 margin-left-lg right-column">
+                <p class="fw-bold mb-3">Your order history</p>
                 <div class="table-responsive">
                     <table class="table table-sm table-borderless">
                         <thead>
