@@ -30,10 +30,6 @@ def profile(request):
 def order_history(request, order_number):
     order = get_object_or_404(OrderDetail, order_number=order_number)
 
-    messages.info(
-        request, (f"This is an order from your past, ordered on {order.date}")
-    )
-
     template = "checkout/checkout_success.html"
     context = {
         "order": order,
