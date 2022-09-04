@@ -1,6 +1,8 @@
+from django.shortcuts import render
 from django.contrib import messages
 from django.db.models import Q
 from .models import Product, Category
+from .forms import ProductForm
 from django.views import generic
 
 
@@ -48,3 +50,13 @@ class ProductDetail(generic.DetailView):
 
     model = Product
     context_object_name = "product"
+
+
+def add_product(request):
+    form = ProductForm()
+    template = "products/add_product.html"
+    context = {
+        "form": form,
+    }
+
+    return render(request, template, context)
