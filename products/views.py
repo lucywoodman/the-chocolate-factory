@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, reverse, redirect
 from django.contrib import messages
 from django.db.models import Q
 from .models import Product, Category
@@ -53,7 +53,20 @@ class ProductDetail(generic.DetailView):
 
 
 def add_product(request):
-    form = ProductForm()
+    if request.method == "POST":
+        form = ProductForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Successfully added product!")
+            return redirect(reverse("add_product"))
+        else:
+            messages.error(
+                request,
+                "Oops, something went wrong! Please double-check the form.",
+            )
+    else:
+        form = ProductForm()
+
     template = "products/add_product.html"
     context = {
         "form": form,
