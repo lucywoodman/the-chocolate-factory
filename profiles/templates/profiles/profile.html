@@ -10,7 +10,7 @@
         <div class="row">
             <div class="col">
                 <h1 class="display-5 fw-bold pb-3">
-                    My Profile
+                    {{ profile.user.username }}'s Profile
                 </h1>
             </div>
         </div>
@@ -20,6 +20,21 @@
 {% block content %}
     <div class="container pt-4">
         <div class="row">
+            <div class="col-sm-12 col-lg-6">
+                <form action="{% url 'profile' %}" method="POST" id="profile-form">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <button class="btn btn-primary rounded-0 py-2 theme-btn">Update profile</button>
+                </form>
+            </div>
+            <div class="col-sm-12 col-lg-4 margin-left-lg">
+                {{ orders }}
+            </div>
         </div>
     </div>
+{% endblock %}
+
+{% block loadpostjs %}
+    {{ block.super }}
+    <script src="{% static 'profiles/js/countryfield.js' %}"></script>
 {% endblock %}
