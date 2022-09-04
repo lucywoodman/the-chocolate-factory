@@ -104,3 +104,23 @@ input::-webkit-inner-spin-button {
 .message-container {
   z-index: 9999;
 }
+
+// tweak allauth templates
+.allauth-content p {
+  margin-top: $spacer * 1.5;
+  color: $secondary;
+}
+
+.allauth-content input {
+  border-color: $black;
+  border-radius: 0;
+}
+
+.allauth-content input:active,
+.allauth-content input:focus {
+  box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+.allauth-content label:not([for='id_remember']) {
+  display: none;
+}

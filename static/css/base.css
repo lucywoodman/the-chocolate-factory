@@ -11584,6 +11584,25 @@ input::-webkit-inner-spin-button {
   z-index: 9999;
 }
 
+.allauth-content p {
+  margin-top: 1.5rem;
+  color: #6c757d;
+}
+
+.allauth-content input {
+  border-color: #000;
+  border-radius: 0;
+}
+
+.allauth-content input:active,
+.allauth-content input:focus {
+  box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+.allauth-content label:not([for=id_remember]) {
+  display: none;
+}
+
 .clearfix::after {
   display: block;
   clear: both;

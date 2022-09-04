@@ -4,8 +4,7 @@
 
 {% block head_title %}{% trans "E-mail Addresses" %}{% endblock %}
 
-{% block content %}
-    <h1>{% trans "E-mail Addresses" %}</h1>
+{% block inner_content %}
 {% if user.emailaddress_set.all %}
 <p>{% trans 'The following e-mail addresses are associated with your account:' %}</p>
 
@@ -31,9 +30,9 @@
   {% endfor %}
 
 <div class="buttonHolder">
-      <button class="secondaryAction" type="submit" name="action_primary" >{% trans 'Make Primary' %}</button>
-      <button class="secondaryAction" type="submit" name="action_send" >{% trans 'Re-send Verification' %}</button>
-      <button class="primaryAction" type="submit" name="action_remove" >{% trans 'Remove' %}</button>
+      <button class="btn rounded-0 py-2 theme-btn" type="submit" name="action_primary" >{% trans 'Make Primary' %}</button>
+      <button class="btn rounded-0 py-2 theme-btn" type="submit" name="action_send" >{% trans 'Re-send Verification' %}</button>
+      <button class="btn btn-primary rounded-0 py-2 theme-btn" type="submit" name="action_remove" >{% trans 'Remove' %}</button>
 </div>
 
 </fieldset>
@@ -49,8 +48,8 @@
 
     <form method="post" action="{% url 'account_email' %}" class="add_email">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button name="action_add" type="submit">{% trans "Add E-mail" %}</button>
+        {{ form|crispy }}
+        <button class="btn btn-primary rounded-0 py-2 theme-btn" name="action_add" type="submit">{% trans "Add E-mail" %}</button>
     </form>
   {% endif %}
 
