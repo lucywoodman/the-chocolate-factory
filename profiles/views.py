@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
 from .models import Profile
 from .forms import ProfileForm
+from checkout.models import OrderDetail
 
 
 def profile(request):
@@ -21,6 +22,22 @@ def profile(request):
         "profile": profile,
         "form": form,
         "orders": orders,
+    }
+
+    return render(request, template, context)
+
+
+def order_history(request, order_number):
+    order = get_object_or_404(OrderDetail, order_number=order_number)
+
+    messages.info(
+        request, (f"This is an order from your past, ordered on {order.date}")
+    )
+
+    template = "checkout/checkout_success.html"
+    context = {
+        "order": order,
+        "from_profile": True,
     }
 
     return render(request, template, context)
