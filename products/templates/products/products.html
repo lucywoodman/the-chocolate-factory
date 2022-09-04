@@ -71,6 +71,15 @@
                                     <p class="card-title fs-5 "><a href="{% url 'product_detail' product.slug %}">{{ product.name }}</a></p>
                                     <p class="lead font-weight-bold text-secondary">£{{ product.price }}</p>
                                 </div>
+                                {% if request.user.is_superuser %}
+                                    <div class="card-img-overlay bg-grey">
+                                        <span class="small text-secondary">Product Management:</span>
+                                        <p class="text-secondary">
+                                            <a href="{% url 'update_product' product.id %}" class="update-link text-info"><small>Update product</small></a> |
+                                            <a href="{% url 'delete_product' product.id %}" class="update-link text-danger"><small>Delete product</small></a>
+                                        </p>
+                                    </div>
+                                {% endif %}
                             </div>
                         </div>
                     {% endfor %}

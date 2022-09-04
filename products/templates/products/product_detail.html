@@ -17,6 +17,15 @@
                 </div>
             </div>
             <div class="col-12 col-md-6 pt-4 px-5">
+                {% if request.user.is_superuser %}
+                <div class="bg-grey px-4 py-3 mb-4">
+                    <span class="small text-secondary">Product Management:</span>
+                    <p class="text-secondary">
+                        <a href="{% url 'update_product' product.id %}" class="update-link text-info"><small>Update product</small></a> | 
+                        <a href="{% url 'delete_product' product.id %}" class="update-link text-danger"><small>Delete product</small></a>
+                    </p>
+                </div>
+                {% endif %}
                 <p class="fs-4">{{ product.category.name }}</p>
                 <p class="display-5">{{ product.name }}</p>
                 <div class="d-flex justify-content-between">

@@ -48,6 +48,10 @@ $icon-dimensions: 1rem;
   box-shadow: $box-shadow;
 }
 
+.card-img-overlay {
+  height: 90px;
+}
+
 // tweak accordions
 .accordion-button:focus {
   box-shadow: none;
