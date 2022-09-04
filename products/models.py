@@ -66,7 +66,7 @@ class Product(models.Model):
     slug = models.SlugField(max_length=256, unique=True, blank=True, null=True)
     price = models.DecimalField(max_digits=5, decimal_places=2)
     details = models.TextField(blank=True, null=True)
-    weight = models.PositiveIntegerField(blank=True, null=True)
+    weight = models.PositiveIntegerField(blank=True, null=True, default="100")
     ingredients = models.CharField(max_length=512, blank=True, null=True)
     type = models.IntegerField(choices=TYPE, default=0)
     image_url = models.URLField(max_length=1024, blank=True, null=True)
