@@ -98,6 +98,10 @@ input::-webkit-inner-spin-button {
   .qty-container {
     margin: 0;
   }
+
+  .margin-left-lg {
+    margin-left: $spacer * 3;
+  }
 }
 
 // ensure bootstrap toast messages are on top

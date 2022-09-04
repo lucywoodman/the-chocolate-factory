@@ -11579,6 +11579,9 @@ input::-webkit-inner-spin-button {
   .qty-container {
     margin: 0;
   }
+  .margin-left-lg {
+    margin-left: 3rem;
+  }
 }
 .message-container {
   z-index: 9999;

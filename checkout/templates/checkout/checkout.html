@@ -21,7 +21,7 @@
 {% block content %}
     <div class="container pt-4">
         <div class="row">
-            <div class="col-sm-12 col-lg-5 offset-lg-1">
+            <div class="col-sm-12 col-lg-5 offset-lg-1 order-2">
                 <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                     {% csrf_token %}
                     <fieldset class="mb-3">
@@ -67,7 +67,7 @@
                     </div>
                 </form>
             </div>
-            <div class="col-sm-12 col-lg-4 ms-5 order-1 order-lg-2">
+            <div class="col-sm-12 col-lg-4 order-1 order-lg-2 margin-left-lg">
                 <h2 class="mb-4">Your order ({{ product_count }})</h2>
                 {% for item in bag_items %}
                     <div class="row mb-3 p-3 bg-grey">
