@@ -11570,13 +11570,18 @@ input::-webkit-inner-spin-button {
   margin: 1rem 0;
 }
 
+.right-column {
+  margin-top: 3rem;
+}
+
 @media (min-width: 576px) {
   .bag-item {
     margin-right: 1rem;
   }
 }
 @media (min-width: 992px) {
-  .qty-container {
+  .qty-container,
+.right-column {
     margin: 0;
   }
   .margin-left-lg {

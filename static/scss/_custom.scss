@@ -88,6 +88,10 @@ input::-webkit-inner-spin-button {
   margin: $spacer 0;
 }
 
+.right-column {
+  margin-top: $spacer * 3;
+}
+
 @include media-breakpoint-up(sm) {
   .bag-item {
     margin-right: $spacer;
@@ -95,7 +99,8 @@ input::-webkit-inner-spin-button {
 }
 
 @include media-breakpoint-up(lg) {
-  .qty-container {
+  .qty-container, 
+  .right-column {
     margin: 0;
   }
 
