@@ -1,3 +1,18 @@
+// Home hero
+.hero-bg {
+  background: url('/media/home-hero-bg.png') no-repeat center center;
+}
+
+.custom-shape-divider-bottom-1662575848 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  color: #fff;
+}
+
 // icon reset from Bulma
 $icon-dimensions: 1rem;
 
