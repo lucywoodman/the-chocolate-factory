@@ -15,8 +15,8 @@
                 <a href="{% url 'products' %}" class="nav-link" id="our-range-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Our Range</a>
                 <div class="dropdown-menu border-0" aria-labelledby="our-range-link">
                     <a href="{% url 'products' %}" class="dropdown-item">All Products</a>
-                    <a href="{% url 'products' %}?category=chocolate-bars" class="dropdown-item">Chocolate Bars</a>
                     <a href="{% url 'products' %}?category=chocolate-buttons" class="dropdown-item">Chocolate Buttons</a>
+                    <a href="{% url 'products' %}?category=chocolate-truffles" class="dropdown-item">Chocolate Truffles</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
@@ -34,9 +34,12 @@
                 <a href="#" class="nav-link" id="vegan-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Vegan</a>
                 <div class="dropdown-menu border-0" aria-labelledby="vegan-link">
                     <a href="" class="dropdown-item">All Vegan Products</a>
-                    <a href="" class="dropdown-item">Vegan Chocolate Bars</a>
                     <a href="" class="dropdown-item">Vegan Chocolate Buttons</a>
+                    <a href="" class="dropdown-item">Vegan Chocolate Truffles</a>
                 </div>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'producers' %}" class="nav-link">Our Producers</a>
             </li>
         </ul>
     </div>
