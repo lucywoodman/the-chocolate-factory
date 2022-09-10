@@ -2,9 +2,49 @@
 {% load static %}
 
 {% block page_header %}
-
+    <div class="container pt-5">
+        <div class="row">
+            <div class="col">
+                <h1 class="display-5 fw-bold pb-3">
+                    Our Fine Cacao Producers
+                </h1>
+            </div>
+        </div>
+    </div>
 {% endblock %}
 
 {% block content %}
-
+    <div class="container pt-4">
+        <div class="row">
+            {% for producer in producers %}
+                {% if producer.name != "The Chocolate Factory" %}
+                    {% if producer.id|divisibleby:2 %}
+                        <div class="col-lg-6">
+                            {% if producer.photo %}
+                                <img src="{{ producer.photo.url }}" alt="{{ producer.name }}" class="card-img-top img-fluid">
+                            {% else %}
+                                <img src="{{ MEDIA_URL }}default.png" alt="{{ producer.name }}" class="card-img-top img-fluid">
+                            {% endif %}
+                        </div>
+                        <div class="col-lg-6 p-5">
+                            <h2>{{ producer.name }}, <span class="text-secondary">{{ producer.location }}</span></h2>
+                            <p>{{ producer.details|linebreaks }}</p>
+                        </div>
+                    {% else %}
+                        <div class="col-lg-6 p-5">
+                            <h2>{{ producer.name }}, <span class="text-secondary">{{ producer.location }}</span></h2>
+                            <p>{{ producer.details|linebreaks }}</p>
+                        </div>
+                        <div class="col-lg-6">
+                            {% if producer.photo %}
+                                <img src="{{ producer.photo.url }}" alt="{{ producer.name }}" class="card-img-top img-fluid">
+                            {% else %}
+                                <img src="{{ MEDIA_URL }}default.png" alt="{{ producer.name }}" class="card-img-top img-fluid">
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}
