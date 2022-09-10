@@ -57,12 +57,9 @@ class Product(models.Model):
     flavour = models.ForeignKey(
         Flavour, on_delete=models.SET_NULL, blank=True, null=True
     )
-    allergy_info = models.ForeignKey(
-        Allergy, on_delete=models.SET_NULL, blank=True, null=True
-    )
+    allergy_info = models.ManyToManyField(Allergy, blank=True)
     producer = models.ForeignKey(Producer, on_delete=models.CASCADE)
     name = models.CharField(max_length=256)
-    sku = models.CharField(max_length=10)
     slug = models.SlugField(max_length=256, unique=True, blank=True, null=True)
     price = models.DecimalField(max_digits=5, decimal_places=2)
     details = models.TextField(blank=True, null=True)
@@ -78,8 +75,7 @@ class Product(models.Model):
 
 def slug_pre_save(instance, *args, **kwargs):
     """Saves the name as a slug before saving the instance object"""
-    if instance.slug is None:
-        instance.slug = slugify(instance.name)
+    instance.slug = slugify(instance.name)
 
 
 pre_save.connect(slug_pre_save, sender=Product)
