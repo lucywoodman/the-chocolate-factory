@@ -11503,6 +11503,12 @@ textarea.form-control-lg {
   color: #fff;
 }
 
+.home-product img {
+  height: 280px;
+  object-fit: cover;
+  object-position: 0 -70px;
+}
+
 .icon {
   align-items: center;
   display: inline-flex;

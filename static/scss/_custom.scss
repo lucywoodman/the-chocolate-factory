@@ -14,6 +14,12 @@
   color: #fff;
 }
 
+.home-product img {
+  height: 280px;
+  object-fit: cover;
+  object-position: 0 -70px;
+}
+
 // icon reset from Bulma
 $icon-dimensions: 1rem;
 
