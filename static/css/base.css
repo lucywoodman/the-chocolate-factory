@@ -11489,10 +11489,6 @@ textarea.form-control-lg {
     mask-position: -200% 0%;
   }
 }
-.hero-bg {
-  background: url("/media/home-hero-bg.jpg") no-repeat center center;
-}
-
 .gradient-bg {
   background: linear-gradient(180deg, #f7c665, #fbbf6b, #feb871, #ffb278, #feac7f, #fca787, #f8a38e, #f2a094);
 }
