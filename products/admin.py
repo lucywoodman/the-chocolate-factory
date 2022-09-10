@@ -16,7 +16,6 @@ class AllergyAdmin(admin.ModelAdmin):
 
 class ProductAdmin(admin.ModelAdmin):
     list_display = (
-        "sku",
         "name",
         "category",
         "price",
@@ -24,7 +23,7 @@ class ProductAdmin(admin.ModelAdmin):
         "image",
     )
 
-    ordering = ("sku",)
+    ordering = ("name",)
 
 
 admin.site.register(Category, CategoryAdmin)
