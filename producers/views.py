@@ -26,3 +26,31 @@ class AddProducer(UserPassesTestMixin, generic.CreateView):
 
     def test_func(self):
         return self.request.user.is_superuser
+
+
+class UpdateProducer(UserPassesTestMixin, generic.UpdateView):
+    """
+    A view to display the producer form.
+    To update producers. Restricted to superusers only.
+    """
+
+    model = Producer
+    form_class = ProducerForm
+    success_url = reverse_lazy("producers")
+
+    def test_func(self):
+        return self.request.user.is_superuser
+
+
+class DeleteProducer(UserPassesTestMixin, generic.DeleteView):
+    """
+    A view to delete producers.
+    Restricted to superusers only.
+    """
+
+    model = Producer
+    template = "producers/producers.html"
+    success_url = reverse_lazy("producers")
+
+    def test_func(self):
+        return self.request.user.is_superuser
