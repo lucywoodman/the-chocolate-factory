@@ -11493,16 +11493,6 @@ textarea.form-control-lg {
   background: linear-gradient(180deg, #f7c665, #fbbf6b, #feb871, #ffb278, #feac7f, #fca787, #f8a38e, #f2a094);
 }
 
-.custom-shape-divider-bottom-1662575848 {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
-  color: #fff;
-}
-
 .home-product img {
   height: 280px;
   object-fit: cover;
