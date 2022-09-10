@@ -1,5 +1,33 @@
 from django import forms
 from .models import Profile
+from django.contrib.auth.models import User
+
+
+class UserForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ("first_name", "last_name", "email")
+
+    def __init__(self, *args, **kwargs):
+        """Set placeholders, remove labels and set autofocus on first field"""
+        super().__init__(*args, **kwargs)
+        placeholders = {
+            "first_name": "First name",
+            "last_name": "Last name",
+            "email": "Email address",
+        }
+
+        self.fields["first_name"].widget.attrs["autofocus"] = True
+        for field in self.fields:
+            if self.fields[field].required:
+                placeholder = f"{placeholders[field]} *"
+            else:
+                placeholder = placeholders[field]
+            self.fields[field].widget.attrs["placeholder"] = placeholder
+            self.fields[field].widget.attrs[
+                "class"
+            ] = "border border-dark rounded-0"
+            self.fields[field].label = False
 
 
 class ProfileForm(forms.ModelForm):
@@ -8,7 +36,7 @@ class ProfileForm(forms.ModelForm):
         exclude = ("user",)
 
     def __init__(self, *args, **kwargs):
-        """Set placeholders, remove labels and set autofocus on first field"""
+        """Set placeholders and remove labels"""
         super().__init__(*args, **kwargs)
         placeholders = {
             "default_phone_number": "Phone number",
@@ -20,7 +48,6 @@ class ProfileForm(forms.ModelForm):
             "default_country": "Country",
         }
 
-        self.fields["default_phone_number"].widget.attrs["autofocus"] = True
         for field in self.fields:
             if self.fields[field].required:
                 placeholder = f"{placeholders[field]} *"

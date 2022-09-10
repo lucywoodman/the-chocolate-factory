@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import Profile
-from .forms import ProfileForm
+from .forms import ProfileForm, UserForm
 from checkout.models import OrderDetail
 
 
@@ -11,9 +11,11 @@ def profile(request):
     profile = get_object_or_404(Profile, user=request.user)
 
     if request.method == "POST":
-        form = ProfileForm(request.POST, instance=profile)
-        if form.is_valid():
-            form.save()
+        user_form = UserForm(request.POST, instance=request.user)
+        profile_form = ProfileForm(request.POST, instance=profile)
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
             messages.success(request, "Profile updated successfully!")
         else:
             messages.error(
@@ -21,13 +23,15 @@ def profile(request):
                 "Oops, something went wrong! Please double check the form.",
             )
     else:
-        form = ProfileForm(instance=profile)
+        user_form = UserForm(instance=request.user)
+        profile_form = ProfileForm(instance=profile)
 
-    orders = profile.orders.all()
+    orders = profile.orders.all().order_by("-date")
     template = "profiles/profile.html"
     context = {
         "profile": profile,
-        "form": form,
+        "user_form": user_form,
+        "profile_form": profile_form,
         "orders": orders,
     }
 

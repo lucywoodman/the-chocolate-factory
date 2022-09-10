@@ -25,10 +25,12 @@
     <div class="container pt-4">
         <div class="row">
             <div class="col-sm-12 col-lg-5">
-                <p class="fw-bold mb-4">Your details</p>
+                <p class="fw-bold mb-4">Your profile details</p>
                 <form action="{% url 'profile' %}" method="POST" id="profile-form">
                     {% csrf_token %}
-                    {{ form|crispy }}
+                    {{ user_form|crispy }}
+                    <p class="fw-bold mb-4 mt-4">Your default delivery details</p>
+                    {{ profile_form|crispy }}
                     <button class="btn btn-primary rounded-0 py-2 theme-btn">Update profile</button>
                 </form>
             </div>
