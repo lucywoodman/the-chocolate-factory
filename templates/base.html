@@ -27,7 +27,7 @@
     <title>The Choocolate Factory{% block extra_title %}{% endblock %}</title>
 
   </head>
-  <body class="d-flex flex-column min-vh-100 bg-primary {% if this_is_home %}hero-bg{% endif %}">
+  <body class="d-flex flex-column min-vh-100 bg-primary {% if this_is_home %}hero-bg{% else %}gradient-bg{% endif %}">
 
     <!-- Toast messages -->
     {% if messages %}
@@ -51,7 +51,7 @@
     <!-- Free delivery threshold banner -->
     <div class="container-fluid">
         <div class="col">
-            <div class="row text-center {% if this_is_home %}bg-primary{% else%}bg-brand-dblue text-light{% endif %} py-2">
+            <div class="row text-center bg-primary py-2">
                 <p class="fw-bold mb-0">Free UK delivery on all orders over £{{ free_delivery_threshold }}!</p>
             </div>
         </div>

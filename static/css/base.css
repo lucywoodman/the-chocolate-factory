@@ -11493,6 +11493,10 @@ textarea.form-control-lg {
   background: url("/media/home-hero-bg.jpg") no-repeat center center;
 }
 
+.gradient-bg {
+  background: linear-gradient(180deg, #f7c665, #fbbf6b, #feb871, #ffb278, #feac7f, #fca787, #f8a38e, #f2a094);
+}
+
 .custom-shape-divider-bottom-1662575848 {
   position: absolute;
   bottom: 0;
