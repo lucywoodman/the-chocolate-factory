@@ -61,17 +61,17 @@
                 </form>
                 <p>{{ product.details }}</p>
                 <div class="accordion accordion-flush" id="product-accordion">
-                    <div class="accordion-item">
+                    <div class="accordion-item text-secondary">
                         <p class="accordion-header" id="producer">
                             <button class="accordion-button collapsed text-uppercase px-0 py-2" type="button" data-bs-toggle="collapse" data-bs-target="#product-producer" aria-expanded="false" aria-controls="product-producer">
                             About the Producer
                             </button>
                         </p>
                         <div id="product-producer" class="accordion-collapse collapse" aria-labelledby="producer" data-bs-parent="#product-accordion">
-                            <div class="accordion-body px-0">Details about the producer go here.</div>
+                            <div class="accordion-body px-0">{{ product.producer.details }}</div>
                         </div>
                     </div>
-                    <div class="accordion-item">
+                    <div class="accordion-item text-secondary">
                         <p class="accordion-header" id="ingredients">
                             <button class="accordion-button collapsed text-uppercase px-0 py-2" type="button" data-bs-toggle="collapse" data-bs-target="#product-ingredients" aria-expanded="false" aria-controls="product-ingredients">
                             Ingredients
@@ -81,14 +81,20 @@
                             <div class="accordion-body px-0">{{ product.ingredients }}</div>
                         </div>
                     </div>
-                    <div class="accordion-item">
+                    <div class="accordion-item text-secondary">
                         <p class="accordion-header" id="allergies">
                             <button class="accordion-button collapsed text-uppercase px-0 py-2" type="button" data-bs-toggle="collapse" data-bs-target="#product-allergies" aria-expanded="false" aria-controls="product-allergies">
                             Allergy Information
                             </button>
                         </p>
                         <div id="product-allergies" class="accordion-collapse collapse" aria-labelledby="allergies" data-bs-parent="#product-accordion">
-                            <div class="accordion-body px-0">Details about the product allergies go here.</div>
+                            <div class="accordion-body px-0">
+                                <ul>
+                                    {% for allergy in product.allergy_info.all %}
+                                        <li>{{ allergy }}</li> 
+                                    {% endfor %}
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
