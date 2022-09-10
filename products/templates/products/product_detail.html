@@ -18,7 +18,7 @@
             </div>
             <div class="col-12 col-md-6 pt-4 px-5">
                 {% if request.user.is_superuser %}
-                    <div class="border-bottom pb-4">
+                    <div class="border-bottom pb-4 mb-5">
                         <a href="{% url 'update_product' product.id %}" class="btn btn-sm btn-info rounded-0 theme-btn-sm me-2">Update product</a>
                         <button type="button" class="btn btn-sm btn-danger rounded-0 theme-btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal{{product.id}}">Delete product</button>
                     </div>
