@@ -11519,9 +11519,24 @@ textarea.form-control-lg {
 
 .theme-btn:hover,
 .theme-btn:active {
+  border: 2px solid #000;
+}
+
+.theme-btn-sm {
+  border: 1px solid #000;
+}
+
+.theme-btn-sm:hover,
+.theme-btn-sm:active {
+  border: 1px solid #000;
+}
+
+.theme-btn:hover,
+.theme-btn:active,
+.theme-btn-sm:hover,
+.theme-btn-sm:active {
   background-color: #000;
   color: #fff;
-  border: 2px solid #000;
 }
 
 #topnav .nav-link,
@@ -11545,10 +11560,6 @@ textarea.form-control-lg {
 .img-link:hover,
 .img-link:active {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-}
-
-.card-img-overlay {
-  height: 90px;
 }
 
 .accordion-button:focus {

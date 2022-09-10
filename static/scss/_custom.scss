@@ -33,9 +33,24 @@ $icon-dimensions: 1rem;
 
 .theme-btn:hover,
 .theme-btn:active {
+  border: 2px solid #000;
+}
+
+.theme-btn-sm {
+  border: 1px solid #000;
+}
+
+.theme-btn-sm:hover,
+.theme-btn-sm:active {
+  border: 1px solid #000;
+}
+
+.theme-btn:hover,
+.theme-btn:active,
+.theme-btn-sm:hover,
+.theme-btn-sm:active {
   background-color: #000;
   color: #fff;
-  border: 2px solid #000;
 }
 
 // reduce font size for account + cart text
@@ -61,10 +76,6 @@ $icon-dimensions: 1rem;
 .img-link:hover,
 .img-link:active {
   box-shadow: $box-shadow;
-}
-
-.card-img-overlay {
-  height: 90px;
 }
 
 // tweak accordions
