@@ -30,16 +30,38 @@
 
 {% block content %}
 
-    <div class="container mt-4 pt-4">
+    <div class="container-fluid mt-4 pt-4">
         <div class="row">
-            <div class="col-12 col-md-4 bg-primary text-center p-5">
+            <div class="col-12 col-md-4 bg-primary text-center pt-5 px-5">
                 <h2>Our Range</h2>
+                <a href="{% url 'products' %}" class="btn btn-outline-dark rounded-0 py-2 m-3 theme-btn">Shop Now</a>
+                <div class="home-product">
+                    <img width="350" height="450" src="{{ MEDIA_URL }}truffle-dark-chocolate.jpg" alt="Dark Chocolate Truffle Bites">
+                </div>
             </div>
             <div class="col-12 col-md-4 bg-brand-pink text-center p-5">
                 <h2>Flavours</h2>
+                <a href="{% url 'products' %}" class="btn btn-outline-dark rounded-0 py-2 m-3 theme-btn">Shop Now</a>
+                <div class="home-product">
+                    <img width="350" height="450" src="{{ MEDIA_URL }}truffle-white-chocolate.jpg" alt="White Chocolate Truffle Bites">
+                </div>
             </div>
             <div class="col-12 col-md-4 bg-brand-blue text-center p-5">
                 <h2>Vegan</h2>
+                <a href="{% url 'products' %}" class="btn btn-outline-dark rounded-0 py-2 m-3 theme-btn">Shop Now</a>
+                <div class="home-product">
+                    <img width="350" height="450" src="{{ MEDIA_URL }}truffle-vegan-chocolate.jpg" alt="Vegan Milk Chocolate Truffle Bites">
+                </div>
+            </div>
+        </div>
+        <div class="row align-items-center">
+            <div class="col-12 col-md-6 p-5">
+                <h2 class="display-5">Because <span class="fw-bold">community</span> matters</h2>
+                <p class="my-4">Prow scuttle parrel provost Sail ho shrouds spirits boom mizzenmast yardarm. Pinnace holystone mizzenmast quarter crow's nest nipperkin grog yardarm hempen halter furl. Swab barque interloper chantey doubloon starboard grog black jack gangway rutters.</p>
+                <p class="my-4"><a href="{% url 'producers' %}" class="btn btn-outline-dark rounded-0 py-2 theme-btn mt-2">Learn More</a></p>
+            </div>
+            <div class="col-12 col-md-6 p-5">
+                <img class="img-fluid" src="{{ MEDIA_URL }}the-chocolate-factory-team.jpg" alt="The Chocolate Factory team">
             </div>
         </div>
     </div>
