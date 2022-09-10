@@ -18,7 +18,7 @@
         <div class="row">
             {% for producer in producers %}
                 {% if producer.name != "The Chocolate Factory" %}
-                    {% if producer.id|divisibleby:2 %}
+                    {% if forloop.counter|divisibleby:2 %}
                         <div class="col-lg-6">
                             {% if producer.photo %}
                                 <img src="{{ producer.photo.url }}" alt="{{ producer.name }}" class="card-img-top img-fluid">
@@ -28,11 +28,23 @@
                         </div>
                         <div class="col-lg-6 p-5">
                             <h2>{{ producer.name }}, <span class="text-secondary">{{ producer.location }}</span></h2>
+                            {% if request.user.is_superuser %}
+                                <div>
+                                    <a href="{% url 'update_producer' producer.id %}" class="btn btn-sm btn-info me-2">Update producer</a>
+                                    <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal{{producer.id}}">Delete producer</button>
+                                </div>
+                            {% endif %}
                             <p>{{ producer.details|linebreaks }}</p>
                         </div>
                     {% else %}
                         <div class="col-lg-6 p-5">
                             <h2>{{ producer.name }}, <span class="text-secondary">{{ producer.location }}</span></h2>
+                            {% if request.user.is_superuser %}
+                                <div>
+                                    <a href="{% url 'update_producer' producer.id %}" class="btn btn-sm btn-info me-2">Update producer</a>
+                                    <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal{{producer.id}}">Delete producer</button>
+                                </div>
+                            {% endif %}
                             <p>{{ producer.details|linebreaks }}</p>
                         </div>
                         <div class="col-lg-6">
@@ -44,6 +56,27 @@
                         </div>
                     {% endif %}
                 {% endif %}
+                <div class="modal fade" id="deleteModal{{ producer.id}}" tabindex="-1" aria-labelledby="deleteConfirmation" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="deleteConfirmation">Delete {{ object }}</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <h4>Are you sure you want to delete {{ producer.name }}?</h4>
+                                <p>Warning! This action cannot be undone.</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <form action="{% url 'delete_producer' producer.id %}" method="POST">
+                                    {% csrf_token %}
+                                    <button class="btn btn-danger" type="submit">Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             {% endfor %}
         </div>
     </div>
