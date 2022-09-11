@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     "producers",
     "checkout",
     "profiles",
+    "marketing",
 ]
 
 MIDDLEWARE = [
@@ -194,3 +195,8 @@ STRIPE_PUBLIC_KEY = os.environ.get("STRIPE_PUBLIC_KEY", "")
 STRIPE_SECRET_KEY = os.environ.get("STRIPE_SECRET_KEY", "")
 STRIPE_WH_SECRET = os.environ.get("STRIPE_WH_SECRET", "")
 DEFAULT_FROM_EMAIL = "thechocolatefactory@example.com"
+
+# Mailchimp
+MAILCHIMP_API_KEY = os.environ.get("MAILCHIMP_API_KEY", "")
+MAILCHIMP_DATA_CENTER = os.environ.get("MAILCHIMP_DATA_CENTER", "")
+MAILCHIMP_EMAIL_LIST_ID = os.environ.get("MAILCHIMP_EMAIL_LIST_ID", "")
