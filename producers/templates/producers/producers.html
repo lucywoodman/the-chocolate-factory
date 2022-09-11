@@ -30,8 +30,14 @@
                             <h2>{{ producer.name }}, <span class="text-secondary">{{ producer.location }}</span></h2>
                             {% if request.user.is_superuser %}
                                 <div>
-                                    <a href="{% url 'update_producer' producer.id %}" class="btn btn-sm btn-info me-2">Update producer</a>
-                                    <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal{{producer.id}}">Delete producer</button>
+                                    <a href="{% url 'update_producer' producer.id %}" class="btn btn-sm btn-info rounded-0 theme-btn-sm me-2">Update producer</a>
+                                    <button type="button" class="btn btn-sm btn-danger rounded-0 theme-btn-sm" 
+                                        data-bs-toggle="modal" 
+                                        data-bs-target="#deleteModal" 
+                                        data-bs-object="{{ producer }}" 
+                                        data-bs-url="{% url 'delete_producer' producer.id %}">
+                                        Delete producer
+                                    </button>
                                 </div>
                             {% endif %}
                             <p>{{ producer.details|linebreaks }}</p>
@@ -41,8 +47,14 @@
                             <h2>{{ producer.name }}, <span class="text-secondary">{{ producer.location }}</span></h2>
                             {% if request.user.is_superuser %}
                                 <div>
-                                    <a href="{% url 'update_producer' producer.id %}" class="btn btn-sm btn-info me-2">Update producer</a>
-                                    <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal{{producer.id}}">Delete producer</button>
+                                    <a href="{% url 'update_producer' producer.id %}" class="btn btn-sm btn-info rounded-0 theme-btn-sm me-2">Update producer</a>
+                                    <button type="button" class="btn btn-sm btn-danger rounded-0 theme-btn-sm" 
+                                        data-bs-toggle="modal" 
+                                        data-bs-target="#deleteModal" 
+                                        data-bs-object="{{ producer }}" 
+                                        data-bs-url="{% url 'delete_producer' producer.id %}">
+                                        Delete producer
+                                    </button>
                                 </div>
                             {% endif %}
                             <p>{{ producer.details|linebreaks }}</p>
@@ -56,27 +68,6 @@
                         </div>
                     {% endif %}
                 {% endif %}
-                <div class="modal fade" id="deleteModal{{ producer.id}}" tabindex="-1" aria-labelledby="deleteConfirmation" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="deleteConfirmation">Delete {{ producer.name }}</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
-                            </div>
-                            <div class="modal-body">
-                                <h4>Are you sure you want to delete {{ producer.name }}?</h4>
-                                <p>Warning! This action cannot be undone.</p>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <form action="{% url 'delete_producer' producer.id %}" method="POST">
-                                    {% csrf_token %}
-                                    <button class="btn btn-danger" type="submit">Delete</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             {% endfor %}
         </div>
     </div>
