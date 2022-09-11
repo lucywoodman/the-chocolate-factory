@@ -42,5 +42,11 @@ coverage.xml
 .pytest_cache/
 cover/
 
+### Sass ###
+.sass-cache/
+*.css.map
+*.sass.map
+*.scss.map
+
 ### Personal ###
 notes.md
