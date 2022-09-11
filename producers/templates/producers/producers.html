@@ -16,59 +16,65 @@
 {% block content %}
     <div class="container pt-4">
         <div class="row">
-            {% for producer in producers %}
-                {% if producer.name != "The Chocolate Factory" %}
-                    {% if forloop.counter|divisibleby:2 %}
-                        <div class="col-lg-6">
-                            {% if producer.photo %}
-                                <img src="{{ producer.photo.url }}" alt="{{ producer.name }}" class="card-img-top img-fluid">
-                            {% else %}
-                                <img src="{{ MEDIA_URL }}default.png" alt="{{ producer.name }}" class="card-img-top img-fluid">
-                            {% endif %}
-                        </div>
-                        <div class="col-lg-6 p-5">
-                            <h2>{{ producer.name }}, <span class="text-secondary">{{ producer.location }}</span></h2>
-                            {% if request.user.is_superuser %}
-                                <div>
-                                    <a href="{% url 'update_producer' producer.id %}" class="btn btn-sm btn-info rounded-0 theme-btn-sm me-2">Update producer</a>
-                                    <button type="button" class="btn btn-sm btn-danger rounded-0 theme-btn-sm" 
-                                        data-bs-toggle="modal" 
-                                        data-bs-target="#deleteModal" 
-                                        data-bs-object="{{ producer }}" 
-                                        data-bs-url="{% url 'delete_producer' producer.id %}">
-                                        Delete producer
-                                    </button>
-                                </div>
-                            {% endif %}
-                            <p>{{ producer.details|linebreaks }}</p>
-                        </div>
-                    {% else %}
-                        <div class="col-lg-6 p-5">
-                            <h2>{{ producer.name }}, <span class="text-secondary">{{ producer.location }}</span></h2>
-                            {% if request.user.is_superuser %}
-                                <div>
-                                    <a href="{% url 'update_producer' producer.id %}" class="btn btn-sm btn-info rounded-0 theme-btn-sm me-2">Update producer</a>
-                                    <button type="button" class="btn btn-sm btn-danger rounded-0 theme-btn-sm" 
-                                        data-bs-toggle="modal" 
-                                        data-bs-target="#deleteModal" 
-                                        data-bs-object="{{ producer }}" 
-                                        data-bs-url="{% url 'delete_producer' producer.id %}">
-                                        Delete producer
-                                    </button>
-                                </div>
-                            {% endif %}
-                            <p>{{ producer.details|linebreaks }}</p>
-                        </div>
-                        <div class="col-lg-6">
-                            {% if producer.photo %}
-                                <img src="{{ producer.photo.url }}" alt="{{ producer.name }}" class="card-img-top img-fluid">
-                            {% else %}
-                                <img src="{{ MEDIA_URL }}default.png" alt="{{ producer.name }}" class="card-img-top img-fluid">
-                            {% endif %}
-                        </div>
-                    {% endif %}
+            <div class="col-12 py-4">
+                {% if request.user.is_superuser %}
+                    <p>Add a new producer:<br>
+                    <a href="{% url 'add_producer' %}" class="btn btn-sm btn-info rounded-0 theme-btn-sm me-2">Create producer</a></p>
                 {% endif %}
-            {% endfor %}
+            </div>
         </div>
+        {% for producer in producers %}
+            <div class="row py-5">    
+                {% if forloop.counter|divisibleby:2 %}
+                    <div class="col-lg-6">
+                        {% if producer.photo %}
+                            <img src="{{ producer.photo.url }}" alt="{{ producer.name }}" class="card-img-top img-fluid">
+                        {% else %}
+                            <img src="{{ MEDIA_URL }}default.png" alt="{{ producer.name }}" class="card-img-top img-fluid">
+                        {% endif %}
+                    </div>
+                    <div class="col-lg-6 p-5">
+                        <h2>{{ producer.name }}, <span class="text-secondary">{{ producer.location }}</span></h2>
+                        {% if request.user.is_superuser %}
+                            <div>
+                                <a href="{% url 'update_producer' producer.id %}" class="btn btn-sm btn-info rounded-0 theme-btn-sm me-2">Update producer</a>
+                                <button type="button" class="btn btn-sm btn-danger rounded-0 theme-btn-sm" 
+                                    data-bs-toggle="modal" 
+                                    data-bs-target="#deleteModal" 
+                                    data-bs-object="{{ producer }}" 
+                                    data-bs-url="{% url 'delete_producer' producer.id %}">
+                                    Delete producer
+                                </button>
+                            </div>
+                        {% endif %}
+                        <p>{{ producer.details|linebreaks }}</p>
+                    </div>
+                {% else %}
+                    <div class="col-lg-6 p-5">
+                        <h2>{{ producer.name }}, <span class="text-secondary">{{ producer.location }}</span></h2>
+                        {% if request.user.is_superuser %}
+                            <div>
+                                <a href="{% url 'update_producer' producer.id %}" class="btn btn-sm btn-info rounded-0 theme-btn-sm me-2">Update producer</a>
+                                <button type="button" class="btn btn-sm btn-danger rounded-0 theme-btn-sm" 
+                                    data-bs-toggle="modal" 
+                                    data-bs-target="#deleteModal" 
+                                    data-bs-object="{{ producer }}" 
+                                    data-bs-url="{% url 'delete_producer' producer.id %}">
+                                    Delete producer
+                                </button>
+                            </div>
+                        {% endif %}
+                        <p>{{ producer.details|linebreaks }}</p>
+                    </div>
+                    <div class="col-lg-6">
+                        {% if producer.photo %}
+                            <img src="{{ producer.photo.url }}" alt="{{ producer.name }}" class="card-img-top img-fluid">
+                        {% else %}
+                            <img src="{{ MEDIA_URL }}default.png" alt="{{ producer.name }}" class="card-img-top img-fluid">
+                        {% endif %}
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
     </div>
 {% endblock %}

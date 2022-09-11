@@ -37,6 +37,9 @@
                 <h4>Filter by type</h4>
                 <ul class="nav flex-column">
                     <li class="nav-item">
+                        <a href="{% url 'products' %}" class="nav-link px-0">Reset filters</a>
+                    </li>
+                    <li class="nav-item">
                         <a href="{% url 'products' %}?type=milk" class="nav-link px-0">Milk chocolate</a>
                     </li>
                     <li class="nav-item">
@@ -60,11 +63,11 @@
                             <div class="card h-100 border-0 text-center">
                                 {% if product.image %}
                                     <a href="{% url 'product_detail' product.slug %}" class="img-link">
-                                        <img src="{{ product.image.url }}" alt="{{ product.name }}" class="card-img-top img-fluid">
+                                        <img src="{{ product.image.url }}" alt="{{ product.name }}" class="card-img-top rounded-0 img-fluid">
                                     </a>
                                 {% else %}
                                     <a href="{% url 'product_detail' product.slug %}" class="img-link">
-                                        <img src="{{ MEDIA_URL }}default.png" alt="{{ product.name }}" class="card-img-top img-fluid">
+                                        <img src="{{ MEDIA_URL }}default.png" alt="{{ product.name }}" class="card-img-top rounded-0 img-fluid">
                                     </a>
                                 {% endif %}
                                 <div class="card-body">
