@@ -1,5 +1,5 @@
 {% load static %}
-
+<!-- Subscribe modal -->
 <div class="modal fade modal-lg" id="subscribeModal" tabindex="-1" role="dialog" aria-labelledby="subscribeModalLabel" aria-hidden="true" style="width: 100%">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -12,12 +12,12 @@
                 <div class="input-group w-100">
                     <input class="form-control border-dark rounded-0" type="email" name="email" placeholder="Email address" aria-label="Subscribe" required>
                     <input type="hidden" name="currentpath" value="{{ request.path }}">
-                    <button class="input-group-text btn btn-primary border-dark rounded-0" type="submit">Subscribe</button>
+                    <button class="input-group-text btn btn-primary border-dark rounded-0 theme-btn" type="submit">Subscribe</button>
                 </div>
             </form>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-danger border-dark rounded-0 theme-btn" data-bs-dismiss="modal">Close</button>
         </div>
         </div>
     </div>
