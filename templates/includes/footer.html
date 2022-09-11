@@ -4,41 +4,39 @@
         <div class="col-12 col-md-4 p-5">
             <ul class="nav flex-column">
                 <li class="nav-item">
-                    <a href="{% url 'products' %}" class="nav-link text-light text-uppercase">FAQ</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{% url 'products' %}" class="nav-link text-light text-uppercase">Contact</a>
-                </li>
-                <li class="nav-item">
                     <a href="{% url 'products' %}" class="nav-link text-light text-uppercase">Sitemap</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'products' %}" class="nav-link text-light text-uppercase">All Products</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'producers' %}" class="nav-link text-light text-uppercase">Our Producers</a>
                 </li>
             </ul>
         </div>
         <div class="col-12 col-md-4 p-5">
-            <ul class="nav flex-column">
-                <li class="nav-item">
-                    <a href="{% url 'products' %}" class="nav-link text-light text-uppercase">Shipping & Returns</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{% url 'products' %}" class="nav-link text-light text-uppercase">Privacy</a>
-                </li>
-            </ul>
+            <a href="https://rainforest-alliance.org" rel="external nofollow">
+                <img height="150" src="{{ MEDIA_URL }}rainforest-alliance.webp" alt="Rainforest Alliance logo">
+            </a>
+            <a href="https://www.fairtrade.org.uk" rel="external nofollow" class="ms-3">
+                <img height="140" src="{{ MEDIA_URL }}fairtrade.png" alt="Fairtrade logo">
+            </a>
         </div>
         <div class="col-12 col-md-4 p-5">
             <div>
                 <h3 class="text-light">Hey, let's keep in touch!</h3>
                 <ul class="list-unstyled list-inline">
                     <li class="list-inline-item">
-                        <a href="http://"><i class="icon fa-brands fa-twitter bg-light rounded-circle p-2"></i></a>
+                        <a href="https://twitter.com" rel="external nofollow"><i class="icon fa-brands fa-twitter bg-light rounded-circle p-2"></i></a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="http://"><i class="icon fa-brands fa-facebook-f bg-light rounded-circle p-2"></i></a>
+                        <a href="https://facebook.com" rel="external nofollow"><i class="icon fa-brands fa-facebook-f bg-light rounded-circle p-2"></i></a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="http://"><i class="icon fa-brands fa-pinterest-p bg-light rounded-circle p-2"></i></a>
+                        <a href="https://pinterest.com" rel="external nofollow"><i class="icon fa-brands fa-pinterest-p bg-light rounded-circle p-2"></i></a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="http://"><i class="icon fa-brands fa-instagram bg-light rounded-circle p-2"></i></a>
+                        <a href="https://instagram.com" rel="external nofollow"><i class="icon fa-brands fa-instagram bg-light rounded-circle p-2"></i></a>
                     </li>
                 </ul>
             </div>
@@ -48,6 +46,12 @@
                     Hit the button to subscribe
                 </button>
             </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 p-5">
+            <p class="small text-light">Copyright &copy; {% now "Y" %} The Chocolate Factory<br>
+            Disclaimer: For educational purposes only. No orders will be processed.</p>
         </div>
     </div>
 </footer>
