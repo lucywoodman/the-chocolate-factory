@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col">
                 <h1 class="display-5 fw-bold pb-3">
-                    Producer
+                    {% if object %}Update{% else %}Create{% endif %} Producer
                 </h1>
             </div>
         </div>
@@ -22,7 +22,7 @@
                     {{ form|crispy }}
                     <div class="d-flex align-items-start justify-content-between">
                         <a href="{% url 'producers' %}" class="btn rounded-0 py-2 theme-btn"><i class="icon fa-solid fa-xmark px-1"></i> Cancel</a>
-                        <button id="submit-button" class="btn btn-primary rounded-0 py-2 theme-btn">Update <i class="icon fa-solid fa-check px-1"></i></button>    
+                        <button id="submit-button" class="btn btn-primary rounded-0 py-2 theme-btn">{% if object %}Update{% else %}Create{% endif %} Producer <i class="icon fa-solid fa-check px-1"></i></button>    
                     </div>
                 </form>
             </div>
