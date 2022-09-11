@@ -77,7 +77,12 @@
 
     <!-- Include footer -->
     {% include 'includes/footer.html' %}
-    {% include 'includes/modals/subscribe.html' %}
+    {% include 'includes/modals/subscribe_modal.html' %}
+    {% with url_name=request.resolver_match.url_name %}
+        {% if request.user.is_superuser and 'product' in url_name or request.user.is_superuser and 'producer' in url_name%}
+            {% include 'includes/modals/delete_modal.html' %}
+        {% endif %}
+    {% endwith %}
 
     {% block corejs %}
         <!-- Vendor JS -->
