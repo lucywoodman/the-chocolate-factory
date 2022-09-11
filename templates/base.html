@@ -70,7 +70,7 @@
         </div>
     {% endif %}
 
-    <div class="container-fluid bg-white pb-7">
+    <div class="container-fluid bg-white {% if not this_is_home %}pb-7{% endif %}">
       {% block content %}
       {% endblock %}
     </div>
