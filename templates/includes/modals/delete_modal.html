@@ -1,0 +1,52 @@
+{% load static %}
+<!-- Delete modal -->
+<div class="modal fade rounded-0" id="deleteModal" tabindex="-1" aria-labelledby="deleteConfirmation" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content rounded-0">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteConfirmation">Confirm Delete</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h4>Are you sure?</h4>
+                <p>Warning! This action cannot be undone.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary rounded-0 py-2 theme-btn" data-bs-dismiss="modal">Close</button>
+                <form action="" method="POST" id="delete-form">
+                    {% csrf_token %}
+                    <button class="btn btn-danger rounded-0 py-2 theme-btn" type="submit">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    // Save the delete modal to a variable.
+    let deleteModal = document.getElementById('deleteModal');
+
+    /**
+     * Handle the delete modal dynamic content.
+     * Adapted from code from Bootstrap 5 docs.
+     *
+     * @param {event} e - the click event
+     */
+    deleteModal.addEventListener('show.bs.modal', function (event) {
+        // Button that triggered the modal
+        let button = event.relatedTarget;
+        // Extract info from data-bs-* attributes
+        let object = button.getAttribute('data-bs-object');
+        let url = button.getAttribute('data-bs-url');
+        // Update the modal's content.
+        let modalTitle = deleteModal.querySelector('.modal-title');
+        let modalBody = deleteModal.querySelector('.modal-body');
+        let form = deleteModal.querySelector('#delete-form');
+    
+        modalTitle.textContent = 'Confirm deletion of ' + object;
+        modalBody.innerHTML = `
+        <h4>Are you sure you want to delete ${object}?</h4>
+        <p>Warning! This action cannot be undone.</p>
+        `;
+        form.attributes['action'].value = url;
+    });
+</script>
