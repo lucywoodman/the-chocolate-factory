@@ -19,6 +19,7 @@ class ProductForm(forms.ModelForm):
             "image",
         ]
         widgets = {
+            "type": forms.CheckboxSelectMultiple,
             "allergy_info": forms.CheckboxSelectMultiple,
         }
 

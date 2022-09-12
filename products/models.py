@@ -3,13 +3,14 @@ from django.db.models.signals import pre_save
 from django.utils.text import slugify
 from producers.models import Producer
 
-TYPE = (
-    (0, "milk"),
-    (1, "white"),
-    (2, "dark"),
-    (3, "black"),
-    (4, "vegan"),
-)
+
+class Type(models.Model):
+    """Class for the type model"""
+
+    name = models.CharField(max_length=25)
+
+    def __str__(self):
+        return self.name
 
 
 class Category(models.Model):
@@ -65,7 +66,7 @@ class Product(models.Model):
     details = models.TextField(blank=True, null=True)
     weight = models.PositiveIntegerField(blank=True, null=True, default="100")
     ingredients = models.CharField(max_length=512, blank=True, null=True)
-    type = models.IntegerField(choices=TYPE, default=0)
+    type = models.ManyToManyField(Type, blank=True)
     image_url = models.URLField(max_length=1024, blank=True, null=True)
     image = models.ImageField(blank=True, null=True)
 

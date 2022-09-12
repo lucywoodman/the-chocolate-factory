@@ -2,7 +2,7 @@ from django.shortcuts import render, reverse, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
-from .models import Product, Category, TYPE
+from .models import Product, Category
 from .forms import ProductForm
 from django.views import generic
 
@@ -45,10 +45,7 @@ class FullProductRange(generic.ListView):
 
         if "type" in self.request.GET:
             type = self.request.GET.get("type")
-            choice_reverse = dict((v, k) for k, v in TYPE)
-            context["products"] = Product.objects.filter(
-                type=choice_reverse[type]
-            )
+            context["products"] = Product.objects.filter(type__name=type)
 
         return context
 

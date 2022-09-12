@@ -1,5 +1,11 @@
 from django.contrib import admin
-from .models import Category, Flavour, Allergy, Product
+from .models import Category, Flavour, Allergy, Product, Type
+
+
+class TypeAdmin(admin.ModelAdmin):
+    list_display = ("name",)
+
+    ordering = ("name",)
 
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -26,6 +32,7 @@ class ProductAdmin(admin.ModelAdmin):
     ordering = ("name",)
 
 
+admin.site.register(Type, TypeAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Flavour, FlavourAdmin)
 admin.site.register(Allergy, AllergyAdmin)
