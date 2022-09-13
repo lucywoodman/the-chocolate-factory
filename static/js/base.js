@@ -81,4 +81,14 @@ $(document).ready(() => {
         let itemId = $(this).data('item_id');
         handleEnableDisable(itemId);
     });
+
+    /**
+     * Set the progress on the progress bar.
+     * Seen in the minibag (offcanvas) + bag view.
+     */
+    if ($('#progress')) {
+        let progressBar = $('.progress-bar');
+        let progress = $('#progress').text().replace(/"/g, "");
+        progressBar.attr('style', `width: ${progress}%;`)
+    }
 });

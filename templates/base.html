@@ -96,6 +96,7 @@
     {% endblock %}
 
     {% block loadpostjs %}
+        {{ progress_bar|floatformat:0|json_script:"progress"}}
     {% endblock %}
   </body>
 </html>
