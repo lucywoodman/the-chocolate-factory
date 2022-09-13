@@ -26,25 +26,25 @@
 {% block content %}
 
     <div class="row">
-        <div class="col-12 col-md-4 bg-primary text-center pt-5 px-5">
+        <div class="col-12 col-md-4 bg-brand-blue text-center pt-5 px-5">
             <h2>Our Range</h2>
             <a href="{% url 'products' %}" class="btn btn-outline-dark rounded-0 py-2 m-3 theme-btn">Shop Now</a>
             <div class="home-product">
-                <img width="350" height="450" src="{{ MEDIA_URL }}truffle-dark-chocolate.jpg" alt="Dark Chocolate Truffle Bites">
+                <img width="350" height="450" src="{{ MEDIA_URL }}truffle-milk-chocolate.png" alt="Milk Chocolate Truffle Bites">
             </div>
         </div>
         <div class="col-12 col-md-4 bg-brand-pink text-center pt-5 px-5">
             <h2>Flavours</h2>
-            <a href="{% url 'products' %}" class="btn btn-outline-dark rounded-0 py-2 m-3 theme-btn">Shop Now</a>
+            <a href="{% url 'products' %}?flavour=true" class="btn btn-outline-dark rounded-0 py-2 m-3 theme-btn">Shop Now</a>
             <div class="home-product">
-                <img width="350" height="450" src="{{ MEDIA_URL }}truffle-white-chocolate.jpg" alt="White Chocolate Truffle Bites">
+                <img width="350" height="450" src="{{ MEDIA_URL }}truffle-white-chocolate-strawberry-champagne.png" alt="White Chocolate Truffle Bites with Strawberry and Champagne">
             </div>
         </div>
-        <div class="col-12 col-md-4 bg-brand-blue text-center pt-5 px-5">
+        <div class="col-12 col-md-4 bg-primary text-center pt-5 px-5">
             <h2>Vegan</h2>
-            <a href="{% url 'products' %}" class="btn btn-outline-dark rounded-0 py-2 m-3 theme-btn">Shop Now</a>
+            <a href="{% url 'products' %}?type=vegan" class="btn btn-outline-dark rounded-0 py-2 m-3 theme-btn">Shop Now</a>
             <div class="home-product">
-                <img width="350" height="450" src="{{ MEDIA_URL }}truffle-vegan-chocolate.jpg" alt="Vegan Milk Chocolate Truffle Bites">
+                <img width="350" height="450" src="{{ MEDIA_URL }}truffle-vegan-dark-chocolate-coffee.png" alt="Vegan Dark Chocolate Truffle Bites with Coffee">
             </div>
         </div>
     </div>

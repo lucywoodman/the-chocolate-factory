@@ -41,7 +41,14 @@ class FullProductRange(generic.ListView):
 
         if "flavour" in self.request.GET:
             flavour = self.request.GET.get("flavour")
-            context["products"] = Product.objects.filter(flavour__slug=flavour)
+            if flavour == "true":
+                context["products"] = Product.objects.exclude(
+                    flavour__isnull=True
+                )
+            else:
+                context["products"] = Product.objects.filter(
+                    flavour__slug=flavour
+                )
 
         if "type" in self.request.GET:
             type = self.request.GET.get("type")
