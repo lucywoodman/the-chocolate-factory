@@ -71,7 +71,9 @@
                             </button>
                         </p>
                         <div id="product-producer" class="accordion-collapse collapse" aria-labelledby="producer" data-bs-parent="#product-accordion">
-                            <div class="accordion-body px-0">{{ product.producer.details }}</div>
+                            <div class="accordion-body px-0">
+                                The producer is <span class="fw-bold">{{ product.producer.name }}</span>, based in <span class="fw-bold">{{ product.producer.location }}</span>.<br>
+                                {{ product.producer.details }}</div>
                         </div>
                     </div>
                     <div class="accordion-item text-secondary">
