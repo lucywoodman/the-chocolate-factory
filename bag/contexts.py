@@ -10,6 +10,7 @@ def bag_contents(request):
     total = 0
     product_count = 0
     bag = request.session.get("bag", {})
+    progress_bar = ""
 
     for item_id, quantity in bag.items():
         product = get_object_or_404(Product, pk=item_id)
@@ -26,6 +27,7 @@ def bag_contents(request):
     if total < settings.FREE_DELIVERY_THRESHOLD:
         delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
         free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD - total
+        progress_bar = total / settings.FREE_DELIVERY_THRESHOLD * 100
     else:
         delivery = 0
         free_delivery_delta = 0
@@ -40,6 +42,7 @@ def bag_contents(request):
         "free_delivery_delta": free_delivery_delta,
         "free_delivery_threshold": settings.FREE_DELIVERY_THRESHOLD,
         "grand_total": grand_total,
+        "progress_bar": progress_bar,
     }
 
     return context

@@ -77,7 +77,7 @@
                 <div class="mb-5">
                     You're £{{ free_delivery_delta }} away from free shipping!
                     <div class="progress rounded-0" style="height: 10px;">
-                        <div class="progress-bar bg-primary" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar bg-primary" style="width: {{ progress_bar|floatformat:0 }}%;" role="progressbar" aria-valuenow="{{ progress_bar|floatformat:0 }}" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                 </div>
                 {% endif %}
@@ -112,34 +112,34 @@
 {% endblock %}
 
 {% block loadpostjs %}
-{{ block.super }}
-<script type="text/javascript">
-    /**
-     * Handle the update quantity link
-     * 
-     * @param {event} e - the click event
-     */
-    $('.update-link').click(function(e) {
-        let form = $(this).parent().prev('.update-form');
-        console.log(form);
-        form.submit();
-    });
+    {{ block.super }}
+    <script type="text/javascript">
+        /**
+         * Handle the update quantity link
+         * 
+         * @param {event} e - the click event
+         */
+        $('.update-link').click(function(e) {
+            let form = $(this).parent().prev('.update-form');
+            console.log(form);
+            form.submit();
+        });
 
-    /**
-     * Handle the remove product link
-     * 
-     * @param {event} e - the click event
-     */
-    $('.remove-link').click(function(e) {
-        let csrfToken = "{{ csrf_token }}";
-        let itemId = $(this).attr('id').split('remove_')[1];
-        let url = `/bag/remove/${itemId}`;
-        let data = {'csrfmiddlewaretoken': csrfToken};
+        /**
+         * Handle the remove product link
+         * 
+         * @param {event} e - the click event
+         */
+        $('.remove-link').click(function(e) {
+            let csrfToken = "{{ csrf_token }}";
+            let itemId = $(this).attr('id').split('remove_')[1];
+            let url = `/bag/remove/${itemId}`;
+            let data = {'csrfmiddlewaretoken': csrfToken};
 
-        $.post(url, data)
-            .done(function() {
-                location.reload();
-            });
-    })
+            $.post(url, data)
+                .done(function() {
+                    location.reload();
+                });
+        })
 </script>
 {% endblock %}
