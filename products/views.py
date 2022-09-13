@@ -45,7 +45,13 @@ class FullProductRange(generic.ListView):
 
         if "type" in self.request.GET:
             type = self.request.GET.get("type")
-            context["products"] = Product.objects.filter(type__name=type)
+            if type == "vegan" and "category" in self.request.GET:
+                category = self.request.GET.get("category")
+                context["products"] = Product.objects.filter(
+                    category__slug=category, type__name=type
+                )
+            else:
+                context["products"] = Product.objects.filter(type__name=type)
 
         return context
 

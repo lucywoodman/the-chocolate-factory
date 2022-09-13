@@ -12,7 +12,7 @@
         </form>
         <ul class="navbar-nav w-auto mx-auto my-4">
             <li class="nav-item dropdown">
-                <a href="{% url 'products' %}" class="nav-link" id="our-range-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Our Range</a>
+                <a href="{% url 'products' %}" class="nav-link" id="our-range-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Full Range</a>
                 <div class="dropdown-menu border-0" aria-labelledby="our-range-link">
                     <a href="{% url 'products' %}" class="dropdown-item">All Products</a>
                     <a href="{% url 'products' %}?category=chocolate-buttons" class="dropdown-item">Chocolate Buttons</a>
@@ -22,10 +22,8 @@
             <li class="nav-item dropdown">
                 <a href="#" class="nav-link" id="flavours-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Flavours</a>
                 <div class="dropdown-menu border-0" aria-labelledby="flavours-link">
-                    <a href="{% url 'products' %}?flavour=mint" class="dropdown-item">Mint</a>
                     <a href="{% url 'products' %}?flavour=coffee" class="dropdown-item">Coffee</a>
                     <a href="{% url 'products' %}?flavour=chilli" class="dropdown-item">Chilli</a>
-                    <a href="{% url 'products' %}?flavour=orange" class="dropdown-item">Orange</a>
                     <a href="{% url 'products' %}?flavour=fruity" class="dropdown-item">Fruity</a>
                     <a href="{% url 'products' %}?flavour=nutty" class="dropdown-item">Nutty</a>
                 </div>
@@ -33,13 +31,13 @@
             <li class="nav-item dropdown">
                 <a href="#" class="nav-link" id="vegan-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Vegan</a>
                 <div class="dropdown-menu border-0" aria-labelledby="vegan-link">
-                    <a href="" class="dropdown-item">All Vegan Products</a>
-                    <a href="" class="dropdown-item">Vegan Chocolate Buttons</a>
-                    <a href="" class="dropdown-item">Vegan Chocolate Truffles</a>
+                    <a href="{% url 'products' %}?type=vegan" class="dropdown-item">All Vegan Products</a>
+                    <a href="{% url 'products' %}?type=vegan&category=chocolate-buttons" class="dropdown-item">Vegan Chocolate Buttons</a>
+                    <a href="{% url 'products' %}?type=vegan&category=chocolate-truffles" class="dropdown-item">Vegan Chocolate Truffles</a>
                 </div>
             </li>
             <li class="nav-item">
-                <a href="{% url 'producers' %}" class="nav-link">Our Producers</a>
+                <a href="{% url 'producers' %}" class="nav-link">Producers</a>
             </li>
         </ul>
     </div>
