@@ -4,13 +4,19 @@
         <div class="col-12 col-md-4 p-5">
             <ul class="nav flex-column">
                 <li class="nav-item">
-                    <a href="{% url 'products' %}" class="nav-link text-light text-uppercase">Sitemap</a>
-                </li>
-                <li class="nav-item">
                     <a href="{% url 'products' %}" class="nav-link text-light text-uppercase">All Products</a>
                 </li>
                 <li class="nav-item">
                     <a href="{% url 'producers' %}" class="nav-link text-light text-uppercase">Our Producers</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'home' %}sitemap.xml" class="nav-link text-light text-uppercase">Sitemap</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'privacy' %}" class="nav-link text-light text-uppercase">Privacy Policy</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'terms' %}" class="nav-link text-light text-uppercase">Terms & Conditions</a>
                 </li>
             </ul>
         </div>
