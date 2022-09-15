@@ -83,7 +83,8 @@ def checkout(request):
                 except Product.DoesNotExist:
                     messages.error(
                         request,
-                        "Oops, looks like an item is missing from our database! Please contact us for assistance.",
+                        "Oops, looks like an item is missing from our database! \
+                            Please contact us for assistance.",
                     )
                     order.delete()
                     return redirect(reverse("view_bag"))

@@ -8,7 +8,10 @@ from django.views import generic
 
 
 class FullProductRange(generic.ListView):
-    """A view to return the full range of products, including sort/search queries"""
+    """
+    A view to return the full range of products,
+    including sort/search queries
+    """
 
     model = Product
     context_object_name = "products"
