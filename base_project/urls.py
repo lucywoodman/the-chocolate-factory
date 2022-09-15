@@ -18,6 +18,17 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from django.views.generic.base import TemplateView
+from django.contrib.sitemaps.views import sitemap
+from home.sitemaps import HomeStaticSitemap
+from products.sitemaps import ProductStaticSitemap, ProductSitemap
+from producers.sitemaps import ProducerStaticSitemap
+
+sitemaps = {
+    "home": HomeStaticSitemap,
+    "products_static": ProductStaticSitemap,
+    "producer_static": ProducerStaticSitemap,
+    "products": ProductSitemap,
+}
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -34,5 +45,11 @@ urlpatterns = [
         TemplateView.as_view(
             template_name="robots.txt", content_type="text/plain"
         ),
+    ),
+    path(
+        "sitemap.xml",
+        sitemap,
+        {"sitemaps": sitemaps},
+        name="django.contrib.sitemaps.views.sitemap",
     ),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
