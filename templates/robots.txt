@@ -2,4 +2,7 @@ User-agent: *
 Allow: /*.css
 Allow: /*.js
 Disallow: /*?
+Disallow: /accounts/*
+Disallow: /bag/*
 Crawl-delay: 3
+Sitemap: https://the-chocolate-factory.herokuapp.com/sitemap.xml
