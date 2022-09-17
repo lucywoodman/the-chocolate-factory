@@ -1,4 +1,5 @@
 from django.test import TestCase
+from django.db import IntegrityError
 from django.core.exceptions import ValidationError
 from django.template.defaultfilters import slugify
 from producers.models import Producer
@@ -131,6 +132,16 @@ class TestProductModel(TestCase):
     def test_product_has_slug(self):
         product = self.product
         self.assertEqual(product.slug, slugify(product.name))
+
+    def test_slug_is_unique(self):
+        product1 = self.product
+        with self.assertRaises(IntegrityError):
+            Product.objects.create(
+                producer=product1.producer,
+                name="Test Product",
+                price=9.99,
+                weight=180,
+            )
 
     def test_product_has_string_method(self):
         product = self.product

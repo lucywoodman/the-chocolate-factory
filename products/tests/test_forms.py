@@ -1,6 +1,8 @@
 from django.test import TestCase
 from django.db import IntegrityError
+from django.contrib.auth.models import User
 from producers.models import Producer
+from ..forms import ProductForm
 from ..models import Type, Category, Flavour, Allergy, Product
 
 
@@ -10,42 +12,30 @@ class TestProductForm(TestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        # create test producer
-        cls.producer = Producer.objects.create(
-            name="Test Producer",
-            location="Test Location",
-        )
-        # create test product type
-        cls.prod_type = Type.objects.create(name="test type")
-        # create test product category
-        cls.prod_category = Category.objects.create(name="test category")
-        # create test product flavour
-        cls.prod_flavour = Flavour.objects.create(name="test flavour")
-        # create test product allergy
-        cls.prod_allergy = Allergy.objects.create(name="test allergy")
-        # create test product
-        cls.product = Product.objects.create(
-            category=cls.prod_category,
-            flavour=cls.prod_flavour,
-            producer=cls.producer,
-            name="Test Product",
-            price=9.99,
-            weight=180,
-            ingredients="test ingredients",
-        )
-        cls.product.allergy_info.add(cls.prod_allergy)
-        cls.product.type.add(cls.prod_type)
 
     @classmethod
     def tearDownClass(cls):
         super().tearDownClass()
 
-    def test_slug_is_unique(self):
-        product1 = self.product
-        with self.assertRaises(IntegrityError):
-            Product.objects.create(
-                producer=product1.producer,
-                name="Test Product",
-                price=9.99,
-                weight=180,
-            )
+    def test_form_fields_populate(self):
+        form = ProductForm()
+        self.assertIn("name", form.fields)
+        self.assertIn("producer", form.fields)
+        self.assertIn("price", form.fields)
+        self.assertIn("weight", form.fields)
+        self.assertIn("type", form.fields)
+        self.assertIn("category", form.fields)
+        self.assertIn("flavour", form.fields)
+        self.assertIn("allergy_info", form.fields)
+        self.assertIn("details", form.fields)
+        self.assertIn("ingredients", form.fields)
+        self.assertIn("image", form.fields)
+
+    def test_form_hidden_fields_dont_populate(self):
+        form = ProductForm()
+        self.assertNotIn("slug", form.fields)
+
+    def test_form_validation_for_empty_field(self):
+        form = ProductForm(data={"name": ""})
+        self.assertFalse(form.is_valid())
+        self.assertEqual(form.errors["name"], ["This field is required."])
