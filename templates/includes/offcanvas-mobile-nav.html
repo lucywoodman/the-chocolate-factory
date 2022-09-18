@@ -1,9 +1,15 @@
+{% load static %}
 <div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="main-nav" aria-labelledby="main-nav-label">
     <div class="offcanvas-header mx-2 mt-1">
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         <h4 id="main-nav-label">Main menu</h4>
     </div>
     <div class="offcanvas-body mx-2">
+        <div class="text-center mb-4">
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <img src="{% static 'logo.svg' %}" alt="The Chocolate Factory" width="auto" height="50">
+            </a>
+        </div>
         <form method="GET" action="{% url 'products' %}" class="d-flex">
             <div class="input-group w-100">
                 <input class="form-control border-dark rounded-0" type="text" name="q" placeholder="What do you want to search for?" aria-label="Search">
@@ -11,6 +17,9 @@
             </div>
         </form>
         <ul class="navbar-nav w-auto mx-auto my-4">
+            <li class="nav-item">
+                <a href="{% url 'home' %}" class="nav-link">Home</a>
+            </li>
             <li class="nav-item dropdown">
                 <a href="{% url 'products' %}" class="nav-link" id="our-range-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Full Range</a>
                 <div class="dropdown-menu border-0" aria-labelledby="our-range-link">
