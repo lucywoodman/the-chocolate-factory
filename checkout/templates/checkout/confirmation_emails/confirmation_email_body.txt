@@ -5,9 +5,9 @@ Hi {{ order.full_name }}, we're so excited that you chose to shop with us. Your 
 Order #{{ order.order_number }}
 Date: {{ order.date|date:"fA - jS M Y" }}
 
-Subtotal: {{ order.order_total }}
-Delivery: {{ order.delivery_cost }}
-Total: {{ order.grand_total }}
+Subtotal: £{{ order.order_total|floatformat:2 }}
+Delivery: £{{ order.delivery_cost|floatformat:2 }}
+Total: £{{ order.grand_total|floatformat:2 }}
 
 Your order will be shipped to:
 {{ order.street_address1 }} in {{ order.town_or_city }}, {{ order.country }}.
