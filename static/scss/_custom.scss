@@ -3,10 +3,23 @@
   background: linear-gradient(180deg, #f7c665, #fbbf6b, #feb871, #ffb278, #feac7f, #fca787, #f8a38e, #f2a094);
 }
 
+.home-product {
+  margin-top: $spacer * 2;
+}
+
 .home-product img {
-  height: 280px;
+  height: 170px;
   object-fit: cover;
   object-position: 0 -70px;
+}
+
+@include media-breakpoint-up(lg) {
+  .home-product {
+    margin-top: 0;
+  }
+  .home-product img {
+    height: 280px;
+  }
 }
 
 // icon reset from Bulma

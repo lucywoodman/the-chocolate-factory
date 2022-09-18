@@ -26,25 +26,28 @@
 {% block content %}
 
     <div class="row">
-        <div class="col-12 col-md-4 bg-brand-blue text-center pt-5 px-5">
+        <div class="col-12 col-md-4 bg-brand-blue text-center pt-5 px-auto">
             <h2>Our Range</h2>
             <a href="{% url 'products' %}" class="btn btn-outline-dark rounded-0 py-2 m-3 theme-btn">Shop Now</a>
             <div class="home-product">
-                <img width="350" height="450" src="{{ MEDIA_URL }}truffle-milk-chocolate.png" alt="Milk Chocolate Truffle Bites">
+                <img width="350" height="450" class="d-none d-lg-inline" src="{{ MEDIA_URL }}truffle-milk-chocolate.png" alt="Milk Chocolate Truffle Bites">
+                <img width="250" height="350" class="d-lg-none" src="{{ MEDIA_URL }}truffle-milk-chocolate.png" alt="Milk Chocolate Truffle Bites">
             </div>
         </div>
-        <div class="col-12 col-md-4 bg-brand-pink text-center pt-5 px-5">
+        <div class="col-12 col-md-4 bg-brand-pink text-center pt-5 px-auto">
             <h2>Flavours</h2>
             <a href="{% url 'products' %}?flavour=true" class="btn btn-outline-dark rounded-0 py-2 m-3 theme-btn">Shop Now</a>
             <div class="home-product">
-                <img width="350" height="450" src="{{ MEDIA_URL }}truffle-white-chocolate-strawberry-champagne.png" alt="White Chocolate Truffle Bites with Strawberry and Champagne">
+                <img width="350" height="450" class="d-none d-lg-inline" src="{{ MEDIA_URL }}truffle-white-chocolate-strawberry-champagne.png" alt="White Chocolate Truffle Bites with Strawberry and Champagne">
+                <img width="250" height="350" class="d-lg-none" src="{{ MEDIA_URL }}truffle-white-chocolate-strawberry-champagne.png" alt="White Chocolate Truffle Bites with Strawberry and Champagne">
             </div>
         </div>
-        <div class="col-12 col-md-4 bg-primary text-center pt-5 px-5">
+        <div class="col-12 col-md-4 bg-primary text-center pt-5 px-auto">
             <h2>Vegan</h2>
             <a href="{% url 'products' %}?type=vegan" class="btn btn-outline-dark rounded-0 py-2 m-3 theme-btn">Shop Now</a>
             <div class="home-product">
-                <img width="350" height="450" src="{{ MEDIA_URL }}truffle-vegan-dark-chocolate-coffee.png" alt="Vegan Dark Chocolate Truffle Bites with Coffee">
+                <img width="350" height="450" class="d-none d-lg-inline" src="{{ MEDIA_URL }}truffle-vegan-dark-chocolate-coffee.png" alt="Vegan Dark Chocolate Truffle Bites with Coffee">
+                <img width="250" height="350" class="d-lg-none" src="{{ MEDIA_URL }}truffle-vegan-dark-chocolate-coffee.png" alt="Vegan Dark Chocolate Truffle Bites with Coffee">
             </div>
         </div>
     </div>
@@ -69,7 +72,7 @@
                   <p>I definitely recommend them, especially if you still need to get that gift for someone special for that big holiday coming up."</p>
                 </blockquote>
                 <figcaption class="blockquote-footer">
-                  <cite title="Kelly M.">Kelly M.</cite>
+                  <cite class="text-black" title="Kelly M.">Kelly M.</cite>
                 </figcaption>
             </figure>
         </div>
@@ -86,7 +89,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-12 text-center bg-brand-pink p-5">
+        <div class="col-12 text-center bg-brand-pink py-5">
             <p class="display-5 fw-bold mb-0">@thechocolatefactory</p>
             <p><a href="https://www.instagram.com/thechocolatefactory/" rel="external nofollow" class="text-black">Follow us on Instagram</a></p>
         </div>
