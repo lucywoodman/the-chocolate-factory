@@ -1,9 +1,9 @@
+from decimal import Decimal
 import uuid
 from django.db import models
-from django.db.models import Sum
 from django.conf import settings
 from django_countries.fields import CountryField
-
+from django.core.validators import MaxValueValidator, MinValueValidator
 from products.models import Product
 from profiles.models import Profile
 
@@ -50,17 +50,24 @@ class OrderDetail(models.Model):
 
     def update_total(self):
         """Calculates the grand total"""
-        self.order_total = (
-            self.orderitems.aggregate(Sum("item_total"))["item_total__sum"]
+        order_total = (
+            self.orderitems.aggregate(models.Sum("item_total"))[
+                "item_total__sum"
+            ]
             or 0
         )
+        self.order_total = Decimal(order_total).quantize(Decimal(".01"))
         if self.order_total < settings.FREE_DELIVERY_THRESHOLD:
-            self.delivery_cost = (
+            delivery_cost = (
                 self.order_total * settings.STANDARD_DELIVERY_PERCENTAGE / 100
+            )
+            self.delivery_cost = Decimal(delivery_cost).quantize(
+                Decimal(".01")
             )
         else:
             self.delivery_cost = 0
-        self.grand_total = self.order_total + self.delivery_cost
+        grand_total = self.order_total + self.delivery_cost
+        self.grand_total = Decimal(grand_total).quantize(Decimal(".01"))
         self.save()
 
     def save(self, *args, **kwargs):
@@ -87,17 +94,35 @@ class OrderItem(models.Model):
     product = models.ForeignKey(
         Product, null=False, blank=False, on_delete=models.CASCADE
     )
-    quantity = models.SmallIntegerField(null=False, blank=False, default=0)
+    quantity = models.PositiveSmallIntegerField(
+        null=False,
+        blank=False,
+        default=1,
+        validators=[MinValueValidator(1), MaxValueValidator(100)],
+    )
     item_total = models.DecimalField(
         max_digits=6, decimal_places=2, null=False, blank=False, editable=False
     )
+
+    class Meta:
+        constraints = [
+            models.CheckConstraint(
+                check=models.Q(quantity__range=(1, 99)),
+                name="quantity_range",
+            ),
+        ]
 
     def save(self, *args, **kwargs):
         """
         Override the save method to set the item total
         and update the order total.
         """
-        self.item_total = self.product.price * self.quantity
+        if self.quantity < 1:
+            self.quantity = 1
+        if self.quantity > 99:
+            self.quantity = 99
+        total = self.product.price * self.quantity
+        self.item_total = Decimal(total).quantize(Decimal(".01"))
         super().save(*args, **kwargs)
 
     def __str__(self):
