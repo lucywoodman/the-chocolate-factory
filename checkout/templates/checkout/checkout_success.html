@@ -25,7 +25,7 @@
                 <div class="row border-bottom p-4">
                     <div class="col">
                         <p class="fw-bold">Order #</p>
-                        <p class="small">{{ order.order_number }}</p>
+                        <p class="small">{{ trunc_order_number }}</p>
                     </div>
                     <div class="col">
                         <p class="fw-bold">Date</p>
@@ -102,7 +102,7 @@
                     </div>
                     <div class="col text-end mb-3">
                         <p>£{{ order.order_total|floatformat:2 }}</p>
-                        {% if delivery == 0 %}
+                        {% if order.delivery_cost == 0 %}
                             <p>FREE</p>
                             {% else %}
                             <p>£{{ order.delivery_cost|floatformat:2 }}</p>
