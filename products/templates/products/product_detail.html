@@ -38,8 +38,8 @@
                 <form class="form border-top pt-3" action="{% url 'add_to_bag' product.id %}" method="POST">
                     {% csrf_token %}
                     <div class="row mb-4">
-                        <label class="col-md-1 col-form-label" for="id_qty_{{ product.id }}">QTY</label>
-                        <div class="col-md-3">
+                        <label class="col-lg-1 col-form-label" for="id_qty_{{ product.id }}">QTY</label>
+                        <div class="col-lg-3">
                             <div class="form-group">
                                 <div class="input-group">
                                     <div class="input-group-prepend">
@@ -56,8 +56,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-8 d-flex justify-content-end">
-                            <input type="submit" class="btn btn-outline-dark rounded-0 py-2 px-4 theme-btn" value="Add to bag">
+                        <div class="col-lg-8 d-flex justify-content-end">
+                            <input type="submit" class="btn btn-outline-dark rounded-0 py-2 px-4 theme-btn w-100 mt-3 d-lg-none" value="Add to bag">
+                            <input type="submit" class="btn btn-outline-dark rounded-0 py-2 px-4 theme-btn d-none d-lg-inline-block" value="Add to bag">
                         </div>
                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
                     </div>
