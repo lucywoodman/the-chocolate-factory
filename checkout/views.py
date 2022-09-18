@@ -5,6 +5,7 @@ from django.shortcuts import (
     get_object_or_404,
     HttpResponse,
 )
+from django.utils.text import Truncator
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
@@ -169,11 +170,12 @@ def checkout_success(request, order_number):
             if profile_form.is_valid():
                 profile_form.save()
 
+    trunc_order_number = Truncator(order_number).chars(10, truncate="...")
+
     messages.success(
         request,
         f"Order successfully processed! \
-        Your order number is {order_number}. A confirmation \
-            email will be sent to {order.email}.",
+        A confirmation email will be sent to {order.email}.",
     )
 
     if "bag" in request.session:
@@ -182,6 +184,7 @@ def checkout_success(request, order_number):
     template = "checkout/checkout_success.html"
     context = {
         "order": order,
+        "trunc_order_number": trunc_order_number,
     }
 
     return render(request, template, context)
