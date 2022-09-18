@@ -14,8 +14,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # data
-feasibility = np.array([22, 18, 6, 21, 3, 2, 23, 20, 19, 14, 13, 12, 11, 5, 9, 8, 7, 4, 10, 17, 16, 15, 1])
-importance = np.array([22, 21, 20, 4, 5, 6, 7, 23, 13, 12, 9, 17, 8, 3, 16, 18, 19, 1, 10, 15, 14, 11, 2])
+feasibility = np.array([21, 17, 5, 20, 2, 22, 19, 18, 13, 12, 11, 10, 4, 8, 7, 6, 3, 9, 16, 15, 14, 1])
+importance = np.array([21, 20, 19, 4, 5, 6, 22, 12, 11, 8, 16, 7, 3, 15, 17, 18, 1, 9, 14, 13, 10, 2])
 
 #plot
 fig, ax = plt.subplots(1, figsize=(10,10))

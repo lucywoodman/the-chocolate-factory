@@ -43,7 +43,6 @@
 - [Credits](#credits)
   - [Media](#media)
   - [Code](#code)
-  - [Reference material](#reference-material)
 - [Acknowledgements](#acknowledgements)
 
 [Live site](https://the-chocolate-factory.herokuapp.com/)
@@ -89,6 +88,7 @@ Through these relationships and with the support of the cacao producers, we can 
 Consumers that love and appreciate quality chocolate, where it comes from, the care that goes into making it and the health benefits it provides.
 
 ### Personas
+
 Arthur and Marie, both 44, married, parents. Arthur is an old-fashioned romantic that likes to treat his wife with flowers and chocolates, and will make sure to find something that she's happy with. Marie is environmentally conscious and enjoys high-quality products. She works in Marketing and appreciates good branding too.
 
 Nina, 26, single. Works remotely and travels the world - a "digital nomad". Loves getting lost in the cultures of different countries and is aware of difficulties that some communities have. She donates to charities often that help to boost economies in developing countries, helping entrepreneurs to start businesses for example. She always looks for companies with a similar mission to buy gifts for family and friends back home.
@@ -107,56 +107,54 @@ Nina, 26, single. Works remotely and travels the world - a "digital nomad". Love
 ### User Stories
 4. As a consumer, I want to see an interesting homepage with information on the store and the type of products it sells.
 5. As a consumer, I want to subscribe to a newsletter to receive updates about the store.
-6. As a consumer that's already subscribed, I want to unsubscribe from the newsletter when I don't want to receive it anymore.
-7. As a consumer, I want to register my profile so I can save my personal information for future shopping.
-8. As a consumer, I want to view the list of products available so I can see what the store has to offer.
-9. As a consumer, I want to see the products by category to narrow down my search.
-10. As a consumer, I want to filter the products to narrow down my search.
-11. As a consumer, I want to search products so I can find something specific.
-12. As a consumer, I want to add products to my cart so I can save them for purchasing later.
-13. As a consumer, I want to remove products from my cart if I change my mind.
-14. As a consumer, I want to adjust the quantities of items in my card so I can buy more/less of the same item.
-15. As a consumer, I want to a checkout process so I can review my cart and add my details to complete my purchase.
-16. As a consumer, I want to provide my card details so I can pay for the products in my cart.
-17. As a consumer, I want to have my payment processed so I can complete my order.
-18. As a consumer with a profile, I want my details to be autofilled to make purchases quicker and easier.
-19. As a consumer, I want to see feedback on my actions, such as order completion, to confirm what action I've taken.
+6. As a consumer, I want to register my profile so I can save my personal information for future shopping.
+7. As a consumer, I want to view the list of products available so I can see what the store has to offer.
+8. As a consumer, I want to see the products by category to narrow down my search.
+9.  As a consumer, I want to filter the products to narrow down my search.
+10. As a consumer, I want to search products so I can find something specific.
+11. As a consumer, I want to add products to my cart so I can save them for purchasing later.
+12. As a consumer, I want to remove products from my cart if I change my mind.
+13. As a consumer, I want to adjust the quantities of items in my card so I can buy more/less of the same item.
+14. As a consumer, I want a checkout process so I can review my cart and add my details to complete my purchase.
+15. As a consumer, I want to provide my card details so I can pay for the products in my cart.
+16. As a consumer, I want to have my payment processed so I can complete my order.
+17. As a consumer with a profile, I want my details to be autofilled to make purchases quicker and easier.
+18. As a consumer, I want to see feedback on my actions, such as order completion, to confirm what action I've taken.
 
 ### User (Owner) Stories
-20. As the store owner, I want to add products to the store as our range evolves and we add variety.
-21. As the store owner, I want to update products when prices change and ensure the description is up to date.
-22. As the store owner, I want to delete products when they're no longer available.
-23. As the store owner, I want to send newsletters to our mailing list to share store news and updates.
+19. As the store owner, I want to add products to the store as our range evolves and we add variety.
+20. As the store owner, I want to update products when prices change and ensure the description is up to date.
+21. As the store owner, I want to delete products when they're no longer available.
+22. As the store owner, I want to send newsletters to our mailing list to share store news and updates.
 
 I ranked the user stories by order of importance and how feasible/viable they are to complete. This let me chart the resulting numbers (see priority chart below) to help work out whether or not to include the features in the project given the constraints. The chart was created in a [Jupyter notebook with `matplotlib`](/docs/planning/priority-chart.md).
 
 The priorities are "critical", "need", "nice to have", "want". I made sure to get all of the "critical" and "needed" features into the first version of the app, and any "nice to haves" that I had time for. The "wants" can be added to a later version.
 
-Feature	| Importance	| Feasibility/Viability | Priority
---- | :---: | :---: | ---
-Responsive design | 22 | 22 | critical
-Accessible design | 21 | 18 | critical
-Secure data | 20 | 6 | need
-Awesome homepage | 4 | 21 | nice to have
-Newsletter subscribe | 5 | 3 | want
-Newsletter unsubscribe | 6 | 2 | want
-Create a profile | 7 | 23 | need
-View products | 23 | 20 | critical
-Product category pages | 13 | 19 | need
-Product filters | 12 | 14 | nice to have
-Search form | 9 | 13 | nice to have
-Add products to cart | 17 | 12 | need
-Remove products from cart | 8 | 11 | nice to have
-Edit qty of products in cart | 3 | 5 | want
-Cart review and checkout | 16 | 9 | need
-Provide payment details | 18 | 8 | need
-Process payment | 19 | 7 | need
-Autofill saved data at checkout | 1 | 4 | want
-Action feedback | 10 | 10 | need
-Add products to store | 15 | 17 | critical
-Update products in store | 14 | 16 | need
-Remove products from store | 11 | 15 | need
-Send newsletters | 2 | 1 | want
+Story no. | Feature | Importance | Feasibility/Viability | Priority
+:---: | --- | :---: | :---: | ---
+1 | Responsive design | 21 | 21 | critical
+2 | Accessible design | 20 | 17 | critical
+3 | Secure data | 19 | 5 | need
+4 | Awesome homepage | 4 | 20 | nice to have
+5 | Newsletter subscribe | 5 | 2 | want
+6 | Create a profile | 6 | 22 | need
+7 | View products | 22 | 19 | critical
+8 | Product category pages | 12 | 18 | need
+9 | Product filters | 11 | 13 | nice to have
+10 | Search form | 8 | 12 | nice to have
+11 | Add products to cart | 16 | 11 | need
+12 | Remove products from cart | 7 | 10 | nice to have
+13 | Edit qty of products in cart | 3 | 4 | want
+14 | Cart review and checkout | 15 | 8 | need
+15 | Provide payment details | 17 | 7 | need
+16 | Process payment | 18 | 6 | need
+17 | Autofill saved data at checkout | 1 | 3 | want
+18 | Action feedback | 9 | 9 | need
+19 | Add products to store | 14 | 16 | critical
+20 | Update products in store | 13 | 15 | need
+21 | Remove products from store | 10 | 14 | need
+22 | Send newsletters | 2 | 1 | want
 
 <details><summary>Priority chart</summary>
 <img src="docs/planning/priority-chart.png">
@@ -269,9 +267,9 @@ Please see the [Testing page](TESTING.md) for information on testing and validat
 
 ## Libraries / Frameworks
 
-- Django
-- Bootstrap 5
-- Font Awesome
+- Django 3.2
+- Bootstrap 5.2
+- Font Awesome 6
 
 *Go back to the [top](#table-of-contents)*
 
@@ -382,14 +380,14 @@ For full functionality:
    heroku run python3 manage.py migrate --plan
    ```
 9.  When the deployment has succeeded, you can optionally create a new superuser:
-   ```sh
-   heroku run python manage.py createsuperuser
-   ```
-11. You can also optionally import the database if you've pushed it to Heroku:
-   ```sh
-   heroku run python manage.py loaddata db.json
-   ```
-   Else, tweak the `settings.py` file to connect to the Heroku PostgreSQL database and make migrations directly. Don't forget to change it back though!
+    ```sh
+    heroku run python manage.py createsuperuser
+    ```
+10. You can also optionally import the database if you've pushed it to Heroku:
+    ```sh
+    heroku run python manage.py loaddata db.json
+    ```
+    Else, tweak the `settings.py` file to connect to the Heroku PostgreSQL database and make migrations directly. Don't forget to change it back though! 
 
 *Go back to the [top](#table-of-contents)*
 
@@ -421,10 +419,10 @@ Below are the images I used.
 
 This project was pieced together from my own knowledge with help from Code Institute's resources and the reference material below.
 
-## Reference material
-
-[Django's documentation](https://docs.djangoproject.com/en/3.2/)
-[Bootstrap 5 documentation](https://getbootstrap.com/docs/5.2/getting-started/introduction/)
+- [Python's documentation](https://docs.python.org/3/index.html)
+- [Django's documentation](https://docs.djangoproject.com/en/3.2/)
+- [Bootstrap's documentation](https://getbootstrap.com/docs/5.2/getting-started/introduction/)
+- Hat tip to Justyna of Tiny Struggles for the [blog post on decimals](https://tinystruggles.com/posts/django_decimals/).
 
 *Go back to the [top](#table-of-contents)*
 
