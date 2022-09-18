@@ -1,10 +1,9 @@
-<div class="toast position-fixed top-0 end-0 m-3 border-0" role="alert" aria-live="assertive" aria-atomic="true">
-    <div class="toast-header">
-        <i class="fa-solid fa-circle-info fa-sm text-info me-1"></i>
-        <strong class="text-info me-auto">Info</strong>
+<div class="toast bg-light border-0 border-bottom border-2 border-info rounded-0" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="pt-2 pe-2 d-flex justify-content-end">
         <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
     </div>
-    <div class="toast-body">
+    <div class="d-flex px-3 pt-2 pb-3">
+        <div class="pt-1 pe-3"><i class="fa-solid fa-circle-info fa-lg text-info"></i></div>
         {{ message }}
     </div>
 </div>
