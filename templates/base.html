@@ -40,7 +40,7 @@
 
     <!-- Toast messages -->
     {% if messages %}
-        <aside class="message-container">
+        <aside class="toast-container postition-static d-flex w-100 justify-content-end p-3">
             {% for message in messages %}
                 {% with message.level as level %}
                     {% if level == 40 %} <!-- error -->
