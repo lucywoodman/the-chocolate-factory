@@ -22,7 +22,18 @@
     - [Fonts](#fonts)
     - [Images](#images)
 - [Agile](#agile)
+  - [Epics](#epics)
 - [Features](#features)
+  - [Header](#header)
+  - [Footer](#footer)
+  - [Homepage](#homepage)
+  - [Producers](#producers)
+  - [Products / Store](#products--store)
+  - [Product Details](#product-details)
+  - [Bag / Cart](#bag--cart)
+  - [Checkout](#checkout)
+  - [User Profiles](#user-profiles)
+  - [Product Management](#product-management)
 - [Marketing Strategy](#marketing-strategy)
   - [Branding](#branding)
   - [SEO](#seo)
@@ -196,7 +207,32 @@ Story no. | Feature | Importance | Feasibility/Viability | Priority
 
 # Agile
 
--- coming soon
+I used Jira to manage this project. Using Agile development methodologies, the project was broken up into Epics. These Epics roughly translate to apps within the Django project. Each User Story was added to it's relevant Epic, and each User Story was further broken down into smaller tasks.
+
+## Epics
+
+- Products
+- Profiles
+- Cart / bag
+- Homepage
+- Checkout
+- Marketing
+
+<details><summary>First sprint</summary>
+<img src="docs/planning/first-sprint.png">
+</details>
+<details><summary>Second sprint</summary>
+<img src="docs/planning/second-sprint.png">
+</details>
+<details><summary>Third sprint</summary>
+<img src="docs/planning/third-sprint.png">
+</details>
+<details><summary>Fourth sprint</summary>
+<img src="docs/planning/fourth-sprint.png">
+</details>
+<details><summary>Demonstration of Epic -> User Story -> Tasks</summary>
+<img src="docs/planning/jira-user-story-to-tasks.png">
+</details>
 
 *Go back to the [top](#table-of-contents)*
 
@@ -204,7 +240,29 @@ Story no. | Feature | Importance | Feasibility/Viability | Priority
 
 # Features
 
+Everything that was scheduled to be added to the app has been implemented. With the addition of the Producers app.
+
 -- coming soon
+
+## Header
+
+## Footer
+
+## Homepage
+
+## Producers
+
+## Products / Store
+
+## Product Details
+
+## Bag / Cart
+
+## Checkout
+
+## User Profiles
+
+## Product Management
 
 *Go back to the [top](#table-of-contents)*
 
@@ -395,7 +453,15 @@ For full functionality:
 
 # Roadmap
 
--- coming soon
+As this is an educational project, it won't be maintained in the future. Therefore no roadmap exists. However, if it were a live site, some features that I would have liked to implement are listed below.
+
+- Stock control.
+- Better form validation.
+- CMS / product management dashboard for superusers.
+- User permissions / groups to allow staff to have non-breaking access to the CMS.
+- Link up user profiles and subscription list.
+- Further improve user experience.
+- A blog to help draw traffic to the site.
 
 *Go back to the [top](#table-of-contents)*
 
