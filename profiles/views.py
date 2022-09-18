@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
+from django.utils.text import Truncator
 from django.contrib.auth.decorators import login_required
 from .models import Profile
 from .forms import ProfileForm, UserForm
@@ -42,10 +43,13 @@ def profile(request):
 def order_history(request, order_number):
     order = get_object_or_404(OrderDetail, order_number=order_number)
 
+    trunc_order_number = Truncator(order_number).chars(10, truncate="...")
+
     template = "checkout/checkout_success.html"
     context = {
         "order": order,
         "from_profile": True,
+        "trunc_order_number": trunc_order_number,
     }
 
     return render(request, template, context)
