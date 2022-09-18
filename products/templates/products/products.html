@@ -25,7 +25,10 @@
     <div class="container pt-4">
         <div class="row">
             <div class="col-md-12 col-lg-3">
-                <div class="dropdown pb-4">
+                <div class="pb-3">
+                    <a href="{% url 'products' %}">Reset sort/filter</a>
+                </div>
+                <div class="dropdown pb-3">
                     <a class="nav-link dropdown-toggle px-0" id="sortDropdown" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Sort by</a>
                     <ul class="dropdown-menu" aria-labelledby="sortDropdown">
                         <li><a href="{% url 'products' %}?order_by=name" class="dropdown-item">Name (A - Z)</a></li>
@@ -34,27 +37,16 @@
                         <li><a href="{% url 'products' %}?order_by=-price" class="dropdown-item">Price (highest first)</a></li>
                     </ul>
                 </div>
-                <h4>Filter by type</h4>
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a href="{% url 'products' %}" class="nav-link px-0">Reset filters</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{% url 'products' %}?type=milk" class="nav-link px-0">Milk chocolate</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{% url 'products' %}?type=dark" class="nav-link px-0">Dark chocolate</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{% url 'products' %}?type=white" class="nav-link px-0">White chocolate</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{% url 'products' %}?type=black" class="nav-link px-0">Black chocolate</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{% url 'products' %}?type=vegan" class="nav-link px-0">Vegan chocolate</a>
-                    </li>
-                </ul>
+                <div class="dropdown pb-3">
+                    <a class="nav-link dropdown-toggle px-0" id="sortDropdown" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Filter by</a>
+                    <ul class="dropdown-menu" aria-labelledby="sortDropdown">
+                        <li><a href="{% url 'products' %}?type=milk" class="dropdown-item">Milk chocolate</a></li>
+                        <li><a href="{% url 'products' %}?type=dark" class="dropdown-item">Dark chocolate</a></li>
+                        <li><a href="{% url 'products' %}?type=white" class="dropdown-item">White chocolate</a></li>
+                        <li><a href="{% url 'products' %}?type=black" class="dropdown-item">Black chocolate</a></li>
+                        <li><a href="{% url 'products' %}?type=vegan" class="dropdown-item">Vegan chocolate</a></li>
+                    </ul>
+                </div>
             </div>
             <div class="col-md-12 col-lg-9">
                 <div class="row">
