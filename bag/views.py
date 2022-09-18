@@ -17,12 +17,33 @@ def add_to_bag(request, item_id):
     redirect_url = request.POST.get("redirect_url")
     bag = request.session.get("bag", {})
 
-    if item_id in list(bag.keys()):
-        bag[item_id] += quantity
-        messages.success(
+    if quantity > 99:
+        messages.error(
             request,
-            f"You now have { bag[item_id] } x { product.name } in your bag.",
+            f"You cannot have more than 99 { product.name }'s in your bag.",
         )
+    elif quantity < 0:
+        messages.error(
+            request,
+            f"You cannot add negative quantities. Please try again.",
+        )
+    elif item_id in list(bag.keys()):
+        if bag[item_id] + quantity > 99:
+            messages.error(
+                request,
+                f"You cannot have more than 99 { product.name }'s in your bag",
+            )
+        elif bag[item_id] + quantity < 0:
+            messages.error(
+                request,
+                f"You cannot add negative quantities. Please try again.",
+            )
+        else:
+            bag[item_id] += quantity
+            messages.success(
+                request,
+                f"You now have { bag[item_id] } x { product.name } in your bag.",
+            )
     else:
         bag[item_id] = quantity
         messages.success(request, f"Added { product.name } to your bag.")
@@ -38,12 +59,28 @@ def adjust_bag(request, item_id):
     quantity = int(request.POST.get("quantity"))
     bag = request.session.get("bag", {})
 
-    if quantity > 0:
-        bag[item_id] = quantity
-        messages.success(
+    if quantity > 99:
+        messages.error(
             request,
-            f"You now have { bag[item_id] } x { product.name } in your bag.",
+            f"You cannot have more than 99 { product.name }'s in your bag",
         )
+    elif quantity > 0:
+        if bag[item_id] + quantity > 99:
+            messages.error(
+                request,
+                f"You cannot have more than 99 { product.name }'s in your bag",
+            )
+        elif bag[item_id] + quantity < 0:
+            messages.error(
+                request,
+                f"You cannot add negative quantities. Please try again.",
+            )
+        else:
+            bag[item_id] = quantity
+            messages.success(
+                request,
+                f"You now have { bag[item_id] } x { product.name } in your bag.",
+            )
     else:
         bag.pop(item_id)
         messages.success(request, f"Removed { product.name } from your bag.")
