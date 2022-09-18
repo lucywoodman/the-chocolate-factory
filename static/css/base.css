@@ -10565,28 +10565,7 @@ textarea.form-control-lg {
     mask-position: -200% 0%;
   }
 }
-.gradient-bg {
-  background: linear-gradient(180deg, #f7c665, #fbbf6b, #feb871, #ffb278, #feac7f, #fca787, #f8a38e, #f2a094);
-}
-
-.home-product {
-  margin-top: 2rem;
-}
-
-.home-product img {
-  height: 170px;
-  object-fit: cover;
-  object-position: 0 -70px;
-}
-
-@media (min-width: 992px) {
-  .home-product {
-    margin-top: 0;
-  }
-  .home-product img {
-    height: 280px;
-  }
-}
+/* icon reset from Bulma framework */
 .icon {
   align-items: center;
   display: inline-flex;
@@ -10595,6 +10574,12 @@ textarea.form-control-lg {
   width: 1rem;
 }
 
+/* default gradient background using brand colours */
+.gradient-bg {
+  background: linear-gradient(180deg, #f7c665, #fbbf6b, #feb871, #ffb278, #feac7f, #fca787, #f8a38e, #f2a094);
+}
+
+/* additional button styles to fit with branding */
 .theme-btn {
   font-size: 1.13rem;
   font-weight: 500;
@@ -10623,11 +10608,13 @@ textarea.form-control-lg {
   color: #fff;
 }
 
+/* reduce font size for account + cart text */
 #topnav .nav-link,
 #mobiletopnav .list-inline-item > .nav-link {
   font-size: 0.875rem;
 }
 
+/* additional link styles to fit with branding */
 .link-big-underline:hover,
 .link-big-underline:active {
   color: black;
@@ -10650,6 +10637,7 @@ textarea.form-control-lg {
   height: 0;
 }
 
+/* additional styles to help accordians fit with branding */
 .accordion-button:focus {
   box-shadow: none;
 }
@@ -10664,6 +10652,7 @@ textarea.form-control-lg {
   background-image: var(--bs-accordion-btn-icon);
 }
 
+/* additional styles to improve offcanvas menu layout */
 .offcanvas-header h4, .offcanvas-header .h4 {
   margin-top: 1rem;
 }
@@ -10678,6 +10667,26 @@ input::-webkit-inner-spin-button {
   -moz-appearance: textfield;
 }
 
+/* additional styles for the home page */
+.home-product {
+  margin-top: 2rem;
+}
+
+.home-product img {
+  height: 170px;
+  object-fit: cover;
+  object-position: 0 -70px;
+}
+
+@media (min-width: 992px) {
+  .home-product {
+    margin-top: 0;
+  }
+  .home-product img {
+    height: 280px;
+  }
+}
+/* additional styles for bag + checkout pages */
 .bg-grey,
 .bag-item {
   background-color: #f8f9fa;
@@ -10705,10 +10714,12 @@ input::-webkit-inner-spin-button {
     margin-left: 3rem;
   }
 }
+/* ensure bootstrap toast messages are on top of everything else */
 .message-container {
   z-index: 9999;
 }
 
+/* help allauth templates to match branding  */
 .allauth-content p {
   margin-top: 1.5rem;
   color: #6c757d;
