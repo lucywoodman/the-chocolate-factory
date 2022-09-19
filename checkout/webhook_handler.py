@@ -85,8 +85,6 @@ class Stripe_Webhook_Handler:
                 order_exists = True
                 break
             except OrderDetail.DoesNotExist:
-                print(pid)
-                print("Order not found, trying again.")
                 attempt += 1
                 time.sleep(1)
         if order_exists:
