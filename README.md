@@ -36,6 +36,7 @@
   - [Product Details](#product-details)
   - [Bag / Cart](#bag--cart)
   - [Checkout](#checkout)
+  - [Order Confirmation / history](#order-confirmation--history)
   - [User Profiles](#user-profiles)
   - [Product Management](#product-management)
 - [Marketing Strategy](#marketing-strategy)
@@ -281,23 +282,52 @@ Everything that was scheduled to be added to the app has been implemented. With 
 
 ## Header
 
+![Header screenshot](docs/features/header.png)
+
 ## Footer
+
+![Footer screenshot](docs/features/footer.png)
 
 ## Homepage
 
+![Hero screenshot](docs/features/hero.png)
+![Featured links screenshot](docs/features/featured_links.png)
+![Intro screenshot](docs/features/intro.png)
+![Testimonial screenshot](docs/features/testimonial.png)
+![Community screenshot](docs/features/community.png)
+
 ## Producers
+
+![Producers screenshots](docs/features/producers.png)
 
 ## Products / Store
 
+![Products screenshots](docs/features/products.png)
+
 ## Product Details
+
+![Product details screenshots](docs/features/product_details.png)
 
 ## Bag / Cart
 
+![Offcanvas bag screenshot](docs/features/offcanvas_bag.png)
+![Bag screenshot](docs/features/bag.png)
+
 ## Checkout
+
+![Checkout image](docs/features/checkout.png)
+
+## Order Confirmation / history
+
+![Order history screenshot](docs/features/order_history.png)
 
 ## User Profiles
 
+![Profile image](docs/features/profile.png)
+
 ## Product Management
+
+![Product management image](docs/features/product_management.png)
 
 *Go back to the [top](#table-of-contents)*
 
