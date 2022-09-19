@@ -53,7 +53,7 @@ class Stripe_Webhook_Handler:
 
         # Replace empty strings in the shipping details with None
         for field, value in shipping_details.address.items():
-            if value == "":
+            if value == "" or value == "null":
                 shipping_details.address[field] = None
 
         print(shipping_details)
