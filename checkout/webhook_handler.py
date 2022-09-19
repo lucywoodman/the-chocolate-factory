@@ -53,10 +53,9 @@ class Stripe_Webhook_Handler:
 
         # Replace empty strings in the shipping details with None
         for field, value in shipping_details.address.items():
-            if value == "" or value == "null":
+            if value == "":
                 shipping_details.address[field] = None
 
-        print(shipping_details)
         # Update profile info if save_info is true
         profile = None
         username = intent.metadata.username
@@ -97,9 +96,10 @@ class Stripe_Webhook_Handler:
                 order_exists = True
                 break
             except OrderDetail.DoesNotExist:
+                print(shipping_details.address.state)
                 print("Order doesn't exist, trying again.")
                 attempt += 1
-                time.sleep(2)
+                time.sleep(5)
         if order_exists:
             self._send_confirmation_email(order)
             return HttpResponse(
