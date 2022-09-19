@@ -1,5 +1,9 @@
 # The Chocolate Factory
 
+[Live site](https://the-chocolate-factory.herokuapp.com/)
+
+![Mockup image](docs/mockup.png)
+
 ## Table of Contents
 
 - [The Chocolate Factory](#the-chocolate-factory)
@@ -55,10 +59,6 @@
   - [Media](#media)
   - [Code](#code)
 - [Acknowledgements](#acknowledgements)
-
-[Live site](https://the-chocolate-factory.herokuapp.com/)
-
-![Mockup image]() -- coming soon
 
 # Introduction
 
