@@ -177,7 +177,23 @@ Story no. | Feature | Importance | Feasibility/Viability | Priority
 
 ## Structure
 
--- coming soon
+**User journey diagram**
+
+Thanks to Lucid app for helping me to create the diagram of the user journeys.
+
+![#cfe4ff](https://via.placeholder.com/15/cfe4ff/cfe4ff.png) `Blue = sub pages`
+
+![#b8f5ed](https://via.placeholder.com/15/b8f5ed/b8f5ed.png) `Light blue = logged in only`
+
+![#c3f7c8](https://via.placeholder.com/15/c3f7c8/c3f7c8.png) `Light green = superuser only`
+
+![User journey](docs/planning/user-journey.png)
+
+**Database models**
+
+Thanks to DrawSQL for helping me to create the diagram of the models.
+
+![Database models](docs/planning/database-models.png)
 
 *Go back to the [top](#table-of-contents)*
 
@@ -193,13 +209,32 @@ Story no. | Feature | Importance | Feasibility/Viability | Priority
 
 ## Surface
 
+I wanted to create a modern and vibrant brand for this project to help it to stand out within other chocolate brands that tend to be childish or old-fashioned.
+
+These are the keywords to lead the brand design:
+
+- Bright
+- Fun
+- Modern
+- Friendly
+
 ### Colours
+
+Inspired by murals, ethnic art and sunshine, I settled on the following colour palette.
+
+![Palette](docs/design/palette.png)
 
 ### Fonts
 
+The logo and main font throughout the site uses Alegreya Sans. It's an easy to read font, with just enough character to make it different, modern and unique.
+
+The Alegreya font family: "...follows humanist proportions and principles, and achieves a ludic and harmonious paragraph through elements carefully designed in an atmosphere of diversity." - I think this fits perfectly with the brand keywords!
+
 ### Images
 
--- coming soon
+The photographs used in throughout the app are all wonderful photographs from Unsplash.
+
+I wanted to capture "real life" photos for the caceo producers, to help them to be relatable. Credits for the individual photographers are listed at the bottom of this readme.
 
 *Go back to the [top](#table-of-contents)*
 
@@ -230,7 +265,7 @@ I used Jira to manage this project. Using Agile development methodologies, the p
 <details><summary>Fourth sprint</summary>
 <img src="docs/planning/fourth-sprint.png">
 </details>
-<details><summary>Demonstration of Epic -> User Story -> Tasks</summary>
+<details><summary>Demonstration of Epic (LCF-32: Marketing) -> User Story (LCF-37: Newsletter subscription) -> Tasks (LCF-100 to LCF-103)</summary>
 <img src="docs/planning/jira-user-story-to-tasks.png">
 </details>
 
