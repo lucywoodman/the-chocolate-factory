@@ -439,7 +439,7 @@ Visitors to the site do not need to be customers to sign up to the newsletter. A
 
 Social media marketing is a great way to become identifiable in a target market. And adds extra links in search engines for the business. For this site, a Facebook business page has been created, carrying over the branding to match the website.
 
-![Facebook page screenshot]() -- coming soon
+![Facebook page screenshot](docs/design/facebook.png) -- coming soon
 
 *Go back to the [top](#table-of-contents)*
 
