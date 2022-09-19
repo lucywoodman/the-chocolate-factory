@@ -12,6 +12,8 @@ import time
 
 
 class Stripe_Webhook_Handler:
+    """Handle Stripe Webhooks"""
+
     def __init__(self, request):
         self.request = request
 
@@ -33,11 +35,13 @@ class Stripe_Webhook_Handler:
         send_mail(subject, body, settings.DEFAULT_FROM_EMAIL, [customer_email])
 
     def handle_event(self, event):
+        # Handle unknown/unexpected webhook event
         return HttpResponse(
             content=f'Unhandled webhook received: {event["type"]}', status=200
         )
 
     def handle_payment_intent_succeeded(self, event):
+        # Handle the payment_intent.succeeded webhook
         intent = event.data.object
         pid = intent.id
         bag = intent.metadata.bag
@@ -92,8 +96,9 @@ class Stripe_Webhook_Handler:
                 order_exists = True
                 break
             except OrderDetail.DoesNotExist:
+                print("Order doesn't exist, trying again.")
                 attempt += 1
-                time.sleep(1)
+                time.sleep(2)
         if order_exists:
             self._send_confirmation_email(order)
             return HttpResponse(
@@ -145,6 +150,7 @@ class Stripe_Webhook_Handler:
         )
 
     def handle_payment_intent_payment_failed(self, event):
+        # Handle the payment_intent.payment_failed webhook
         return HttpResponse(
             content=f'Webhook received: {event["type"]}', status=200
         )
