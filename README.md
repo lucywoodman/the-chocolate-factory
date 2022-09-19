@@ -27,6 +27,7 @@
     - [Images](#images)
 - [Agile](#agile)
   - [Epics](#epics)
+  - [Sprints](#sprints)
 - [Features](#features)
   - [Header](#header)
   - [Footer](#footer)
@@ -112,32 +113,32 @@ Nina, 26, single. Works remotely and travels the world - a "digital nomad". Love
 ## Scope
 
 ### User Expectations
-1. As a user I expect the app to be responsive.
-2. As a user I expect the app to be accessible.
-3. As a user I expect my data to be secure.
+#### 1. As a user I expect the app to be responsive.
+#### 2. As a user I expect the app to be accessible.
+#### 3. As a user I expect my data to be secure.
 
 ### User Stories
-4. As a consumer, I want to see an interesting homepage with information on the store and the type of products it sells.
-5. As a consumer, I want to subscribe to a newsletter to receive updates about the store.
-6. As a consumer, I want to register my profile so I can save my personal information for future shopping.
-7. As a consumer, I want to view the list of products available so I can see what the store has to offer.
-8. As a consumer, I want to see the products by category to narrow down my search.
-9.  As a consumer, I want to filter the products to narrow down my search.
-10. As a consumer, I want to search products so I can find something specific.
-11. As a consumer, I want to add products to my cart so I can save them for purchasing later.
-12. As a consumer, I want to remove products from my cart if I change my mind.
-13. As a consumer, I want to adjust the quantities of items in my card so I can buy more/less of the same item.
-14. As a consumer, I want a checkout process so I can review my cart and add my details to complete my purchase.
-15. As a consumer, I want to provide my card details so I can pay for the products in my cart.
-16. As a consumer, I want to have my payment processed so I can complete my order.
-17. As a consumer with a profile, I want my details to be autofilled to make purchases quicker and easier.
-18. As a consumer, I want to see feedback on my actions, such as order completion, to confirm what action I've taken.
+#### 4. As a consumer, I want to see an interesting homepage with information on the store and the type of products it sells.
+#### 5. As a consumer, I want to subscribe to a newsletter to receive updates about the store.
+#### 6. As a consumer, I want to register my profile so I can save my personal information for future shopping.
+#### 7. As a consumer, I want to view the list of products available so I can see what the store has to offer.
+#### 8. As a consumer, I want to see the products by category to narrow down my search.
+#### 9.  As a consumer, I want to filter the products to narrow down my search.
+#### 10. As a consumer, I want to search products so I can find something specific.
+#### 11. As a consumer, I want to add products to my cart so I can save them for purchasing later.
+#### 12. As a consumer, I want to remove products from my cart if I change my mind.
+#### 13. As a consumer, I want to adjust the quantities of items in my card so I can buy more/less of the same item.
+#### 14. As a consumer, I want a checkout process so I can review my cart and add my details to complete my purchase.
+#### 15. As a consumer, I want to provide my card details so I can pay for the products in my cart.
+#### 16. As a consumer, I want to have my payment processed so I can complete my order.
+#### 17. As a consumer with a profile, I want my details to be autofilled to make purchases quicker and easier.
+#### 18. As a consumer, I want to see feedback on my actions, such as order completion, to confirm what action I've taken.
 
 ### User (Owner) Stories
-19. As the store owner, I want to add products to the store as our range evolves and we add variety.
-20. As the store owner, I want to update products when prices change and ensure the description is up to date.
-21. As the store owner, I want to delete products when they're no longer available.
-22. As the store owner, I want to send newsletters to our mailing list to share store news and updates.
+#### 19. As the store owner, I want to add products to the store as our range evolves and we add variety.
+#### 20. As the store owner, I want to update products when prices change and ensure the description is up to date.
+#### 21. As the store owner, I want to delete products when they're no longer available.
+#### 22. As the store owner, I want to send newsletters to our mailing list to share store news and updates.
 
 I ranked the user stories by order of importance and how feasible/viable they are to complete. This let me chart the resulting numbers (see priority chart below) to help work out whether or not to include the features in the project given the constraints. The chart was created in a [Jupyter notebook with `matplotlib`](/docs/planning/priority-chart.md).
 
@@ -254,6 +255,8 @@ I used Jira to manage this project. Using Agile development methodologies, the p
 - Checkout
 - Marketing
 
+## Sprints
+
 <details><summary>First sprint</summary>
 <img src="docs/planning/first-sprint.png">
 </details>
@@ -278,9 +281,19 @@ I used Jira to manage this project. Using Agile development methodologies, the p
 
 Everything that was scheduled to be added to the app has been implemented. With the addition of the Producers app.
 
--- coming soon
-
 ## Header
+
+On opening the site, users will always be welcomed by the bright, warm and yellow header. Containing the logo on larger screens, along with a search bar, account and bag links.
+
+There's a reminder of the free delivery threshold at the top, and the main navigation sits at the bottom of the header. Alonging for easy switching between different parts of the site.
+
+The account link is a dropdown providing further account-related links, such as register and login. When logged in, these links change to my profile and logout. If logged in as a superuser, there's also a link to product management.
+
+The bag link opens up a mini-bag to allow for quick access and easy review of items in the bag.
+
+On mobile, everything apart from account and bag links is moved into an offcanvas menu to keep the header clear of clutter.
+
+:woman_technologist: User stories: 
 
 ![Header screenshot](docs/features/header.png)
 
@@ -310,7 +323,6 @@ Everything that was scheduled to be added to the app has been implemented. With 
 
 ## Bag / Cart
 
-![Offcanvas bag screenshot](docs/features/offcanvas_bag.png)
 ![Bag screenshot](docs/features/bag.png)
 
 ## Checkout
