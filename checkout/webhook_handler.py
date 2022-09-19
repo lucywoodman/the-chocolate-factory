@@ -56,6 +56,7 @@ class Stripe_Webhook_Handler:
             if value == "":
                 shipping_details.address[field] = None
 
+        print(shipping_details)
         # Update profile info if save_info is true
         profile = None
         username = intent.metadata.username
