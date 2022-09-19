@@ -96,8 +96,10 @@ class Stripe_Webhook_Handler:
                 order_exists = True
                 break
             except OrderDetail.DoesNotExist:
+                print(shipping_details.address.state)
+                print("Order doesn't exist, trying again.")
                 attempt += 1
-                time.sleep(10)
+                time.sleep(5)
         if order_exists:
             self._send_confirmation_email(order)
             return HttpResponse(
