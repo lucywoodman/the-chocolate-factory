@@ -11,20 +11,10 @@
 - [Introduction](#introduction)
 - [UX](#ux)
   - [Strategy](#strategy)
-    - [The Problem](#the-problem)
-    - [The Solution](#the-solution)
-    - [Target Audience](#target-audience)
-    - [Personas](#personas)
   - [Scope](#scope)
-    - [User Expectations](#user-expectations)
-    - [User Stories](#user-stories)
-    - [User (Owner) Stories](#user-owner-stories)
   - [Structure](#structure)
   - [Skeleton](#skeleton)
   - [Surface](#surface)
-    - [Colours](#colours)
-    - [Fonts](#fonts)
-    - [Images](#images)
 - [Agile](#agile)
   - [Epics](#epics)
   - [Sprints](#sprints)
@@ -113,32 +103,32 @@ Nina, 26, single. Works remotely and travels the world - a "digital nomad". Love
 ## Scope
 
 ### User Expectations
-#### 1. As a user I expect the app to be responsive.
-#### 2. As a user I expect the app to be accessible.
-#### 3. As a user I expect my data to be secure.
+1. As a user I expect the app to be responsive.
+2. As a user I expect the app to be accessible.
+3. As a user I expect my data to be secure.
 
 ### User Stories
-#### 4. As a consumer, I want to see an interesting homepage with information on the store and the type of products it sells.
-#### 5. As a consumer, I want to subscribe to a newsletter to receive updates about the store.
-#### 6. As a consumer, I want to register my profile so I can save my personal information for future shopping.
-#### 7. As a consumer, I want to view the list of products available so I can see what the store has to offer.
-#### 8. As a consumer, I want to see the products by category to narrow down my search.
-#### 9.  As a consumer, I want to filter the products to narrow down my search.
-#### 10. As a consumer, I want to search products so I can find something specific.
-#### 11. As a consumer, I want to add products to my cart so I can save them for purchasing later.
-#### 12. As a consumer, I want to remove products from my cart if I change my mind.
-#### 13. As a consumer, I want to adjust the quantities of items in my card so I can buy more/less of the same item.
-#### 14. As a consumer, I want a checkout process so I can review my cart and add my details to complete my purchase.
-#### 15. As a consumer, I want to provide my card details so I can pay for the products in my cart.
-#### 16. As a consumer, I want to have my payment processed so I can complete my order.
-#### 17. As a consumer with a profile, I want my details to be autofilled to make purchases quicker and easier.
-#### 18. As a consumer, I want to see feedback on my actions, such as order completion, to confirm what action I've taken.
+4. As a consumer, I want to see an interesting homepage with information on the store and the type of products it sells.
+5. As a consumer, I want to subscribe to a newsletter to receive updates about the store.
+6. As a consumer, I want to register my profile so I can save my personal information for future shopping.
+7. As a consumer, I want to view the list of products available so I can see what the store has to offer.
+8. As a consumer, I want to see the products by category to narrow down my search.
+9.  As a consumer, I want to filter the products to narrow down my search.
+10. As a consumer, I want to search products so I can find something specific.
+11. As a consumer, I want to add products to my cart so I can save them for purchasing later.
+12. As a consumer, I want to remove products from my cart if I change my mind.
+13. As a consumer, I want to adjust the quantities of items in my card so I can buy more/less of the same item.
+14. As a consumer, I want a checkout process so I can review my cart and add my details to complete my purchase.
+15. As a consumer, I want to provide my card details so I can pay for the products in my cart.
+16. As a consumer, I want to have my payment processed so I can complete my order.
+17. As a consumer with a profile, I want my details to be autofilled to make purchases quicker and easier.
+18. As a consumer, I want to see feedback on my actions, such as order completion, to confirm what action I've taken.
 
 ### User (Owner) Stories
-#### 19. As the store owner, I want to add products to the store as our range evolves and we add variety.
-#### 20. As the store owner, I want to update products when prices change and ensure the description is up to date.
-#### 21. As the store owner, I want to delete products when they're no longer available.
-#### 22. As the store owner, I want to send newsletters to our mailing list to share store news and updates.
+19. As the store owner, I want to add products to the store as our range evolves and we add variety.
+20. As the store owner, I want to update products when prices change and ensure the description is up to date.
+21. As the store owner, I want to delete products when they're no longer available.
+22. As the store owner, I want to send newsletters to our mailing list to share store news and updates.
 
 I ranked the user stories by order of importance and how feasible/viable they are to complete. This let me chart the resulting numbers (see priority chart below) to help work out whether or not to include the features in the project given the constraints. The chart was created in a [Jupyter notebook with `matplotlib`](/docs/planning/priority-chart.md).
 
@@ -299,45 +289,123 @@ On mobile, everything apart from account and bag links is moved into an offcanva
 
 ## Footer
 
+The footer of every page contains an options for keeping in touch, such as social media links and a button to subscribe. It also contains important page links, as well as links to the sitemap, privacy policy and terms and conditions. Lastly, it shares two major organisations that work to protect the environment and the communities within countries that supply cacao.
+
+:woman_technologist: User stories: 
+
 ![Footer screenshot](docs/features/footer.png)
 
 ## Homepage
 
+The homepage is a celebration of the company, giving users a warm welcome to the site.
+
+The hero section provides a brief description of what the company does, introducing the product and providing a bit of context around why they do what they do.
+
+:woman_technologist: User stories: 
+
 ![Hero screenshot](docs/features/hero.png)
+
+The featured links section shares a few quick links to help users to quickly see products and product categories available.
+
+:woman_technologist: User stories: 
+
 ![Featured links screenshot](docs/features/featured_links.png)
+
+The introduction section gives a little more information about the company and why their focus is on the producers of the cacao, rather than on the chocolate itself.
+
+:woman_technologist: User stories: 
+
 ![Intro screenshot](docs/features/intro.png)
+
+The testimonial section provides some social proof, to help the trustworthiness of the site and encourage users to make a purchase.
+
+:woman_technologist: User stories: 
+
 ![Testimonial screenshot](docs/features/testimonial.png)
+
+The community section again reinforces the focus on the producers of the cacao. With information on what the company is striving for to help the cacao communities to grow and thrive, with a link to the producers page.
+
+:woman_technologist: User stories: 
+
 ![Community screenshot](docs/features/community.png)
 
 ## Producers
+
+The producers page shares the names, location and stories of three producers. With more context around the backgrounds of these people, the company can hope to gain more empathy from users and therefore more support.
+
+:woman_technologist: User stories: 
 
 ![Producers screenshots](docs/features/producers.png)
 
 ## Products / Store
 
+The products page, or main shop page, displays the list of products available. This list can be sorted by price or name, ascending or descending. The list can also be filtered by chocolate type, e.g. dark, milk, white, etc.
+
+If a user were to use the search functionality at any point, they would be brough to this same page, but with their search results visibile instead of the full list of products.
+
+The same for the categories (buttons or truffles), flavours or vegan-specific products. All come to this page, using the related arguments in the URL to display the requested products.
+
+:woman_technologist: User stories: 
+
 ![Products screenshots](docs/features/products.png)
 
 ## Product Details
+
+The product details page provides further information about the selected product. The price, weight and description are shown on the right side, with the option to choose a quantity and add the item to the bag.
+
+There's an accordian below this with the information about the producer, the product ingredients, and any common allergens.
+
+:woman_technologist: User stories: 
 
 ![Product details screenshots](docs/features/product_details.png)
 
 ## Bag / Cart
 
+As mentioned above, the bag link in the header shows an offcanvas mini-bag. This displays a shipping threshold summary, in the guise of a progress bar, that shows a user how close they are to getting free shipping. This would encourage them to add more items to their bag.
+
+Next it displays the items in the bag, with their quantity and price. At the bottom there is a subtotal, delivery cost and grand total for the bag. Lastly, there are three buttons: checkout, view bag or continue shopping.
+
+When clicking on the view bag link, the user is taken to a full page version of the bag. This has the same content as the mini-bag, but with more space and doesn't include the view bag link. Users also have the option of increasing/decreasing the quantity of products from this page.
+
+:woman_technologist: User stories: 
+
 ![Bag screenshot](docs/features/bag.png)
 
 ## Checkout
+
+The checkout page displays a bag summary on the right side, followed by the same subtotal, delivery cost and grand total that we've seen in the bag already. The left side shows a smart form for collecting the user's delivery and payment information, and the option for them to register or sign in to their account to save their details for the future.
+
+:woman_technologist: User stories: 
 
 ![Checkout image](docs/features/checkout.png)
 
 ## Order Confirmation / history
 
+Once a user has checked out, they'll see an order confirmation page. A user can also access this same page by heading to account -> my profile, and clicking on an order number of a previously placed order.
+
+This page thanks the user for placing an order and lets them know that they'll receive a confirmation email. It then displays all of the order details in a tidy layout, clearly showing all the relevant information.
+
+:woman_technologist: User stories: 
+
 ![Order history screenshot](docs/features/order_history.png)
 
 ## User Profiles
 
+The left side of the user profile page allows the user to update their information, and set a default shipping address that could be used to autofill the checkout form. This is also where the user will see any information that they chose to save when checking out.
+
+If the user adds a first name to their saved information, this will used in the page title. Else it will say "Your Profile".
+
+The right side of the profile view displays any historical orders. Clicking on the order number of these will show the full order details, as shown above.
+
+:woman_technologist: User stories: 
+
 ![Profile image](docs/features/profile.png)
 
 ## Product Management
+
+The product management page is available to superusers only, and offers the ability to add new products to the store. When logged in as a superuser, buttons will appear on the product page and the product detail page allowing the user to update or delete products too. If choosing to update a product, they will be brought to the same page as shown below, except with the information already filled out, ready for editing.
+
+:woman_technologist: User stories: 
 
 ![Product management image](docs/features/product_management.png)
 
