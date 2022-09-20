@@ -1,7 +1,4 @@
 User-agent: *
-Allow: /*.css
-Allow: /*.js
-Disallow: /*?
 Disallow: /accounts/*
 Disallow: /bag/*
 Crawl-delay: 3
