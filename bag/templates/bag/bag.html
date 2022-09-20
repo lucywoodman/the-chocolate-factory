@@ -38,16 +38,17 @@
                             <div class="col-lg-3 qty-container">
                                 <form class="form update-form" action="{% url 'adjust_bag' item.item_id %}" method="POST">
                                     {% csrf_token %}
+                                    <label class="col-lg-1 col-form-label d-none" for="id_qty_{{ item.item_id }}">QTY</label>
                                     <div class="form-group">
                                         <div class="input-group">
                                             <div class="input-group-prepend">
-                                                <button class="decrement-qty btn btn-sm btn-outline-dark rounded-0 theme-btn" data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
+                                                <button class="decrement-qty btn btn-sm btn-outline-dark rounded-0 theme-btn" data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}" aria-label="Decrement quantity button" title="Decrement quantity button">
                                                     <i class="fa-solid fa-minus fa-sm"></i>
                                                 </button>
                                             </div>
                                             <input class="form-control form-control-sm qty_input rounded-0 border-0 fs-5 px-1 text-center" type="number" name="quantity" value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
                                             <div class="input-group-append">
-                                                <button class="increment-qty btn btn-sm btn-outline-dark rounded-0 theme-btn" data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
+                                                <button class="increment-qty btn btn-sm btn-outline-dark rounded-0 theme-btn" data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}" aria-label="Increment quantity button" title="Increment quantity button">
                                                     <i class="fa-solid fa-plus fa-sm"></i>
                                                 </button>
                                             </div>
@@ -55,18 +56,18 @@
                                     </div>
                                 </form>
                                 <div class="text-center">
-                                    <a href="#" class="update-link text-info"><small>Update qty</small></a>
+                                    <a href="#" class="update-link text-brand-dblue"><small>Update qty</small></a>
                                 </div>
                             </div>
                             <div class="col d-lg-none d-flex justify-content-between align-items-center">
                                 £{{ item.product.price | calc_subtotal:item.quantity }}
-                                <a href="#" class="remove-link" id="remove_{{ item.item_id }}"><i class="icon text-danger fa-solid fa-trash-can"></i></a>
+                                <a href="#" class="remove-link" id="remove_{{ item.item_id }}" aria-label="Remove item from bag" title="Remove item from bag"><i class="icon text-danger fa-solid fa-trash-can"></i></a>
                             </div>
                             <div class="col-lg-2 text-end d-none d-lg-block">
                                 £{{ item.product.price | calc_subtotal:item.quantity }}
                             </div>
                             <div class="col-lg-1 text-end d-none d-lg-block">
-                                <a href="#" class="remove-link" id="remove_{{ item.item_id }}"><i class="icon text-danger fa-solid fa-trash-can"></i></a>
+                                <a href="#" class="remove-link" id="remove_{{ item.item_id }}" aria-label="Remove item from bag" title="Remove item from bag"><i class="icon text-danger fa-solid fa-trash-can"></i></a>
                             </div>
                         </div>
                     </div>
