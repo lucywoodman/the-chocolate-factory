@@ -39,7 +39,7 @@ $(document).ready(() => {
         let plusDisabled = currentValue > 98;
         $(`#decrement-qty_${itemId}`).prop('disabled', minusDisabled);
         $(`#increment-qty_${itemId}`).prop('disabled', plusDisabled);
-    }
+    };
 
     // enable/disable all inputs on page load
     let allQtyInputs = $('.qty_input');
@@ -89,6 +89,6 @@ $(document).ready(() => {
     if ($('#progress')) {
         let progressBar = $('.progress-bar');
         let progress = $('#progress').text().replace(/"/g, "");
-        progressBar.attr('style', `width: ${progress}%;`)
+        progressBar.attr('style', `width: ${progress}%;`);
     }
 });
