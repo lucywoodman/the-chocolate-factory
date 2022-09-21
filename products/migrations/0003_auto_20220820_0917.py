@@ -6,39 +6,39 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ("products", "0002_auto_20220820_0835"),
+        ('products', '0002_auto_20220820_0835'),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name="allergy",
-            options={"verbose_name_plural": "Allergies"},
+            name='allergy',
+            options={'verbose_name_plural': 'Allergies'},
         ),
         migrations.RemoveField(
-            model_name="allergy",
-            name="nice_name",
+            model_name='allergy',
+            name='nice_name',
         ),
         migrations.RemoveField(
-            model_name="category",
-            name="nice_name",
+            model_name='category',
+            name='nice_name',
         ),
         migrations.RemoveField(
-            model_name="flavour",
-            name="nice_name",
+            model_name='flavour',
+            name='nice_name',
         ),
         migrations.AddField(
-            model_name="allergy",
-            name="slug",
+            model_name='allergy',
+            name='slug',
             field=models.SlugField(blank=True, max_length=256, null=True, unique=True),
         ),
         migrations.AddField(
-            model_name="category",
-            name="slug",
+            model_name='category',
+            name='slug',
             field=models.SlugField(blank=True, max_length=256, null=True, unique=True),
         ),
         migrations.AddField(
-            model_name="flavour",
-            name="slug",
+            model_name='flavour',
+            name='slug',
             field=models.SlugField(blank=True, max_length=256, null=True, unique=True),
         ),
     ]

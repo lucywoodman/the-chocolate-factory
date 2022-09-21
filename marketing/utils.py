@@ -31,7 +31,9 @@ def subscribe(request, email):
     try:
         response = mailchimp.lists.add_list_member(list_id, member_info)
         if response:
-            messages.success(request, "You have successfully subscribed. Thank you! ")
+            messages.success(
+                request, "You have successfully subscribed. Thank you! "
+            )
     except ApiClientError as error:
         json_error = json.loads(error.text)
         messages.error(request, f"Woops! {json_error['detail']}")

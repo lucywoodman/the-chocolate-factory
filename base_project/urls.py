@@ -42,7 +42,9 @@ urlpatterns = [
     path("profile/", include("profiles.urls")),
     path(
         "robots.txt",
-        TemplateView.as_view(template_name="robots.txt", content_type="text/plain"),
+        TemplateView.as_view(
+            template_name="robots.txt", content_type="text/plain"
+        ),
     ),
     path(
         "sitemap.xml",

@@ -7,20 +7,14 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ("profiles", "0001_initial"),
-        ("checkout", "0004_alter_orderdetail_country"),
+        ('profiles', '0001_initial'),
+        ('checkout', '0004_alter_orderdetail_country'),
     ]
 
     operations = [
         migrations.AddField(
-            model_name="orderdetail",
-            name="profile",
-            field=models.ForeignKey(
-                blank=True,
-                null=True,
-                on_delete=django.db.models.deletion.SET_NULL,
-                related_name="orders",
-                to="profiles.profile",
-            ),
+            model_name='orderdetail',
+            name='profile',
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='orders', to='profiles.profile'),
         ),
     ]

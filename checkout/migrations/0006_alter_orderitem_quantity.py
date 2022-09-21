@@ -7,19 +7,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ("checkout", "0005_orderdetail_profile"),
+        ('checkout', '0005_orderdetail_profile'),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name="orderitem",
-            name="quantity",
-            field=models.PositiveSmallIntegerField(
-                default=0,
-                validators=[
-                    django.core.validators.MinValueValidator(1),
-                    django.core.validators.MaxValueValidator(99),
-                ],
-            ),
+            model_name='orderitem',
+            name='quantity',
+            field=models.PositiveSmallIntegerField(default=0, validators=[django.core.validators.MinValueValidator(1), django.core.validators.MaxValueValidator(99)]),
         ),
     ]

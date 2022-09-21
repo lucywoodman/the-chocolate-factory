@@ -11,7 +11,9 @@ class TestTypeModel(TestCase):
 
     def test_type_name_char_limit(self):
         with self.assertRaises(ValidationError):
-            type = Type.objects.create(name="A name longer than twenty five chars")
+            type = Type.objects.create(
+                name="A name longer than twenty five chars"
+            )
             type.full_clean()
 
     def test_type_has_string_method(self):
