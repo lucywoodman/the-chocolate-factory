@@ -1,8 +1,6 @@
 import re
 from decimal import Decimal
-from sqlite3 import IntegrityError
 from django.test import TestCase
-from django.core.exceptions import ValidationError
 from producers.models import Producer
 from products.models import Type, Category, Flavour, Allergy, Product
 from ..models import OrderDetail, OrderItem
@@ -47,7 +45,7 @@ class TestOrderModel(TestCase):
     def test_order_generate_order_number(self):
         # does order_number match regex for uuid4.hex
         order = OrderDetail()
-        regex = re.compile("[0-9A-F]{32}\Z")
+        regex = re.compile("[0-9A-F]{32}\\Z")
         self.assertRegex(order._generate_order_number(), regex)
 
     def test_order_update_total(self):
@@ -55,7 +53,7 @@ class TestOrderModel(TestCase):
         order = OrderDetail()
         order.save()
         self.assertEqual(order.order_total, 0)
-        orderitem = OrderItem.objects.create(
+        OrderItem.objects.create(
             order=order,
             product=self.product,
             quantity=2,
@@ -68,7 +66,7 @@ class TestOrderModel(TestCase):
         # does order delivery_cost = 10% of order_total
         order = OrderDetail()
         order.save()
-        orderitem = OrderItem.objects.create(
+        OrderItem.objects.create(
             order=order,
             product=self.product,
             quantity=1,
@@ -84,7 +82,7 @@ class TestOrderModel(TestCase):
         # does delivery_cost = 0 when order over 30
         order = OrderDetail()
         order.save()
-        orderitem = OrderItem.objects.create(
+        OrderItem.objects.create(
             order=order,
             product=self.product,
             quantity=4,  # 4 * 9.99 = 39.96
@@ -98,7 +96,7 @@ class TestOrderModel(TestCase):
         # does grand_total = order_total + delivery_cost
         order = OrderDetail()
         order.save()
-        orderitem = OrderItem.objects.create(
+        OrderItem.objects.create(
             order=order,
             product=self.product,
             quantity=2,

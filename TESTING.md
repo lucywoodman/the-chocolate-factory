@@ -1,5 +1,7 @@
 # The Chocolate Factory Testing
 
+:arrow_left: [Return to the main README](README.md)
+
 ## Table of Contents
 
 - [The Chocolate Factory Testing](#the-chocolate-factory-testing)
@@ -25,7 +27,7 @@
 
 ## Accessibility Validation
 
-The [WAVE WebAIM web accessibility evaluation tool](https://wave.webaim.org/) was used to ensure the website met high accessibility standards. All logged out pages pass with 0 errors.
+The [WAVE WebAIM web accessibility evaluation tool](https://wave.webaim.org/) was used to ensure the website met high accessibility standards. All pages pass with 0 errors, except for the Profile page and Checkout page. This is due to the forms not using labels. With more time I can dig into this, however, for now it has been saved as an open issue on the Github repository.
 
 *Go back to the [top](#table-of-contents)*
 
@@ -53,7 +55,7 @@ The [W3C Jigsaw CSS Validation Service](https://jigsaw.w3.org/css-validator/vali
 
 ## PEP8 Validation
 
-[PEP8 Online](http://pep8online.com) was used to validate the Python code on the site. The only issues found were a few longer lines in the project's settings.py
+A combination of the following Python packages was used to ensure the code is PEP8 compliant: flake8, autopep8 and black. After which `flake8 --statistics` was ran in VSCode terminal and the final flagged files were checked in [PEP8 Online](http://pep8online.com). The only issues found were a few longer lines in the project's settings.py.
 
 ![PEP8 valudation](docs/testing/pep8.png)
 
@@ -62,3 +64,4 @@ The [W3C Jigsaw CSS Validation Service](https://jigsaw.w3.org/css-validator/vali
 ## Manual Testing
 
 # Bugs
+

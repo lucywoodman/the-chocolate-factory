@@ -1,9 +1,5 @@
 from django.test import TestCase
-from django.db import IntegrityError
-from django.contrib.auth.models import User
-from producers.models import Producer
 from ..forms import ProductForm
-from ..models import Type, Category, Flavour, Allergy, Product
 
 
 class TestProductForm(TestCase):

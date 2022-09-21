@@ -25,7 +25,7 @@ def add_to_bag(request, item_id):
     elif quantity < 0:
         messages.error(
             request,
-            f"You cannot add negative quantities. Please try again.",
+            "You cannot add negative quantities. Please try again.",
         )
     elif item_id in list(bag.keys()):
         if bag[item_id] + quantity > 99:
@@ -36,13 +36,14 @@ def add_to_bag(request, item_id):
         elif bag[item_id] + quantity < 0:
             messages.error(
                 request,
-                f"You cannot add negative quantities. Please try again.",
+                "You cannot add negative quantities. Please try again.",
             )
         else:
             bag[item_id] += quantity
             messages.success(
                 request,
-                f"You now have { bag[item_id] } x { product.name } in your bag.",
+                f"You now have { bag[item_id] } \
+                    x { product.name } in your bag.",
             )
     else:
         bag[item_id] = quantity
@@ -73,13 +74,14 @@ def adjust_bag(request, item_id):
         elif bag[item_id] + quantity < 0:
             messages.error(
                 request,
-                f"You cannot add negative quantities. Please try again.",
+                "You cannot add negative quantities. Please try again.",
             )
         else:
             bag[item_id] = quantity
             messages.success(
                 request,
-                f"You now have { bag[item_id] } x { product.name } in your bag.",
+                f"You now have { bag[item_id] } \
+                    x { product.name } in your bag.",
             )
     else:
         bag.pop(item_id)
