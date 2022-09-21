@@ -60,9 +60,7 @@ class TestOrderModel(TestCase):
             product=self.product,
             quantity=2,
         )
-        self.assertEqual(
-            order.order_total, Decimal("19.98").quantize(Decimal(".01"))
-        )
+        self.assertEqual(order.order_total, Decimal("19.98").quantize(Decimal(".01")))
 
     def test_order_delivery_cost(self):
         # does order delivery_cost = 10% of order_total
@@ -75,9 +73,7 @@ class TestOrderModel(TestCase):
         )
         self.assertEqual(
             order.delivery_cost,
-            Decimal(order.order_total * Decimal("0.1")).quantize(
-                Decimal(".01")
-            ),
+            Decimal(order.order_total * Decimal("0.1")).quantize(Decimal(".01")),
         )
 
     def test_order_free_delivery_when_threshold_met(self):
@@ -89,9 +85,7 @@ class TestOrderModel(TestCase):
             product=self.product,
             quantity=4,  # 4 * 9.99 = 39.96
         )
-        self.assertEqual(
-            order.order_total, Decimal("39.96").quantize(Decimal(".01"))
-        )
+        self.assertEqual(order.order_total, Decimal("39.96").quantize(Decimal(".01")))
         self.assertEqual(order.delivery_cost, Decimal("0"))
 
     def test_order_grand_total(self):

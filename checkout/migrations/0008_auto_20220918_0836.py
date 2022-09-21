@@ -7,21 +7,29 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('checkout', '0007_orderitem_quantity_range'),
+        ("checkout", "0007_orderitem_quantity_range"),
     ]
 
     operations = [
         migrations.RemoveConstraint(
-            model_name='orderitem',
-            name='quantity_range',
+            model_name="orderitem",
+            name="quantity_range",
         ),
         migrations.AlterField(
-            model_name='orderitem',
-            name='quantity',
-            field=models.PositiveSmallIntegerField(default=1, validators=[django.core.validators.MinValueValidator(1), django.core.validators.MaxValueValidator(100)]),
+            model_name="orderitem",
+            name="quantity",
+            field=models.PositiveSmallIntegerField(
+                default=1,
+                validators=[
+                    django.core.validators.MinValueValidator(1),
+                    django.core.validators.MaxValueValidator(100),
+                ],
+            ),
         ),
         migrations.AddConstraint(
-            model_name='orderitem',
-            constraint=models.CheckConstraint(check=models.Q(quantity__range=(1, 99)), name='quantity_range'),
+            model_name="orderitem",
+            constraint=models.CheckConstraint(
+                check=models.Q(quantity__range=(1, 99)), name="quantity_range"
+            ),
         ),
     ]

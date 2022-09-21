@@ -9,37 +9,88 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('producers', '0001_initial'),
+        ("producers", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Category',
+            name="Category",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=256)),
-                ('nice_name', models.CharField(blank=True, max_length=256, null=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=256)),
+                ("nice_name", models.CharField(blank=True, max_length=256, null=True)),
             ],
             options={
-                'verbose_name_plural': 'Categories',
+                "verbose_name_plural": "Categories",
             },
         ),
         migrations.CreateModel(
-            name='Product',
+            name="Product",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=256)),
-                ('sku', models.CharField(max_length=10)),
-                ('slug', models.SlugField(blank=True, max_length=256, null=True, unique=True)),
-                ('price', models.DecimalField(decimal_places=2, max_digits=5)),
-                ('details', models.TextField(blank=True, null=True)),
-                ('weight', models.PositiveIntegerField(blank=True, null=True)),
-                ('ingredients', models.CharField(blank=True, max_length=512, null=True)),
-                ('type', models.IntegerField(choices=[(0, 'milk'), (1, 'white'), (2, 'dark'), (3, 'black'), (4, 'mixed'), (5, 'alternative')], default=0)),
-                ('image_url', models.URLField(blank=True, max_length=1024, null=True)),
-                ('image', models.ImageField(blank=True, null=True, upload_to='')),
-                ('category', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='products.category')),
-                ('producer', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='producers.producer')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=256)),
+                ("sku", models.CharField(max_length=10)),
+                (
+                    "slug",
+                    models.SlugField(
+                        blank=True, max_length=256, null=True, unique=True
+                    ),
+                ),
+                ("price", models.DecimalField(decimal_places=2, max_digits=5)),
+                ("details", models.TextField(blank=True, null=True)),
+                ("weight", models.PositiveIntegerField(blank=True, null=True)),
+                (
+                    "ingredients",
+                    models.CharField(blank=True, max_length=512, null=True),
+                ),
+                (
+                    "type",
+                    models.IntegerField(
+                        choices=[
+                            (0, "milk"),
+                            (1, "white"),
+                            (2, "dark"),
+                            (3, "black"),
+                            (4, "mixed"),
+                            (5, "alternative"),
+                        ],
+                        default=0,
+                    ),
+                ),
+                ("image_url", models.URLField(blank=True, max_length=1024, null=True)),
+                ("image", models.ImageField(blank=True, null=True, upload_to="")),
+                (
+                    "category",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.SET_NULL,
+                        to="products.category",
+                    ),
+                ),
+                (
+                    "producer",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="producers.producer",
+                    ),
+                ),
             ],
         ),
     ]

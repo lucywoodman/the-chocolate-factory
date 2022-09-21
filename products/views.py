@@ -27,31 +27,23 @@ class FullProductRange(generic.ListView):
         if "q" in self.request.GET:
             query = self.request.GET.get("q")
             if not query:
-                messages.error(
-                    self.request, "You didn't enter any search criteria."
-                )
+                messages.error(self.request, "You didn't enter any search criteria.")
             qs = Q(name__icontains=query) | Q(details__icontains=query)
             context["products"] = Product.objects.filter(qs)
             context["search_term"] = query
 
         if "category" in self.request.GET:
             category = self.request.GET.get("category")
-            context["products"] = Product.objects.filter(
-                category__slug=category
-            )
+            context["products"] = Product.objects.filter(category__slug=category)
             current_category = Category.objects.filter(slug=category)
             context["current_category"] = current_category
 
         if "flavour" in self.request.GET:
             flavour = self.request.GET.get("flavour")
             if flavour == "true":
-                context["products"] = Product.objects.exclude(
-                    flavour__isnull=True
-                )
+                context["products"] = Product.objects.exclude(flavour__isnull=True)
             else:
-                context["products"] = Product.objects.filter(
-                    flavour__slug=flavour
-                )
+                context["products"] = Product.objects.filter(flavour__slug=flavour)
 
         if "type" in self.request.GET:
             type = self.request.GET.get("type")
@@ -76,9 +68,7 @@ class ProductDetail(generic.DetailView):
 @login_required
 def add_product(request):
     if not request.user.is_superuser:
-        messages.error(
-            request, "You need proper authorisation to visit this page."
-        )
+        messages.error(request, "You need proper authorisation to visit this page.")
         return redirect(reverse("home"))
 
     if request.method == "POST":
@@ -106,9 +96,7 @@ def add_product(request):
 @login_required
 def update_product(request, product_id):
     if not request.user.is_superuser:
-        messages.error(
-            request, "You need proper authorisation to visit this page."
-        )
+        messages.error(request, "You need proper authorisation to visit this page.")
         return redirect(reverse("home"))
 
     product = get_object_or_404(Product, pk=product_id)
@@ -138,9 +126,7 @@ def update_product(request, product_id):
 @login_required
 def delete_product(request, product_id):
     if not request.user.is_superuser:
-        messages.error(
-            request, "You need proper authorisation to visit this page."
-        )
+        messages.error(request, "You need proper authorisation to visit this page.")
         return redirect(reverse("home"))
 
     product = get_object_or_404(Product, pk=product_id)

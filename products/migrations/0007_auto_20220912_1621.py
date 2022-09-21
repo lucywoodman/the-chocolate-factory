@@ -6,24 +6,32 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('products', '0006_auto_20220910_0634'),
+        ("products", "0006_auto_20220910_0634"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Type',
+            name="Type",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=25)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=25)),
             ],
         ),
         migrations.RemoveField(
-            model_name='product',
-            name='type',
+            model_name="product",
+            name="type",
         ),
         migrations.AddField(
-            model_name='product',
-            name='type',
-            field=models.ManyToManyField(blank=True, to='products.Type'),
+            model_name="product",
+            name="type",
+            field=models.ManyToManyField(blank=True, to="products.Type"),
         ),
     ]

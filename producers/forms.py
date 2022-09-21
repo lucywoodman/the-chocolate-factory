@@ -10,6 +10,4 @@ class ProducerForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         for field in self.fields:
-            self.fields[field].widget.attrs[
-                "class"
-            ] = "border border-dark rounded-0"
+            self.fields[field].widget.attrs["class"] = "border border-dark rounded-0"
