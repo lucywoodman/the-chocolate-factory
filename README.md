@@ -122,27 +122,27 @@ With the website as an asset and a newsletter email list as a starting point, we
 3. As a user I expect my data to be secure.
 
 ### User Stories
-4. As a consumer, I want to see an interesting homepage with information on the store and the type of products it sells.
-5. As a consumer, I want to subscribe to a newsletter to receive updates about the store.
-6. As a consumer, I want to register my profile so I can save my personal information for future shopping.
-7. As a consumer, I want to view the list of products available so I can see what the store has to offer.
-8. As a consumer, I want to see the products by category to narrow down my search.
-9. As a consumer, I want to filter the products to narrow down my search.
-10. As a consumer, I want to search products so I can find something specific.
-11. As a consumer, I want to add products to my cart so I can save them for purchasing later.
-12. As a consumer, I want to remove products from my cart if I change my mind.
-13. As a consumer, I want to adjust the quantities of items in my cart so I can buy more/less of the same item.
-14. As a consumer, I want a checkout process so I can review my cart and add my details to complete my purchase.
-15. As a consumer, I want to provide my card details so I can pay for the products in my cart.
-16. As a consumer, I want to have my payment processed so I can complete my order.
-17. As a consumer with a profile, I want my details to be autofilled to make purchases quicker and easier.
-18. As a consumer, I want to see feedback on my actions, such as order completion, to confirm what action I've taken.
+4. As a user, I want to see an interesting homepage, So that I can learn about the store and the type of products it sells.
+5. As a user, I want to subscribe to a newsletter, So that I can receive updates about the store.
+6. As a user, I want to register my profile, So that I can save my personal information for future shopping.
+7. As a user, I want to view the list of products available, So that I can see what the store has to offer.
+8. As a user, I want to view the list of products available, So that I can see what the store has to offer.
+9. As a user, I want to filter the products, So that I can narrow down my search.
+10. As a user, I want to search for specific products, So that I can avoid clicking through pages.
+11. As a user, I want to add products to my bag, So that I can save what I might purchase later.
+12. As a user, I want to remove products from my bag, So that I can edit the order before checking out.
+13. As a user, I want to edit the quantities of items in my bag, So that I can edit the order before checking out.
+14. As a user, I want to go through a checkout process, So that I can review my bag and add my details to complete my purchase.
+15. As a user, I want to provide card details, So that I can pay for the products in my cart.
+16. As a user, I want to have my payment processed, So that I can complete my order.
+17. As a user that's logged in, I want my details to be autofilled at checkout, So that I can make purchase quicker and easier.
+18. As a user, I want to see feedback on my actions, So that I can get confirmation of the actions I've taken.
 
 ### User (Owner) Stories
-19. As the store owner, I want to add products to the store as our range evolves and we add variety.
-20. As the store owner, I want to update products when prices change and ensure the description is up to date.
-21. As the store owner, I want to delete products when they're no longer available.
-22. As the store owner, I want to send newsletters to our mailing list to share store news and updates.
+19. As a superuser, I want to add products to the store, So that I can offer products to seel and add new products in the future.
+20. As a superuser, I want to update products, So that I can keep them up to date.
+21. As a superuser, I want to delete products, So that users won't buy unavailable products.
+22. As a superuser, I want to send newsletters to our mailing list, So that I can share store news.
 
 I ranked the user stories by order of importance and how feasible/viable they are to complete. This let me chart the resulting numbers (see priority chart below) to help work out whether or not to include the features in the project given the constraints. The chart was created in a [Jupyter notebook with `matplotlib`](/docs/planning/priority-chart.md).
 
