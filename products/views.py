@@ -1,7 +1,7 @@
 from django.shortcuts import render, reverse, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.views.decorators.http import require_http_methods, require_POST
+from django.views.decorators.http import require_http_methods
 from django.db.models import Q
 from .models import Product, Category
 from .forms import ProductForm
@@ -139,7 +139,7 @@ def update_product(request, product_id):
 
 
 @login_required
-@require_POST
+@require_http_methods(["GET", "POST"])
 def delete_product(request, product_id):
     if not request.user.is_superuser:
         messages.error(
