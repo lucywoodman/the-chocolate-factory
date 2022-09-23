@@ -1,14 +1,22 @@
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, render, redirect, reverse
+from django.views.decorators.http import (
+    require_http_methods,
+    require_safe,
+    require_POST,
+    require_GET,
+)
 from django.contrib import messages
 from products.models import Product
 
 
+@require_safe
 def view_bag(request):
     """A view to return the bag contents page"""
     return render(request, "bag/bag.html")
 
 
+@require_POST
 def add_to_bag(request, item_id):
     """Add a qty of a specific item to the bag"""
 
@@ -53,6 +61,7 @@ def add_to_bag(request, item_id):
     return redirect(redirect_url)
 
 
+@require_POST
 def adjust_bag(request, item_id):
     """Adjust the qty of a specific item in the bag"""
 
@@ -91,6 +100,7 @@ def adjust_bag(request, item_id):
     return redirect(reverse("view_bag"))
 
 
+@require_POST
 def remove_from_bag(request, item_id):
     """Remove a specific item from the bag"""
 
