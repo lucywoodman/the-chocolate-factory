@@ -7,6 +7,12 @@
 ### VisualStudioCode ###
 .vscode/
 
+### Sass ###
+.sass-cache/
+*.css.map
+*.sass.map
+*.scss.map
+
 ### Django ###
 *.log
 *.pot
@@ -16,6 +22,7 @@ local_settings.py
 db.sqlite3
 db.sqlite3-journal
 media
+db.json
 
 # Environments
 .env
@@ -41,12 +48,20 @@ coverage.xml
 .hypothesis/
 .pytest_cache/
 cover/
+.flake8
 
-### Sass ###
-.sass-cache/
-*.css.map
-*.sass.map
-*.scss.map
+### SonarQube ###
+# SonarQube ignore files.
+#
+# https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner
+# Sonar Scanner working directories
+.sonar/
+.sonarqube/
+.scannerwork/
+
+# http://www.sonarlint.org/commandline/
+# SonarLint working directories, configuration files (including credentials)
+.sonarlint/
 
 ### Personal ###
 notes.md
