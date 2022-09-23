@@ -1,5 +1,5 @@
 {% load static %}
-<!-- Delete modal -->
+<!-- Delete confirmation modal -->
 <div class="modal fade rounded-0" id="deleteModal" tabindex="-1" aria-labelledby="deleteConfirmation" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content rounded-0">
@@ -11,6 +11,7 @@
                 <h4>Are you sure?</h4>
                 <p>Warning! This action cannot be undone.</p>
             </div>
+            <!-- Buttons -->
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary rounded-0 py-2 theme-btn" data-bs-dismiss="modal">Close</button>
                 <form action="" method="POST" id="delete-form">

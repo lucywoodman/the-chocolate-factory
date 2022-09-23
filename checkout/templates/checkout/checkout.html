@@ -12,6 +12,7 @@
     <div class="container pt-5">
         <div class="row">
             <div class="col">
+                <!-- Page header -->
                 <h1 class="display-5 fw-bold pb-3">
                     Secure Checkout
                 </h1>
@@ -24,15 +25,18 @@
     <div class="container pt-4">
         <div class="row">
             <div class="col-sm-12 col-lg-5 offset-lg-1 order-2">
+                <!-- Checkout form -->
                 <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                     {% csrf_token %}
                     <fieldset class="mb-3">
+                        <!-- Customer details -->
                         <legend class="fieldset-label small px-2 w-auto">Contact Information</legend>
                         {{ order_form.full_name | as_crispy_field }}
                         {{ order_form.email | as_crispy_field }}
                         {{ order_form.phone_number | as_crispy_field }}
                     </fieldset>
                     <fieldset class="mb-3">
+                        <!-- Shipping details -->
                         <legend class="fieldset-label small px-2 w-auto">Shipping</legend>
                         {{ order_form.street_address1 | as_crispy_field }}
                         {{ order_form.street_address2 | as_crispy_field }}
@@ -41,9 +45,11 @@
                         {{ order_form.postcode | as_crispy_field }}
                         {{ order_form.country | as_crispy_field }}
                         <div class="form-check form-check-inline float-right mr-0">
+                            <!-- If customer is logged in, allow them to save details to their profile -->
                             {% if user.is_authenticated %}
                                 <label for="id-save-info" class="form-check-label">Save to profile</label>
                                 <input type="checkbox" name="save-info" id="id-save-info" class="form-check-input ml-2 mr-0" checked>
+                            <!-- Else offer them the option to register or login -->
                             {% else %}
                                 <label for="id-save-info" class="form-check-label">
                                     <a href="{% url 'account_signup' %}" class="text-info">Create an account</a> or
@@ -52,7 +58,8 @@
                             {% endif %}
                         </div>
                     </fieldset>
-                    <fieldset class="">
+                    <fieldset>
+                        <!-- Payment details -->
                         <legend class="fieldset-label small px-2 w-auto">Payment</legend>
                         <!-- Stripe elements -->
                         <div class="mb-3" id="card-element"></div>
@@ -61,6 +68,7 @@
                         <input type="hidden" value="{{ client_secret }}" name="client_secret">
                     </fieldset>
                     <div class="mt-5 mb-2">
+                        <!-- Buttons -->
                         <div class="d-flex align-items-start justify-content-between">
                             <a href="{% url 'view_bag' %}" class="btn btn-brand-pink rounded-0 py-2 theme-btn"><i class="icon fa-solid fa-arrow-left px-1" aria-hidden="true"></i> Return to Bag</a>
                             <button id="submit-button" class="btn btn-primary rounded-0 py-2 theme-btn"><i class="icon fa-solid fa-lock px-1" aria-hidden="true"></i> Pay Now <i class="icon fa-solid fa-arrow-right px-1" aria-hidden="true"></i></button>    
@@ -70,17 +78,22 @@
                 </form>
             </div>
             <div class="col-sm-12 col-lg-4 order-1 order-lg-2 margin-left-lg">
+                <!-- Order summary -->
                 <h2 class="mb-4">Your order ({{ product_count }})</h2>
+                <!-- For each product in the bag... -->
                 {% for item in bag_items %}
                     <div class="row mb-3 p-3 bg-grey">
                         <div class="col-4 col-lg-3 p-3">
+                            <!-- Display an image if it has one... -->
                             {% if item.product.image %}
                                 <img class="w-100" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                            <!-- Else show the fallback image -->
                             {% else %}
                                 <img class="w-100" src="{{ MEDIA_URL }}default.png" alt="{{ item.product.name }}">
                             {% endif %}
                         </div>
                         <div class="col-8 col-lg-9 d-flex flex-column justify-content-center">
+                            <!-- Product details -->
                             <div class="row mt-2 mb-3">
                                 <div class="col flex-grow">
                                     <span class="fw-bold">{{ item.product.name }}</span><br>
@@ -93,6 +106,7 @@
                         </div>
                     </div>
                 {% endfor %}
+                <!-- Order subtotal, shopping and grand total -->
                 <div class="row border-top pt-3">
                     <div class="col mb-3">
                         <p>Subtotal</p>
@@ -112,6 +126,7 @@
             </div>
         </div>
     </div>
+    <!-- Spinner for order submission -->
     <div id="loading-overlay">
         <p class="text-light loading-spinner">
             <i class="icon fa-solid fa-spin fa-circle-notch fa-xl" aria-hidden="true"></i>

@@ -1,6 +1,7 @@
 {% load static %}
 <footer class="container-fluid bg-brand-dblue">
     <div class="row">
+        <!-- Footer navigation -->
         <div class="col-12 col-md-4 p-5">
             <ul class="nav flex-column">
                 <li class="nav-item">
@@ -20,6 +21,7 @@
                 </li>
             </ul>
         </div>
+        <!-- Organisation logos -->
         <div class="col-12 col-md-4 p-5 text-center">
             <a href="https://rainforest-alliance.org" rel="external nofollow noopener" target="_blank">
                 <img height="150" src="{{ MEDIA_URL }}rainforest-alliance.webp" alt="Rainforest Alliance logo" class="m-1">
@@ -28,6 +30,7 @@
                 <img height="140" src="{{ MEDIA_URL }}fairtrade.png" alt="Fairtrade logo" class="m-1">
             </a>
         </div>
+        <!-- Keep in touch section -->
         <div class="col-12 col-md-4 p-5 order-first">
             <div>
                 <h3 class="text-light mb-4">Hey, let's keep in touch!</h3>
@@ -48,12 +51,14 @@
             </div>
             <div>
                 <span class="text-light small">Stay in the know when you receive our newsletter:</span>
+                <!-- Subscribe modal button-->
                 <button type="button" class="btn btn-primary d-block rounded-0 py-2 theme-btn mt-2" data-bs-toggle="modal" data-bs-target="#subscribeModal">
                     Click to subscribe
                 </button>
             </div>
         </div>
     </div>
+    <!-- Copyright section -->
     <div class="row">
         <div class="col-12 p-5">
             <p class="small text-light">Copyright &copy; {% now "Y" %} The Chocolate Factory<br>

@@ -6,12 +6,14 @@
 {% block page_header %}
     <div class="container pt-5">
         <div class="row">
+            <!-- Empty header for spacing -->
         </div>
     </div>
 {% endblock %}
 
 {% block hero %}
     <div class="container mb-7">
+        <!-- Hero section -->
         <div class="row">
             <div class="col-12 col-lg-5 order-lg-first mt-2 mb-4 py-4">
                 <h1 class="display-4"><span class="fw-bold">Travel</span> the world, <br>one <span class="fw-bold">truffle</span> at a time...</h1>
@@ -26,8 +28,9 @@
 {% endblock %}
 
 {% block content %}
-
+    <!-- Featured links -->
     <div class="row">
+        <!-- First -->
         <div class="col-12 col-md-4 bg-brand-blue text-center pt-5 px-auto">
             <h2>Our Range</h2>
             <a href="{% url 'products' %}" class="btn btn-outline-dark rounded-0 py-2 m-3 theme-btn">Shop Now</a>
@@ -36,6 +39,7 @@
                 <img width="250" height="350" class="d-lg-none" src="{{ MEDIA_URL }}truffle-milk-chocolate.png" alt="Milk Chocolate Truffle Bites">
             </div>
         </div>
+        <!-- Second -->
         <div class="col-12 col-md-4 bg-brand-pink text-center pt-5 px-auto">
             <h2>Flavours</h2>
             <a href="{% url 'products' %}?flavour=true" class="btn btn-outline-dark rounded-0 py-2 m-3 theme-btn">Shop Now</a>
@@ -44,6 +48,7 @@
                 <img width="250" height="350" class="d-lg-none" src="{{ MEDIA_URL }}truffle-white-chocolate-strawberry-champagne.png" alt="White Chocolate Truffle Bites with Strawberry and Champagne">
             </div>
         </div>
+        <!-- Third -->
         <div class="col-12 col-md-4 bg-primary text-center pt-5 px-auto">
             <h2>Vegan</h2>
             <a href="{% url 'products' %}?type=vegan" class="btn btn-outline-dark rounded-0 py-2 m-3 theme-btn">Shop Now</a>
@@ -53,6 +58,7 @@
             </div>
         </div>
     </div>
+    <!-- Intro section -->
     <div class="row align-items-center py-7">
         <div class="col-12 col-md-6 p-5 order-lg-first">
             <h2 class="display-5">Because <span class="fw-bold">quality</span> matters</h2>
@@ -63,6 +69,7 @@
             <img class="img-fluid" src="{{ MEDIA_URL }}the-chocolate-factory-team.jpg" alt="The Chocolate Factory team">
         </div>
     </div>
+    <!-- Testimonial section -->
     <div class="row align-items-center bg-primary py-7">
         <div class="col-12 col-md-6">
             <img src="{{ MEDIA_URL }}testimonial-kelly-m.jpg" alt="Kelly M" class="img-fluid">
@@ -79,6 +86,7 @@
             </figure>
         </div>
     </div>
+    <!-- Community/Producers section -->
     <div class="row align-items-center py-7">
         <div class="col-12 col-md-6 p-5 order-lg-first">
             <h2 class="display-5">Because <span class="fw-bold">community</span> matters</h2>
@@ -90,6 +98,7 @@
             <img src="{{ MEDIA_URL }}home-build-a-community.jpg" alt="Hands holding cacao beans" class="img-fluid">
         </div>
     </div>
+    <!-- Instagram CTA -->
     <div class="row">
         <div class="col-12 text-center bg-brand-pink py-5">
             <p class="display-5 fw-bold mb-0">@thechocolatefactory</p>

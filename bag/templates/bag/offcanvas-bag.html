@@ -5,7 +5,9 @@
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body d-flex flex-column mx-2">
+        <!-- If there are products in the bag, display them -->
         {% if bag_items %}
+            <!-- If user hasn't reached delivery threshold, show the progress bar -->
             {% if free_delivery_delta > 0 %}
             <div class="mb-4">
                 You're £{{ free_delivery_delta }} away from free shipping!
@@ -15,18 +17,22 @@
             </div>
             {% endif %}
             <div class="flex-fill">
+                <!-- For each product in the bag... -->
                 {% for item in bag_items %}
                 <div class="row mb-3">
                     <div class="col-sm-4">
                         <div>
+                            <!-- Display an image if it has one... -->
                             {% if item.product.image %}
                                 <img class="w-100" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                            <!-- Else show the fallback image -->
                             {% else %}
                                 <img class="w-100" src="{{ MEDIA_URL }}default.png" alt="{{ item.product.name }}">
                             {% endif %}
                         </div>
                     </div>
                     <div class="col-sm-8">
+                        <!-- Product details -->
                         <div class="row mt-2 mb-3">
                             <div class="col">
                                 <span class="fw-bold">{{ item.product.name }}</span><br>
@@ -38,6 +44,7 @@
                 </div>
                 {% endfor %}
             </div>
+            <!-- Order subtotal, shopping and grand total -->
             <div class="row align-self-end">
                 <div class="col mb-3">
                     <p>Subtotal</p>
@@ -53,6 +60,7 @@
                         {% endif %}
                         <h4>£{{ grand_total|floatformat:2 }}</h4>
                 </div>
+                <!-- Buttons -->
                 <div class="d-grid">
                     <a href="{% url 'checkout' %}" class="btn btn-primary rounded-0 py-2 mb-2 theme-btn"><i class="icon fa-solid fa-lock px-1" aria-hidden="true"></i> Secure Checkout <i class="icon fa-solid fa-arrow-right px-1" aria-hidden="true"></i></a>
                     <a href="{% url 'view_bag' %}" class="btn btn-brand-pink rounded-0 py-2 mb-2 theme-btn"> View Bag <i class="icon fa-solid fa-arrow-right px-1" aria-hidden="true"></i></a>
@@ -60,6 +68,7 @@
                 </div>
             </div>
             
+        <!-- If there are no products in the bag, display a button to return to the Products page -->
         {% else %}
             <p class="lead mb-5">Your bag is empty.</p>
             <a href="{% url 'products' %}" class="btn rounded-0 py-2 theme-btn"><i class="icon fa-solid fa-arrow-left px-1" aria-hidden="true"></i> Continue Shopping</a>

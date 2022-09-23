@@ -7,6 +7,7 @@
             <h5 class="modal-title" id="subscribeModalLabel">Subscribe to get emails in your inbox</h5>
         </div>
         <div class="modal-body">
+            <!-- Subscribe form -->
             <form action="{% url 'marketing:subscription' %}" method="POST">
                 {% csrf_token %}
                 <div class="input-group w-100">

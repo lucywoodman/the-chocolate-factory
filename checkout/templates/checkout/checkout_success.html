@@ -11,6 +11,7 @@
     <div class="container pt-5">
         <div class="row">
             <div class="col">
+                <!-- Page header -->
                 <h1 class="display-5 fw-bold pb-3">
                     Thank you!
                 </h1>
@@ -24,6 +25,7 @@
     <div class="container pt-4">
         <div class="row">
             <div class="col-sm-12 col-lg-8 border">
+                <!-- Order header with truncated order number + date -->
                 <div class="row border-bottom p-4">
                     <div class="col">
                         <p class="fw-bold">Order #</p>
@@ -34,12 +36,14 @@
                         <p class="small">{{ order.date|date:"fA - jS M Y" }}</p>
                     </div>
                 </div>
+                <!-- Customer details -->
                 <div class="row px-4 pt-4 pb-3">
                     <p class="fw-bold">Customer information</p>
                     <p>{{ order.full_name }}</p>
                     <p>{{ order.email }}</p>
                 </div>
                 <div class="row border-bottom px-4 pb-4">
+                    <!-- Shipping details -->
                     <div class="col">
                         <p class="fw-bold">Shipping address</p>
                         <p>
@@ -55,6 +59,7 @@
                             {{ order.country }}
                         </p>
                     </div>
+                    <!-- Billing details -->
                     <div class="col">
                         <p class="fw-bold">Billing address</p>
                         <p>
@@ -71,19 +76,24 @@
                         </p>
                     </div>
                 </div>
+                <!-- Order summary -->
                 <div class="row p-4">
                     <p class="fw-bold">Your order summary</p>
                     <div class="col">
+                        <!-- For each product in the order... -->
                         {% for item in order.orderitems.all %}
                         <div class="row py-2">
                             <div class="col-4 col-lg-1">
+                                <!-- Display an image if it has one... -->
                                 {% if item.product.image %}
                                     <img class="w-100" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                                <!-- Else show the fallback image -->
                                 {% else %}
                                     <img class="w-100" src="{{ MEDIA_URL }}default.png" alt="{{ item.product.name }}">
                                 {% endif %}
                             </div>
                             <div class="col d-flex flex-column justify-content-center">
+                                <!-- Product details -->
                                 <div class="row mt-2 mb-3">
                                     <div class="col flex-grow">
                                         <span class="small me-2 text-secondary">{{ item.quantity }}x</span>
@@ -96,6 +106,7 @@
                         {% endfor %}
                     </div>
                 </div>
+                <!-- Order subtotal, shopping and grand total -->
                 <div class="row border p-4">
                     <div class="col mb-3">
                         <p>Subtotal</p>
@@ -113,6 +124,7 @@
                     </div>
                 </div>
             </div>
+            <!-- If viewing order from the Profile page, this notes that they are historical -->
             <div class="col-sm-12 col-lg-4">
                 {% if from_profile %}
                 <p class="text-secondary">This is a past order for your reference only.</p>

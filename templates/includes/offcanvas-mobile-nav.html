@@ -6,21 +6,26 @@
     </div>
     <div class="offcanvas-body mx-2">
         <div class="text-center mb-4">
+            <!-- Logo -->
             <a class="navbar-brand" href="{% url 'home' %}">
                 <img src="{% static 'logo.svg' %}" alt="The Chocolate Factory" width="178" height="50">
             </a>
         </div>
+        <!-- Search form -->
         <form method="GET" action="{% url 'products' %}" class="d-flex">
             <div class="input-group w-100">
                 <input class="form-control border-dark rounded-0" type="text" name="q" placeholder="What do you want to search for?" aria-label="Search">
                 <button class="input-group-text btn btn-brand-dblue border-dark rounded-0" type="submit">Search</button>
             </div>
         </form>
+        <!-- Main nav -->
         <ul class="navbar-nav w-auto mx-auto my-4">
             <li class="nav-item">
+                <!-- Home -->
                 <a href="{% url 'home' %}" class="nav-link">Home</a>
             </li>
             <li class="nav-item dropdown">
+                <!-- Full Range dropdown -->
                 <a href="{% url 'products' %}" class="nav-link" id="our-range-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Full Range</a>
                 <div class="dropdown-menu border-0" aria-labelledby="our-range-link">
                     <a href="{% url 'products' %}" class="dropdown-item">All Products</a>
@@ -29,6 +34,7 @@
                 </div>
             </li>
             <li class="nav-item dropdown">
+                <!-- Flavours dropdown -->
                 <a href="#" class="nav-link" id="flavours-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Flavours</a>
                 <div class="dropdown-menu border-0" aria-labelledby="flavours-link">
                     <a href="{% url 'products' %}?flavour=coffee" class="dropdown-item">Coffee</a>
@@ -38,6 +44,7 @@
                 </div>
             </li>
             <li class="nav-item dropdown">
+                <!-- Vegan dropdown -->
                 <a href="#" class="nav-link" id="vegan-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Vegan</a>
                 <div class="dropdown-menu border-0" aria-labelledby="vegan-link">
                     <a href="{% url 'products' %}?type=vegan" class="dropdown-item">All Vegan Products</a>
@@ -46,6 +53,7 @@
                 </div>
             </li>
             <li class="nav-item">
+                <!-- Producers -->
                 <a href="{% url 'producers' %}" class="nav-link">Producers</a>
             </li>
         </ul>

@@ -1,3 +1,4 @@
+<!-- Account + Bag nav-->
 <ul class="mt-3 flex-grow-1 d-flex justify-content-end d-lg-none">
     <li class="list-inline-item px-3">
         <a class="nav-link d-block" id="user-options" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
@@ -7,13 +8,16 @@
             </div>
         </a>
         <div class="dropdown-menu border-0 rounded-0 w-100 p-3 mt-2" aria-labelledby="user-options">
+            <!-- If user is logged in + a superuser, display Product Management -->
             {% if request.user.is_authenticated %}
                 {% if request.user.is_superuser %}
                     <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
                 {% endif %}
+                <!-- If user is logged in + any user (not superuser), display My Profile and Logout-->
                 <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
                 <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
             {% else %}
+                <!-- If user logged out, display Register and Login -->
                 <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
                 <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
             {% endif %}
@@ -24,6 +28,7 @@
             <div class="text-center">
                 <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
                 <p class="my-0">
+                    <!-- If products in bag, display grand total -->
                     {% if grand_total %}
                         £{{ grand_total|floatformat:2 }}
                     {% else %}

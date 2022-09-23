@@ -8,6 +8,7 @@
     <div class="container pt-5">
         <div class="row">
             <div class="col">
+                <!-- Page header -->
                 <h1 class="display-5 fw-bold pb-3">
                     Your bag ({{ product_count }})
                 </h1>
@@ -18,24 +19,30 @@
 
 {% block content %}
     <div class="container pt-4">
+        <!-- If there are products in the bag, display them -->
         {% if bag_items %}
         <div class="row">
             <div class="col-sm-12 col-lg-8">
+                <!-- For each product in the bag... -->
                 {% for item in bag_items %}
                 <div class="row mb-3 p-3 bag-item">
                     <div class="col-4 col-lg-3 p-3">
+                        <!-- Display an image if it has one... -->
                         {% if item.product.image %}
                             <img class="w-100" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                        <!-- Else show the fallback image -->
                         {% else %}
                             <img class="w-100" src="{{ MEDIA_URL }}default.png" alt="{{ item.product.name }}">
                         {% endif %}
                     </div>
                     <div class="col-8 col-lg-9 d-flex flex-column justify-content-center">
                         <div class="row mt-2 mb-3">
+                            <!-- Product name -->
                             <div class="col flex-grow fw-bold">
                                 {{ item.product.name }}
                             </div>
                             <div class="col-lg-3 qty-container">
+                                <!-- Form to handle the quantity adjustments -->
                                 <form class="form update-form" action="{% url 'adjust_bag' item.item_id %}" method="POST">
                                     {% csrf_token %}
                                     <label class="col-lg-1 col-form-label d-none" for="id_qty_{{ item.item_id }}">QTY</label>
@@ -55,18 +62,22 @@
                                         </div>
                                     </div>
                                 </form>
+                                <!-- Update quantity link -->
                                 <div class="text-center">
                                     <a href="#" class="update-link text-brand-dblue"><small>Update qty</small></a>
                                 </div>
                             </div>
                             <div class="col d-lg-none d-flex justify-content-between align-items-center">
+                                <!-- Product price x quantity and remove icon for small screens -->
                                 £{{ item.product.price | calc_subtotal:item.quantity }}
                                 <a href="#" class="remove-link" id="remove_{{ item.item_id }}" aria-label="Remove item from bag" title="Remove item from bag"><i class="icon text-danger fa-solid fa-trash-can" aria-hidden="true"></i></a>
                             </div>
                             <div class="col-lg-2 text-end d-none d-lg-block">
+                                <!-- Product price x quantity for big screens -->
                                 £{{ item.product.price | calc_subtotal:item.quantity }}
                             </div>
                             <div class="col-lg-1 text-end d-none d-lg-block">
+                                <!-- Remove icon for big screens -->
                                 <a href="#" class="remove-link" id="remove_{{ item.item_id }}" aria-label="Remove item from bag" title="Remove item from bag"><i class="icon text-danger fa-solid fa-trash-can" aria-hidden="true"></i></a>
                             </div>
                         </div>
@@ -74,8 +85,10 @@
                 </div>
                 {% endfor %}
             </div>
+            <!-- Summary section -->
             <div class="col-sm-12 col-lg-4">
                 <h2 class="mb-4">Summary</h2>
+                <!-- If user hasn't reached delivery threshold, show the progress bar -->
                 {% if free_delivery_delta > 0 %}
                 <div class="mb-5">
                     You're £{{ free_delivery_delta }} away from free shipping!
@@ -84,6 +97,7 @@
                     </div>
                 </div>
                 {% endif %}
+                <!-- Order subtotal, shopping and grand total -->
                 <div class="row">
                     <div class="col mb-3">
                         <p>Subtotal</p>
@@ -99,6 +113,7 @@
                         {% endif %}
                         <h4>£{{ grand_total|floatformat:2 }}</h4>
                     </div>
+                    <!-- Buttons -->
                     <div class="d-grid mb-4">
                         <a href="{% url 'checkout' %}" class="btn btn-primary rounded-0 py-2 mb-2 theme-btn"><i class="icon fa-solid fa-lock px-1" aria-hidden="true"></i> Secure Checkout <i class="icon fa-solid fa-arrow-right px-1" aria-hidden="true"></i></a>
                         <a href="{% url 'products' %}" class="btn rounded-0 py-2 theme-btn">Continue Shopping <i class="icon fa-solid fa-arrow-left px-1" aria-hidden="true"></i></a>
@@ -106,7 +121,8 @@
                 </div>
             </div>
         </div>
-            
+        
+        <!-- If there are no products in the bag, display a button to return to the Products page -->
         {% else %}
             <p class="lead mb-5">Your bag is empty.</p>
             <a href="{% url 'products' %}" class="btn rounded-0 py-2 theme-btn">Continue Shopping <i class="icon fa-solid fa-arrow-left px-1" aria-hidden="true"></i></a>

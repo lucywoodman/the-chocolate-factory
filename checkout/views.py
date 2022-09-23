@@ -1,28 +1,28 @@
+import json
+
+import stripe
+from bag.contexts import bag_contents
+from django.conf import settings
+from django.contrib import messages
 from django.shortcuts import (
-    render,
-    redirect,
-    reverse,
-    get_object_or_404,
     HttpResponse,
+    get_object_or_404,
+    redirect,
+    render,
+    reverse,
 )
 from django.utils.text import Truncator
 from django.views.decorators.http import (
     require_http_methods,
-    require_safe,
     require_POST,
+    require_safe,
 )
-from django.contrib import messages
-from django.conf import settings
-
-from .models import OrderItem, OrderDetail
-from .forms import OrderDetailForm
 from products.models import Product
-from bag.contexts import bag_contents
-from profiles.models import Profile
 from profiles.forms import ProfileForm
+from profiles.models import Profile
 
-import stripe
-import json
+from .forms import OrderDetailForm
+from .models import OrderDetail, OrderItem
 
 
 @require_POST

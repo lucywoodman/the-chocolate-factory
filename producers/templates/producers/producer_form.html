@@ -7,6 +7,7 @@
     <div class="container pt-5">
         <div class="row">
             <div class="col">
+                <!-- Page header -->
                 <h1 class="display-5 fw-bold pb-3">
                     {% if object %}Update{% else %}Create{% endif %} Producer
                 </h1>
@@ -19,6 +20,7 @@
     <div class="container pt-4">
         <div class="row">
             <div class="col-sm-12 col-lg-6">
+                <!-- Producer form -->
                 <form method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{ form|crispy }}

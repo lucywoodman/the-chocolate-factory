@@ -8,14 +8,17 @@
         <div class="row">
             <div class="col-12 col-md-6">
                 <div>
+                    <!-- Display an image if it has one... -->
                     {% if product.image %}
                         <img class="w-100" src="{{ product.image.url }}" alt="{{ product.name }}">
+                    <!-- Else show the fallback image -->
                     {% else %}
                         <img class="w-100" src="{{ MEDIA_URL }}default.png" alt="{{ product.name }}">
                     {% endif %}
                 </div>
             </div>
             <div class="col-12 col-md-6 pt-4 px-5">
+                <!-- If user is a superuser, display update/delete buttons for this product -->
                 {% if request.user.is_superuser %}
                     <div class="border-bottom pb-4 mb-5">
                         <a href="{% url 'update_product' product.id %}" class="btn btn-sm btn-info rounded-0 theme-btn-sm me-2">Update product</a>
@@ -28,12 +31,14 @@
                         </button>
                     </div>
                 {% endif %}
+                <!-- Product details - category, name, price, weight -->
                 <p class="fs-4">{{ product.category.name }}</p>
                 <h1 class="display-5">{{ product.name }}</h1>
                 <div class="d-flex justify-content-between">
                     <p class="lead font-weight-bold text-secondary fs-3 ">£{{ product.price }}</p>
                     <p class="lead font-weight-bold text-secondary fs-3">{{ product.weight }}g</p>
                 </div>
+                <!-- Form to handle the quantity adjustments -->
                 <form class="form border-top pt-3" action="{% url 'add_to_bag' product.id %}" method="POST">
                     {% csrf_token %}
                     <div class="row mb-4">
@@ -55,15 +60,21 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- Add to bag buttons -->
                         <div class="col-lg-8 d-flex justify-content-end">
+                            <!-- Show on small screens -->
                             <input type="submit" class="btn btn-outline-dark rounded-0 py-2 px-4 theme-btn w-100 mt-3 d-lg-none" value="Add to bag">
+                            <!-- Show on large screens -->
                             <input type="submit" class="btn btn-outline-dark rounded-0 py-2 px-4 theme-btn d-none d-lg-inline-block" value="Add to bag">
                         </div>
                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
                     </div>
                 </form>
+                <!-- Product description -->
                 <p>{{ product.details }}</p>
+                <!-- Accordion section -->
                 <div class="accordion accordion-flush" id="product-accordion">
+                    <!-- Producer -->
                     <div class="accordion-item text-secondary">
                         <p class="accordion-header" id="producer">
                             <button class="accordion-button collapsed text-uppercase px-0 py-2" type="button" data-bs-toggle="collapse" data-bs-target="#product-producer" aria-expanded="false" aria-controls="product-producer">
@@ -77,6 +88,7 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Ingredients -->
                     <div class="accordion-item text-secondary">
                         <p class="accordion-header" id="ingredients">
                             <button class="accordion-button collapsed text-uppercase px-0 py-2" type="button" data-bs-toggle="collapse" data-bs-target="#product-ingredients" aria-expanded="false" aria-controls="product-ingredients">
@@ -87,6 +99,7 @@
                             <div class="accordion-body px-0">{{ product.ingredients }}</div>
                         </div>
                     </div>
+                    <!-- Allergies -->
                     <div class="accordion-item text-secondary">
                         <p class="accordion-header" id="allergies">
                             <button class="accordion-button collapsed text-uppercase px-0 py-2" type="button" data-bs-toggle="collapse" data-bs-target="#product-allergies" aria-expanded="false" aria-controls="product-allergies">
@@ -103,27 +116,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade" id="deleteModal{{ product.id}}" tabindex="-1" aria-labelledby="deleteConfirmation" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="deleteConfirmation">Delete {{ product.name }}</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <h4>Are you sure you want to delete {{ product.name }}?</h4>
-                    <p>Warning! This action cannot be undone.</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <form action="{% url 'delete_product' product.id %}" method="POST">
-                        {% csrf_token %}
-                        <button class="btn btn-danger" type="submit">Delete</button>
-                    </form>
                 </div>
             </div>
         </div>
