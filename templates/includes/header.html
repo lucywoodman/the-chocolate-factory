@@ -54,9 +54,7 @@
             </ul>
         </div>
     </nav>
-    {% if 'bag' not in request.path %}
-        {% include 'bag/offcanvas-bag.html' %}
-    {% endif %}
+    {% include 'bag/offcanvas-bag.html' %}
     <nav id="mobiletopnav" class="navbar navbar-expand-lg w-100 py-0">
         <button class="navbar-toggler border-0 rounded-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#main-offcanvas-nav" aria-controls="main-offcanvas-nav" aria-label="Main navigation toggle" title="Main navigation toggle">
             <i class="fa-solid fa-bars"></i>
