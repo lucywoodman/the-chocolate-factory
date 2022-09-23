@@ -63,12 +63,12 @@
                                 <!-- Display an image if it has one... -->
                                 {% if product.image %}
                                     <a href="{% url 'product_detail' product.slug %}" class="img-link">
-                                        <img src="{{ product.image.url }}" alt="{{ product.name }}" class="card-img-top rounded-0 img-fluid">
+                                        <img src="{{ product.image.url }}" alt="{{ product.name }}" class="card-img-top rounded-0 img-fluid" width="350" height="450">
                                     </a>
                                 <!-- Else show the fallback image -->
                                 {% else %}
                                     <a href="{% url 'product_detail' product.slug %}" class="img-link">
-                                        <img src="{{ MEDIA_URL }}default.png" alt="{{ product.name }}" class="card-img-top rounded-0 img-fluid">
+                                        <img src="{{ MEDIA_URL }}default.png" alt="{{ product.name }}" class="card-img-top rounded-0 img-fluid" width="350" height="450">
                                     </a>
                                 {% endif %}
                                 <!-- Product name + price -->
