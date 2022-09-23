@@ -1,3 +1,4 @@
+import uuid
 from django.test import TestCase
 from django.urls import reverse
 from django.contrib.auth.models import User
@@ -48,11 +49,13 @@ class TestProductViews(TestCase):
         cls.product2.allergy_info.add(cls.prod_allergy)
         cls.product2.type.add(cls.prod_type)
 
+        cls.password = str(uuid.uuid4())
+
         cls.superuser = User.objects.create_superuser(
-            "testsuperuser", "testsuperuser@test.com", "1X<ISRUkw+tuK"
+            "testsuperuser", "testsuperuser@test.com", cls.password
         )
         cls.normuser = User.objects.create_user(
-            "testnormuser", "testnormuser@test.com", "2HJ1vRV0Z&3iD"
+            "testnormuser", "testnormuser@test.com", cls.password
         )
 
     @classmethod
@@ -97,24 +100,24 @@ class TestProductViews(TestCase):
         self.assertRedirects(response, "/accounts/login/?next=/products/add/")
 
     def test_add_product_view_redirect_if_not_superuser(self):
-        self.client.login(username="testnormuser", password="2HJ1vRV0Z&3iD")
+        self.client.login(username="testnormuser", password=self.password)
         response = self.client.get(reverse("add_product"))
         self.assertRedirects(response, "/")
 
     def test_add_product_url_exists_if_superuser(self):
-        self.client.login(username="testsuperuser", password="1X<ISRUkw+tuK")
+        self.client.login(username="testsuperuser", password=self.password)
         response = self.client.get("/products/add/")
         self.assertEqual(str(response.context["user"]), "testsuperuser")
         self.assertEqual(response.status_code, 200)
 
     def test_add_product_view_accessible_by_name_if_superuser(self):
-        self.client.login(username="testsuperuser", password="1X<ISRUkw+tuK")
+        self.client.login(username="testsuperuser", password=self.password)
         response = self.client.get(reverse("add_product"))
         self.assertEqual(str(response.context["user"]), "testsuperuser")
         self.assertEqual(response.status_code, 200)
 
     def test_add_product_view_uses_correct_template_if_superuser(self):
-        self.client.login(username="testsuperuser", password="1X<ISRUkw+tuK")
+        self.client.login(username="testsuperuser", password=self.password)
         response = self.client.get(reverse("add_product"))
         self.assertEqual(str(response.context["user"]), "testsuperuser")
         self.assertEqual(response.status_code, 200)
@@ -131,20 +134,20 @@ class TestProductViews(TestCase):
         )
 
     def test_update_product_view_redirect_if_not_superuser(self):
-        self.client.login(username="testnormuser", password="2HJ1vRV0Z&3iD")
+        self.client.login(username="testnormuser", password=self.password)
         response = self.client.get(
             reverse("update_product", kwargs={"product_id": self.product1.id})
         )
         self.assertRedirects(response, "/")
 
     def test_update_product_url_exists_if_superuser(self):
-        self.client.login(username="testsuperuser", password="1X<ISRUkw+tuK")
+        self.client.login(username="testsuperuser", password=self.password)
         response = self.client.get(f"/products/update/{self.product1.id}")
         self.assertEqual(str(response.context["user"]), "testsuperuser")
         self.assertEqual(response.status_code, 200)
 
     def test_update_product_view_accessible_by_name_if_superuser(self):
-        self.client.login(username="testsuperuser", password="1X<ISRUkw+tuK")
+        self.client.login(username="testsuperuser", password=self.password)
         response = self.client.get(
             reverse("update_product", kwargs={"product_id": self.product1.id})
         )
@@ -152,7 +155,7 @@ class TestProductViews(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_update_product_view_uses_correct_template_if_superuser(self):
-        self.client.login(username="testsuperuser", password="1X<ISRUkw+tuK")
+        self.client.login(username="testsuperuser", password=self.password)
         response = self.client.get(
             reverse("update_product", kwargs={"product_id": self.product1.id})
         )
@@ -171,19 +174,19 @@ class TestProductViews(TestCase):
         )
 
     def test_delete_product_view_redirect_if_not_superuser(self):
-        self.client.login(username="testnormuser", password="2HJ1vRV0Z&3iD")
+        self.client.login(username="testnormuser", password=self.password)
         response = self.client.get(
             reverse("delete_product", kwargs={"product_id": self.product1.id})
         )
         self.assertRedirects(response, "/")
 
     def test_delete_product_url_exists_if_superuser(self):
-        self.client.login(username="testsuperuser", password="1X<ISRUkw+tuK")
+        self.client.login(username="testsuperuser", password=self.password)
         response = self.client.get(f"/products/delete/{self.product1.id}")
         self.assertEqual(response.status_code, 302)
 
     def test_delete_product_view_accessible_by_name_if_superuser(self):
-        self.client.login(username="testsuperuser", password="1X<ISRUkw+tuK")
+        self.client.login(username="testsuperuser", password=self.password)
         response = self.client.get(
             reverse("delete_product", kwargs={"product_id": self.product2.id})
         )
