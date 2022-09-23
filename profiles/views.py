@@ -1,44 +1,91 @@
-from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
-from django.utils.text import Truncator
 from django.contrib.auth.decorators import login_required
-from django.views.decorators.http import require_http_methods, require_safe
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.messages.views import SuccessMessageMixin
+from django.db import transaction
+from django.shortcuts import get_object_or_404, render
+from django.urls import reverse_lazy
+from django.utils.text import Truncator
+from django.views import generic
+from django.views.decorators.http import require_safe
+
+from checkout.models import OrderDetail
 from .models import Profile
 from .forms import ProfileForm, UserForm
-from checkout.models import OrderDetail
 
 
-@login_required
-@require_http_methods(["GET", "POST"])
-def profile(request):
-    profile = get_object_or_404(Profile, user=request.user)
+class UpdateProfile(
+    LoginRequiredMixin, SuccessMessageMixin, generic.UpdateView
+):
+    """
+    A view to display the profile form.
+    To update the user's profile. Restricted to the request user only.
+    """
 
-    if request.method == "POST":
-        user_form = UserForm(request.POST, instance=request.user)
-        profile_form = ProfileForm(request.POST, instance=profile)
-        if user_form.is_valid() and profile_form.is_valid():
-            user_form.save()
-            profile_form.save()
-            messages.success(request, "Profile updated successfully!")
-        else:
-            messages.error(
-                request,
-                "Oops, something went wrong! Please double check the form.",
+    model = Profile
+    form_class = UserForm
+    second_form_class = ProfileForm
+    success_message = "Profile updated successfully!"
+    template_name = "profiles/profile.html"
+
+    def get_object(self, *args, **kwargs):
+        """
+        Ensures that the logged in user can only see their own profile
+        """
+        return self.request.user.profile
+
+    def get_context_data(self, **kwargs):
+        """
+        Handle the form context
+        """
+        context = super(UpdateProfile, self).get_context_data(**kwargs)
+        if self.request.POST:
+            context["user_form"] = self.form_class(
+                self.request.POST, instance=self.request.user
             )
-    else:
-        user_form = UserForm(instance=request.user)
-        profile_form = ProfileForm(instance=profile)
+            context["profile_form"] = self.second_form_class(
+                self.request.POST, instance=self.object
+            )
+        else:
+            context["user_form"] = self.form_class(instance=self.request.user)
+            context["profile_form"] = self.second_form_class(
+                instance=self.object
+            )
+        context["orders"] = self.request.user.profile.orders.all().order_by(
+            "-date"
+        )
+        return context
 
-    orders = profile.orders.all().order_by("-date")
-    template = "profiles/profile.html"
-    context = {
-        "profile": profile,
-        "user_form": user_form,
-        "profile_form": profile_form,
-        "orders": orders,
-    }
+    def form_valid(self, form):
+        """
+        Handle the form validation
+        """
+        context = self.get_context_data()
+        user_form = context["user_form"]
+        profile_form = context["profile_form"]
+        with transaction.atomic():
+            if user_form.is_valid() and profile_form.is_valid():
+                user_form.instance = self.request.user
+                profile_form.instance = self.object
+                user_form.save()
+                profile_form.save()
+        return super(UpdateProfile, self).form_valid(form)
 
-    return render(request, template, context)
+    def get_success_url(self):
+        """
+        Go to profile page after successful form submission
+        """
+        return reverse_lazy("profile")
+
+    def form_invalid(self, form):
+        """
+        Show toast error message if the form is invalid
+        """
+        messages.error(
+            self.request,
+            "Oops, something went wrong! Please double-check the form.",
+        )
+        return super().form_invalid(form)
 
 
 @login_required

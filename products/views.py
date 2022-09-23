@@ -1,12 +1,13 @@
-from django.shortcuts import reverse, redirect
 from django.contrib import messages
-from django.urls import reverse_lazy
 from django.contrib.auth.mixins import UserPassesTestMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.db.models import Q
-from .models import Product, Category
-from .forms import ProductForm
+from django.shortcuts import redirect, reverse
+from django.urls import reverse_lazy
 from django.views import generic
+
+from .forms import ProductForm
+from .models import Category, Product
 
 
 class FullProductRange(generic.ListView):
