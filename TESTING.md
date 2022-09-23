@@ -48,7 +48,7 @@ The [W3C Markup Validation Service](https://validator.w3.org/) was used to valid
 
 The [W3C Jigsaw CSS Validation Service](https://jigsaw.w3.org/css-validator/validator) was used to validate the CSS of the website. The CSS passes with 0 errors.
 
-![CSS validation](docs/testing/css.png)
+![CSS validation](docs/testing/validation/css.png)
 
 *Go back to the [top](#table-of-contents)*
 
@@ -58,7 +58,21 @@ The [W3C Jigsaw CSS Validation Service](https://jigsaw.w3.org/css-validator/vali
 
 [JSHint](https://jshint.com/) was used to validate the JavaScript/Jquery of the website. No issues were found.
 
-![JSHint validation](docs/testing/jshint.png)
+<details><summary>Base JS</summary>
+<img src="docs/testing/validation/jshint-base.png">
+</details>
+<details><summary>Quantity handler</summary>
+<img src="docs/testing/validation/jshint-quantity-handler.png">
+</details>
+<details><summary>Delete modal handler</summary>
+<img src="docs/testing/validation/jshint-delete-handler.png">
+</details>
+<details><summary>Stripe handler</summary>
+<img src="docs/testing/validation/jshint-stripe.png">
+</details>
+<details><summary>Country field handler</summary>
+<img src="docs/testing/validation/jshint-country-handler.png">
+</details>
 
 *Go back to the [top](#table-of-contents)*
 
@@ -68,7 +82,7 @@ The [W3C Jigsaw CSS Validation Service](https://jigsaw.w3.org/css-validator/vali
 
 A combination of the following Python packages was used to ensure the code is PEP8 compliant: flake8, autopep8 and black. After which `flake8 --statistics` was ran in VSCode terminal and the final flagged files were checked in [PEP8 Online](http://pep8online.com). The only issues found were a few longer lines in the project's settings.py.
 
-![PEP8 valudation](docs/testing/pep8.png)
+![PEP8 valudation](docs/testing/validation/pep8.png)
 
 *Go back to the [top](#table-of-contents)*
 
@@ -77,8 +91,6 @@ A combination of the following Python packages was used to ensure the code is PE
 ## Manual Testing (BDD)
 
 BDD, or Behaviour Driven Development, is the process used to test user stories in a non-technical way, allowing anyone to test the features of an app.
-
-Given some context, When something happens, Then outcome
 
 User Story | BDD Test | Pass
 --- | --- | :---:
