@@ -43,13 +43,13 @@
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <button class="decrement-qty btn btn-sm btn-outline-dark rounded-0 theme-btn" data-item_id="{{ product.id }}" id="decrement-qty_{{ product.id }}" aria-label="Decrement quantity button" title="Decrement quantity button">
-                                            <i class="fa-solid fa-minus fa-sm"></i>
+                                            <i class="fa-solid fa-minus fa-sm" aria-hidden="true"></i>
                                         </button>
                                     </div>
                                     <input class="form-control form-control-sm qty_input rounded-0 border-0 fs-5 px-1 text-center" type="number" name="quantity" value="1" min="1" max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
                                     <div class="input-group-append">
                                         <button class="increment-qty btn btn-sm btn-outline-dark rounded-0 theme-btn" data-item_id="{{ product.id }}" id="increment-qty_{{ product.id }}" aria-label="Increment quantity button" title="Increment quantity button">
-                                            <i class="fa-solid fa-plus fa-sm"></i>
+                                            <i class="fa-solid fa-plus fa-sm" aria-hidden="true"></i>
                                         </button>
                                     </div>
                                 </div>

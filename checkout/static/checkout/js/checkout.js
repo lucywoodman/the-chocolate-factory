@@ -35,7 +35,7 @@ card.mount('#card-element');
 card.addEventListener('change', function(e) {
     let errorDiv = document.getElementById('card-errors');
     if (e.error) {
-        let html = `<i class="icon fa-solid fa-xmark"></i> ${e.error.message}`;
+        let html = `<i class="icon fa-solid fa-xmark" aria-hidden="true"></i> ${e.error.message}`;
         $(errorDiv).html(html);
     } else {
         errorDiv.textContent = '';
@@ -93,7 +93,7 @@ form.addEventListener('submit', function(e) {
         }).then(function(result) {
             let errorDiv = document.getElementById('card-errors');
             if (result.error) {
-                let html = `<i class="icon fa-solid fa-xmark"></i> ${result.error.message}`;
+                let html = `<i class="icon fa-solid fa-xmark" aria-hidden="true"></i> ${result.error.message}`;
                 $(errorDiv).html(html);
                 $('#payment-form').fadeToggle(100);
                 $('#loading-overlay').fadeToggle(100);

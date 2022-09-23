@@ -43,13 +43,13 @@
                                         <div class="input-group">
                                             <div class="input-group-prepend">
                                                 <button class="decrement-qty btn btn-sm btn-outline-dark rounded-0 theme-btn" data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}" aria-label="Decrement quantity button" title="Decrement quantity button">
-                                                    <i class="fa-solid fa-minus fa-sm"></i>
+                                                    <i class="fa-solid fa-minus fa-sm" aria-hidden="true" aria-hidden="true"></i>
                                                 </button>
                                             </div>
                                             <input class="form-control form-control-sm qty_input rounded-0 border-0 fs-5 px-1 text-center" type="number" name="quantity" value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
                                             <div class="input-group-append">
                                                 <button class="increment-qty btn btn-sm btn-outline-dark rounded-0 theme-btn" data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}" aria-label="Increment quantity button" title="Increment quantity button">
-                                                    <i class="fa-solid fa-plus fa-sm"></i>
+                                                    <i class="fa-solid fa-plus fa-sm" aria-hidden="true" aria-hidden="true"></i>
                                                 </button>
                                             </div>
                                         </div>
@@ -61,13 +61,13 @@
                             </div>
                             <div class="col d-lg-none d-flex justify-content-between align-items-center">
                                 £{{ item.product.price | calc_subtotal:item.quantity }}
-                                <a href="#" class="remove-link" id="remove_{{ item.item_id }}" aria-label="Remove item from bag" title="Remove item from bag"><i class="icon text-danger fa-solid fa-trash-can"></i></a>
+                                <a href="#" class="remove-link" id="remove_{{ item.item_id }}" aria-label="Remove item from bag" title="Remove item from bag"><i class="icon text-danger fa-solid fa-trash-can" aria-hidden="true"></i></a>
                             </div>
                             <div class="col-lg-2 text-end d-none d-lg-block">
                                 £{{ item.product.price | calc_subtotal:item.quantity }}
                             </div>
                             <div class="col-lg-1 text-end d-none d-lg-block">
-                                <a href="#" class="remove-link" id="remove_{{ item.item_id }}" aria-label="Remove item from bag" title="Remove item from bag"><i class="icon text-danger fa-solid fa-trash-can"></i></a>
+                                <a href="#" class="remove-link" id="remove_{{ item.item_id }}" aria-label="Remove item from bag" title="Remove item from bag"><i class="icon text-danger fa-solid fa-trash-can" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>
@@ -100,8 +100,8 @@
                         <h4>£{{ grand_total|floatformat:2 }}</h4>
                     </div>
                     <div class="d-grid mb-4">
-                        <a href="{% url 'checkout' %}" class="btn btn-primary rounded-0 py-2 mb-2 theme-btn"><i class="icon fa-solid fa-lock px-1"></i> Secure Checkout <i class="icon fa-solid fa-arrow-right px-1"></i></a>
-                        <a href="{% url 'products' %}" class="btn rounded-0 py-2 theme-btn">Continue Shopping <i class="icon fa-solid fa-arrow-left px-1"></i></a>
+                        <a href="{% url 'checkout' %}" class="btn btn-primary rounded-0 py-2 mb-2 theme-btn"><i class="icon fa-solid fa-lock px-1"></i> Secure Checkout <i class="icon fa-solid fa-arrow-right px-1" aria-hidden="true"></i></a>
+                        <a href="{% url 'products' %}" class="btn rounded-0 py-2 theme-btn">Continue Shopping <i class="icon fa-solid fa-arrow-left px-1" aria-hidden="true"></i></a>
                     </div>
                 </div>
             </div>
@@ -109,7 +109,7 @@
             
         {% else %}
             <p class="lead mb-5">Your bag is empty.</p>
-            <a href="{% url 'products' %}" class="btn rounded-0 py-2 theme-btn">Continue Shopping <i class="icon fa-solid fa-arrow-left px-1"></i></a>
+            <a href="{% url 'products' %}" class="btn rounded-0 py-2 theme-btn">Continue Shopping <i class="icon fa-solid fa-arrow-left px-1" aria-hidden="true"></i></a>
         {% endif %}
     </div>
 {% endblock %}

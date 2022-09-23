@@ -9,7 +9,7 @@
         <div class="col-12 col-lg-4 my-auto">
             <form method="GET" action="{% url 'products' %}" class="d-flex">
                 <div class="input-group w-100">
-                    <span class="input-group-text border-dark border-end-0 rounded-0 bg-white pe-0"><i class="fa-solid fa-magnifying-glass"></i></span>
+                    <span class="input-group-text border-dark border-end-0 rounded-0 bg-white pe-0"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></span>
                     <input class="form-control border-dark border-start-0 rounded-0" type="text" name="q" placeholder="What do you want to search for?" aria-label="Search">
                     <button class="input-group-text btn btn-brand-pink border-dark rounded-0" type="submit">Search</button>
                 </div>
@@ -20,7 +20,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link text-black link-big-underline" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                         <div class="text-center">
-                            <i class="fa-solid fa-user"></i>
+                            <i class="fa-solid fa-user" aria-hidden="true"></i>
                             <p class="my-0">Account</p>
                         </div>
                     </a>
@@ -40,7 +40,7 @@
                 <li class="nav-item">
                     <a class="text-black nav-link link-big-underline" data-bs-toggle="offcanvas" href="#view-bag" role="button" aria-controls="view-bag">
                         <div class="text-center">
-                            <i class="fa-solid fa-bag-shopping"></i>
+                            <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
                             <p class="my-0">
                                 {% if grand_total %}
                                     £{{ grand_total|floatformat:2 }}
@@ -57,7 +57,7 @@
     {% include 'bag/offcanvas-bag.html' %}
     <nav id="mobiletopnav" class="navbar navbar-expand-lg w-100 py-0">
         <button class="navbar-toggler border-0 rounded-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#main-offcanvas-nav" aria-controls="main-offcanvas-nav" aria-label="Main navigation toggle" title="Main navigation toggle">
-            <i class="fa-solid fa-bars"></i>
+            <i class="fa-solid fa-bars" aria-hidden="true"></i>
         </button>
         {% include './offcanvas-mobile-nav.html' %}
         {% include './mobile-top-header.html' %}

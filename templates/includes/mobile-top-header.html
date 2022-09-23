@@ -2,7 +2,7 @@
     <li class="list-inline-item px-3">
         <a class="nav-link d-block" id="user-options" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
             <div class="text-center">
-                <i class="fa-solid fa-user"></i>
+                <i class="fa-solid fa-user" aria-hidden="true"></i>
                 <p class="my-0">Account</p>
             </div>
         </a>
@@ -22,7 +22,7 @@
     <li class="list-inline-item px-3">
         <a class="text-black nav-link link-big-underline" data-bs-toggle="offcanvas" href="#view-bag" role="button" aria-controls="view-bag">
             <div class="text-center">
-                <i class="fa-solid fa-bag-shopping"></i>
+                <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
                 <p class="my-0">
                     {% if grand_total %}
                         £{{ grand_total|floatformat:2 }}
