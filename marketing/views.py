@@ -5,6 +5,10 @@ from marketing.utils import subscribe
 
 
 class SubscriptionView(RedirectView):
+    """
+    Class to handle subscription requests
+    """
+
     def post(self, request, *args, **kwargs):
         if request.method == "POST":
             currentpath = request.POST.get("currentpath")

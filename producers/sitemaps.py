@@ -3,6 +3,10 @@ from django.urls import reverse
 
 
 class ProducerStaticSitemap(Sitemap):
+    """
+    Class to generate sitemap links
+    """
+
     priority = 0.8
     protocol = "https"
 

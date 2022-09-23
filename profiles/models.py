@@ -1,11 +1,15 @@
-from django.db import models
 from django.contrib.auth.models import User
-from django_countries.fields import CountryField
+from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from django_countries.fields import CountryField
 
 
 class Profile(models.Model):
+    """
+    Class for the profile model
+    """
+
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     default_phone_number = models.CharField(
         max_length=20, null=True, blank=True
@@ -31,6 +35,9 @@ class Profile(models.Model):
 
 @receiver(post_save, sender=User)
 def create_or_update_user_profile(sender, instance, created, **kwargs):
+    """
+    If a user is created, automatically link them to a profile object
+    """
     if created:
         Profile.objects.create(user=instance)
     instance.profile.save()

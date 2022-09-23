@@ -1,8 +1,13 @@
 from django import forms
+
 from .models import Product
 
 
 class ProductForm(forms.ModelForm):
+    """
+    Class for the product model form
+    """
+
     class Meta:
         model = Product
         fields = [
@@ -24,6 +29,9 @@ class ProductForm(forms.ModelForm):
         }
 
     def __init__(self, *args, **kwargs):
+        """
+        Set field classes
+        """
         super().__init__(*args, **kwargs)
         for field in self.fields:
             self.fields[field].widget.attrs[

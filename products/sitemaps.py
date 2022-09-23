@@ -1,9 +1,14 @@
 from django.contrib.sitemaps import Sitemap
 from django.urls import reverse
+
 from .models import Product
 
 
 class ProductStaticSitemap(Sitemap):
+    """
+    Class to generate sitemap links
+    """
+
     priority = 0.8
     protocol = "https"
 

@@ -1,3 +1,4 @@
+from checkout.models import OrderDetail
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -9,9 +10,8 @@ from django.utils.text import Truncator
 from django.views import generic
 from django.views.decorators.http import require_safe
 
-from checkout.models import OrderDetail
-from .models import Profile
 from .forms import ProfileForm, UserForm
+from .models import Profile
 
 
 class UpdateProfile(
@@ -91,6 +91,9 @@ class UpdateProfile(
 @login_required
 @require_safe
 def order_history(request, order_number):
+    """
+    Display order details from the profile page
+    """
     order = get_object_or_404(OrderDetail, order_number=order_number)
 
     trunc_order_number = Truncator(order_number).chars(10, truncate="...")

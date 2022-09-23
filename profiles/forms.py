@@ -5,12 +5,18 @@ from .models import Profile
 
 
 class UserForm(forms.ModelForm):
+    """
+    Class for user model form
+    """
+
     class Meta:
         model = User
         fields = ("first_name", "last_name", "email")
 
     def __init__(self, *args, **kwargs):
-        """Set placeholders, remove labels and set autofocus on first field"""
+        """
+        Set placeholders, remove labels and set autofocus on first field
+        """
         super().__init__(*args, **kwargs)
         placeholders = {
             "first_name": "First name",
@@ -32,12 +38,18 @@ class UserForm(forms.ModelForm):
 
 
 class ProfileForm(forms.ModelForm):
+    """
+    Class for profile model form
+    """
+
     class Meta:
         model = Profile
         exclude = ("user",)
 
     def __init__(self, *args, **kwargs):
-        """Set placeholders and remove labels"""
+        """
+        Set placeholders and remove labels
+        """
         super().__init__(*args, **kwargs)
         placeholders = {
             "default_phone_number": "Phone number",

@@ -27,6 +27,9 @@ from .models import OrderDetail, OrderItem
 
 @require_POST
 def cache_checkout_data(request):
+    """
+    Function to capture checkout data
+    """
     try:
         pid = request.POST.get("client_secret").split("_secret")[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -53,6 +56,9 @@ def cache_checkout_data(request):
 
 @require_http_methods(["GET", "POST"])
 def checkout(request):
+    """
+    Function to handle the checkout page/form
+    """
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
@@ -154,6 +160,9 @@ def checkout(request):
 
 @require_safe
 def checkout_success(request, order_number):
+    """
+    Function for successful checkout
+    """
     save_info = request.session.get("save_info")
     order = get_object_or_404(OrderDetail, order_number=order_number)
 

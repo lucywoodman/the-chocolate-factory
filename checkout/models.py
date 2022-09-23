@@ -1,14 +1,19 @@
-from decimal import Decimal
 import uuid
-from django.db import models
+from decimal import Decimal
+
 from django.conf import settings
-from django_countries.fields import CountryField
 from django.core.validators import MaxValueValidator, MinValueValidator
+from django.db import models
+from django_countries.fields import CountryField
 from products.models import Product
 from profiles.models import Profile
 
 
 class OrderDetail(models.Model):
+    """
+    Class for order details
+    """
+
     class Meta:
         verbose_name = "Order"
 
@@ -45,11 +50,15 @@ class OrderDetail(models.Model):
     )
 
     def _generate_order_number(self):
-        """Creates a unique, random order number for the order"""
+        """
+        Create a unique, random order number for the order
+        """
         return uuid.uuid4().hex.upper()
 
     def update_total(self):
-        """Calculates the grand total"""
+        """
+        Calculate the grand total
+        """
         order_total = (
             self.orderitems.aggregate(models.Sum("item_total"))[
                 "item_total__sum"
@@ -84,6 +93,10 @@ class OrderDetail(models.Model):
 
 
 class OrderItem(models.Model):
+    """
+    Class for products to be added to orders
+    """
+
     order = models.ForeignKey(
         OrderDetail,
         null=False,

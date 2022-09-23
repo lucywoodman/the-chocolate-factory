@@ -5,7 +5,9 @@ from producers.models import Producer
 
 
 class Type(models.Model):
-    """Class for the type model"""
+    """
+    Class for the type model
+    """
 
     name = models.CharField(max_length=25)
 
@@ -14,7 +16,9 @@ class Type(models.Model):
 
 
 class Category(models.Model):
-    """Class for the category model"""
+    """
+    Class for the category model
+    """
 
     class Meta:
         verbose_name_plural = "Categories"
@@ -27,7 +31,9 @@ class Category(models.Model):
 
 
 class Flavour(models.Model):
-    """Class for the flavour model"""
+    """
+    Class for the flavour model
+    """
 
     name = models.CharField(max_length=256, unique=True)
     slug = models.SlugField(max_length=256, blank=True, null=True)
@@ -37,7 +43,9 @@ class Flavour(models.Model):
 
 
 class Allergy(models.Model):
-    """Class for the allergy model"""
+    """
+    Class for the allergy model
+    """
 
     class Meta:
         verbose_name_plural = "Allergies"
@@ -50,7 +58,9 @@ class Allergy(models.Model):
 
 
 class Product(models.Model):
-    """Class for the product model"""
+    """
+    Class for the product model
+    """
 
     category = models.ForeignKey(
         Category, on_delete=models.SET_NULL, blank=True, null=True
@@ -74,6 +84,10 @@ class Product(models.Model):
         return self.name
 
     def save(self, *args, **kwargs):
+        """
+        Override save method to generate a unique slug
+        Using the slufify'd name + the product's pk
+        """
         super(Product, self).save(*args, **kwargs)
         if not self.slug:
             self.slug = f"{slugify(self.name)}-{self.id}"
@@ -81,6 +95,9 @@ class Product(models.Model):
 
 
 def slug_pre_save(instance, *args, **kwargs):
+    """
+    Pre save function to generate slugs for smaller models
+    """
     if not instance.slug:
         instance.slug = f"{slugify(instance.name)}"
 

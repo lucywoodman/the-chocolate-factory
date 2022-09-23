@@ -1,8 +1,13 @@
 from django import forms
+
 from .models import OrderDetail
 
 
 class OrderDetailForm(forms.ModelForm):
+    """
+    Class for the order form, loaded on checkout
+    """
+
     class Meta:
         model = OrderDetail
         fields = (
@@ -18,7 +23,9 @@ class OrderDetailForm(forms.ModelForm):
         )
 
     def __init__(self, *args, **kwargs):
-        """Set placeholders, remove labels and set autofocus on first field"""
+        """
+        Set placeholders, remove labels and set autofocus on first field
+        """
         super().__init__(*args, **kwargs)
         placeholders = {
             "full_name": "Full name",
