@@ -1,20 +1,26 @@
 # The Chocolate Factory Testing
 
-:arrow_left: [Return to the main README](README.md)
+:arrow_left: [Return to the README](README.md)
 
 ## Table of Contents
 
 - [The Chocolate Factory Testing](#the-chocolate-factory-testing)
   - [Table of Contents](#table-of-contents)
+- [Performance](#performance)
   - [Google's Lighthouse Performance](#googles-lighthouse-performance)
+- [Accessibility](#accessibility)
   - [Accessibility Validation](#accessibility-validation)
+- [Code Validation](#code-validation)
   - [HTML Validation](#html-validation)
   - [CSS Validation](#css-validation)
   - [JS Validation](#js-validation)
   - [PEP8 Validation](#pep8-validation)
+- [Testing](#testing)
   - [Manual Testing (BDD)](#manual-testing-bdd)
   - [Automated Testing (TDD)](#automated-testing-tdd)
 - [Bugs](#bugs)
+
+# Performance
 
 ## Google's Lighthouse Performance
 
@@ -28,6 +34,8 @@
 
 ---
 
+# Accessibility
+
 ## Accessibility Validation
 
 The [WAVE WebAIM web accessibility evaluation tool](https://wave.webaim.org/) was used to ensure the website met high accessibility standards. All pages pass with 0 errors, except for the Profile page and Checkout page. This is due to the forms not using labels. With more time I can dig into this, however, for now it has been saved as an open issue on the Github repository.
@@ -36,9 +44,39 @@ The [WAVE WebAIM web accessibility evaluation tool](https://wave.webaim.org/) wa
 
 ---
 
+# Code Validation
+
 ## HTML Validation
 
 The [W3C Markup Validation Service](https://validator.w3.org/) was used to validate the HTML of the website. For logged in pages, the page source was copied and pasted into the validator. All pages pass with 0 errors and 0 warnings.
+
+<details><summary>Home</summary>
+<img src="docs/testing/validation/html-home.png">
+</details>
+<details><summary>Register</summary>
+<img src="docs/testing/validation/html-register.png">
+</details>
+<details><summary>Login</summary>
+<img src="docs/testing/validation/html-login.png">
+</details>
+<details><summary>Products</summary>
+<img src="docs/testing/validation/html-products.png">
+</details>
+<details><summary>Product Detail</summary>
+<img src="docs/testing/validation/html-product-detail.png">
+</details>
+<details><summary>Producers</summary>
+<img src="docs/testing/validation/html-producers.png">
+</details>
+<details><summary>Bag</summary>
+<img src="docs/testing/validation/html-bag.png">
+</details>
+<details><summary>Privacy Policy</summary>
+<img src="docs/testing/validation/html-privacy.png">
+</details>
+<details><summary>Terms & Conditions</summary>
+<img src="docs/testing/validation/html-terms.png">
+</details>
 
 *Go back to the [top](#table-of-contents)*
 
@@ -88,6 +126,8 @@ A combination of the following Python packages was used to ensure the code is PE
 
 ---
 
+# Testing
+
 ## Manual Testing (BDD)
 
 BDD, or Behaviour Driven Development, is the process used to test user stories in a non-technical way, allowing anyone to test the features of an app.
@@ -120,7 +160,7 @@ As a superuser<br>I want to send newsletters to our mailing list<br>So that I ca
 
 ## Automated Testing (TDD)
 
-TDD, or Test Driven Development, was used throughout parts of the development process. Using Django's testing class, I created 44 tests which all pass. Using `coverage`, testing covers 72% of the code. Ideally, this would be above 90% with more time devoted to it.
+TDD, or Test Driven Development, was used throughout parts of the development process. Using Django's testing class, I created 44 tests which all pass. Using `coverage`, testing covers 73% of the code. Ideally, this would be above 90% with more time devoted to it.
 
 ![Automated testing](docs/testing/automated.png)
 
@@ -129,6 +169,10 @@ TDD, or Test Driven Development, was used throughout parts of the development pr
 ---
 
 # Bugs
+
+Resolved | Bug | Fix
+:---: | --- | ---
+
 
 *Go back to the [top](#table-of-contents)*
 
