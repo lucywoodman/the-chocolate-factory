@@ -1,6 +1,7 @@
 from django.shortcuts import render, reverse, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.http import require_http_methods, require_POST
 from django.db.models import Q
 from .models import Product, Category
 from .forms import ProductForm
@@ -74,6 +75,7 @@ class ProductDetail(generic.DetailView):
 
 
 @login_required
+@require_http_methods(["GET", "POST"])
 def add_product(request):
     if not request.user.is_superuser:
         messages.error(
@@ -104,6 +106,7 @@ def add_product(request):
 
 
 @login_required
+@require_http_methods(["GET", "POST"])
 def update_product(request, product_id):
     if not request.user.is_superuser:
         messages.error(
@@ -136,6 +139,7 @@ def update_product(request, product_id):
 
 
 @login_required
+@require_POST
 def delete_product(request, product_id):
     if not request.user.is_superuser:
         messages.error(

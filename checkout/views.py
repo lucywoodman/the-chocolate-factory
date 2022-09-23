@@ -6,7 +6,11 @@ from django.shortcuts import (
     HttpResponse,
 )
 from django.utils.text import Truncator
-from django.views.decorators.http import require_POST
+from django.views.decorators.http import (
+    require_http_methods,
+    require_safe,
+    require_POST,
+)
 from django.contrib import messages
 from django.conf import settings
 
@@ -47,6 +51,7 @@ def cache_checkout_data(request):
         return HttpResponse(content=e, status=400)
 
 
+@require_http_methods(["GET", "POST"])
 def checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
@@ -147,6 +152,7 @@ def checkout(request):
     return render(request, template, context)
 
 
+@require_safe
 def checkout_success(request, order_number):
     save_info = request.session.get("save_info")
     order = get_object_or_404(OrderDetail, order_number=order_number)

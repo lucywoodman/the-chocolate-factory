@@ -1,11 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, render, redirect, reverse
-from django.views.decorators.http import (
-    require_http_methods,
-    require_safe,
-    require_POST,
-    require_GET,
-)
+from django.views.decorators.http import require_safe, require_POST
 from django.contrib import messages
 from products.models import Product
 
