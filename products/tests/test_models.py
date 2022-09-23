@@ -131,7 +131,7 @@ class TestProductModel(TestCase):
 
     def test_product_has_slug(self):
         product = self.product
-        self.assertEqual(product.slug, slugify(product.name))
+        self.assertEqual(product.slug, f"{slugify(product.name)}-{product.id}")
 
     def test_slug_is_unique(self):
         product1 = self.product

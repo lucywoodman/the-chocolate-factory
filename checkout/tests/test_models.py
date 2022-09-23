@@ -7,7 +7,9 @@ from ..models import OrderDetail, OrderItem
 
 
 class TestOrderModel(TestCase):
-    """A class to test the Order model"""
+    """
+    A class to test the Order model
+    """
 
     @classmethod
     def setUpClass(cls):
@@ -108,7 +110,9 @@ class TestOrderModel(TestCase):
 
 
 class TestOrderItemModel(TestCase):
-    """A class to test the OrderItem model"""
+    """
+    A class to test the OrderItem model
+    """
 
     @classmethod
     def setUpClass(cls):

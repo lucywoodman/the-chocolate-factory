@@ -7,7 +7,9 @@ from ..models import Type, Category, Flavour, Allergy, Product
 
 
 class TestProductViews(TestCase):
-    """A class to test Product views"""
+    """
+    A class to test Product views
+    """
 
     @classmethod
     def setUpClass(cls):
@@ -78,7 +80,7 @@ class TestProductViews(TestCase):
 
     # Test product_detail view
     def test_product_detail_url_exists(self):
-        response = self.client.get("/products/test-product/")
+        response = self.client.get(f"/products/{self.product1.slug}/")
         self.assertEqual(response.status_code, 200)
 
     def test_product_detail_view_accessible_by_name(self):
@@ -97,7 +99,7 @@ class TestProductViews(TestCase):
     # Test add_product view
     def test_add_product_view_redirect_if_not_logged_in(self):
         response = self.client.get(reverse("add_product"))
-        self.assertRedirects(response, "/accounts/login/?next=/products/add/")
+        self.assertRedirects(response, "/")
 
     def test_add_product_view_redirect_if_not_superuser(self):
         self.client.login(username="testnormuser", password=self.password)
@@ -121,24 +123,35 @@ class TestProductViews(TestCase):
         response = self.client.get(reverse("add_product"))
         self.assertEqual(str(response.context["user"]), "testsuperuser")
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "products/add_product.html")
+        self.assertTemplateUsed(response, "products/product_form.html")
 
     # Test update_product view
     def test_update_product_view_redirect_if_not_logged_in(self):
         response = self.client.get(
-            reverse("update_product", kwargs={"product_id": self.product1.id})
+            reverse("update_product", kwargs={"pk": self.product1.id}),
+            follow=True,
         )
         self.assertRedirects(
             response,
-            f"/accounts/login/?next=/products/update/{self.product1.id}",
+            "/",
+            status_code=302,
+            target_status_code=200,
+            fetch_redirect_response=True,
         )
 
     def test_update_product_view_redirect_if_not_superuser(self):
         self.client.login(username="testnormuser", password=self.password)
         response = self.client.get(
-            reverse("update_product", kwargs={"product_id": self.product1.id})
+            reverse("update_product", kwargs={"pk": self.product1.id}),
+            follow=True,
         )
-        self.assertRedirects(response, "/")
+        self.assertRedirects(
+            response,
+            "/",
+            status_code=302,
+            target_status_code=200,
+            fetch_redirect_response=True,
+        )
 
     def test_update_product_url_exists_if_superuser(self):
         self.client.login(username="testsuperuser", password=self.password)
@@ -149,7 +162,7 @@ class TestProductViews(TestCase):
     def test_update_product_view_accessible_by_name_if_superuser(self):
         self.client.login(username="testsuperuser", password=self.password)
         response = self.client.get(
-            reverse("update_product", kwargs={"product_id": self.product1.id})
+            reverse("update_product", kwargs={"pk": self.product1.id})
         )
         self.assertEqual(str(response.context["user"]), "testsuperuser")
         self.assertEqual(response.status_code, 200)
@@ -157,37 +170,55 @@ class TestProductViews(TestCase):
     def test_update_product_view_uses_correct_template_if_superuser(self):
         self.client.login(username="testsuperuser", password=self.password)
         response = self.client.get(
-            reverse("update_product", kwargs={"product_id": self.product1.id})
+            reverse("update_product", kwargs={"pk": self.product1.id})
         )
         self.assertEqual(str(response.context["user"]), "testsuperuser")
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "products/update_product.html")
+        self.assertTemplateUsed(response, "products/product_form.html")
 
     # Test delete_product view
     def test_delete_product_view_redirect_if_not_logged_in(self):
         response = self.client.get(
-            reverse("delete_product", kwargs={"product_id": self.product1.id})
+            reverse("delete_product", kwargs={"pk": self.product1.id}),
+            follow=True,
         )
         self.assertRedirects(
             response,
-            f"/accounts/login/?next=/products/delete/{self.product1.id}",
+            "/",
+            status_code=302,
+            target_status_code=200,
+            fetch_redirect_response=True,
         )
 
     def test_delete_product_view_redirect_if_not_superuser(self):
         self.client.login(username="testnormuser", password=self.password)
         response = self.client.get(
-            reverse("delete_product", kwargs={"product_id": self.product1.id})
+            reverse("delete_product", kwargs={"pk": self.product1.id}),
+            follow=True,
         )
-        self.assertRedirects(response, "/")
+        self.assertRedirects(
+            response,
+            "/",
+            status_code=302,
+            target_status_code=200,
+            fetch_redirect_response=True,
+        )
 
     def test_delete_product_url_exists_if_superuser(self):
         self.client.login(username="testsuperuser", password=self.password)
-        response = self.client.get(f"/products/delete/{self.product1.id}")
+        response = self.client.post(f"/products/delete/{self.product1.id}")
         self.assertEqual(response.status_code, 302)
 
     def test_delete_product_view_accessible_by_name_if_superuser(self):
         self.client.login(username="testsuperuser", password=self.password)
-        response = self.client.get(
-            reverse("delete_product", kwargs={"product_id": self.product2.id})
+        response = self.client.post(
+            reverse("delete_product", kwargs={"pk": self.product2.id}),
+            follow=True,
         )
-        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(
+            response,
+            "/products/",
+            status_code=302,
+            target_status_code=200,
+            fetch_redirect_response=True,
+        )

@@ -104,4 +104,4 @@ def slug_pre_save(instance, *args, **kwargs):
 
 pre_save.connect(slug_pre_save, sender=Category)
 pre_save.connect(slug_pre_save, sender=Flavour)
-pre_save.connect(slug_pre_save, sender=Type)
+pre_save.connect(slug_pre_save, sender=Allergy)
