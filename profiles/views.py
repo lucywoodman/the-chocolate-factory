@@ -2,12 +2,14 @@ from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
 from django.utils.text import Truncator
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.http import require_http_methods, require_safe
 from .models import Profile
 from .forms import ProfileForm, UserForm
 from checkout.models import OrderDetail
 
 
 @login_required
+@require_http_methods(["GET", "POST"])
 def profile(request):
     profile = get_object_or_404(Profile, user=request.user)
 
@@ -40,6 +42,7 @@ def profile(request):
 
 
 @login_required
+@require_safe
 def order_history(request, order_number):
     order = get_object_or_404(OrderDetail, order_number=order_number)
 
