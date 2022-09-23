@@ -34,10 +34,10 @@
                 <div class="col-lg-6 {% if forloop.counter|divisibleby:2 %}order-0{% else %}order-1{% endif %}">
                     <!-- Display an image if they have one... -->
                     {% if producer.photo %}
-                        <img src="{{ producer.photo.url }}" alt="{{ producer.name }}" class="card-img-top img-fluid">
+                        <img src="{{ producer.photo.url }}" alt="{{ producer.name }}" class="card-img-top img-fluid" width="700" height="450">
                     <!-- Else show the fallback image -->
                     {% else %}
-                        <img src="{{ MEDIA_URL }}default.png" alt="{{ producer.name }}" class="card-img-top img-fluid">
+                        <img src="{{ MEDIA_URL }}default.png" alt="{{ producer.name }}" class="card-img-top img-fluid" width="700" height="450">
                     {% endif %}
                 </div>
                 <!-- Check if loop counter is divisible by 2, to alternate layout -->
