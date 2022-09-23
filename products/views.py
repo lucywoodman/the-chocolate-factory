@@ -1,7 +1,8 @@
-from django.shortcuts import render, reverse, redirect, get_object_or_404
+from django.shortcuts import reverse, redirect
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
-from django.views.decorators.http import require_http_methods
+from django.urls import reverse_lazy
+from django.contrib.auth.mixins import UserPassesTestMixin
+from django.contrib.messages.views import SuccessMessageMixin
 from django.db.models import Q
 from .models import Product, Category
 from .forms import ProductForm
@@ -74,80 +75,86 @@ class ProductDetail(generic.DetailView):
     context_object_name = "product"
 
 
-@login_required
-@require_http_methods(["GET", "POST"])
-def add_product(request):
-    if not request.user.is_superuser:
+class AddProduct(UserPassesTestMixin, SuccessMessageMixin, generic.CreateView):
+    """
+    A view to display the product form.
+    To add new products. Restricted to superusers only.
+    """
+
+    model = Product
+    form_class = ProductForm
+    success_message = "Successfully added product!"
+
+    def test_func(self):
+        return self.request.user.is_superuser
+
+    def handle_no_permission(self):
         messages.error(
-            request, "You need proper authorisation to visit this page."
+            self.request, "You need proper authorisation to do that."
         )
-        return redirect(reverse("home"))
+        return redirect("home")
 
-    if request.method == "POST":
-        form = ProductForm(request.POST, request.FILES)
-        if form.is_valid():
-            product = form.save()
-            messages.success(request, "Successfully added product!")
-            return redirect(reverse("product_detail", args=[product.slug]))
-        else:
-            messages.error(
-                request,
-                "Oops, something went wrong! Please double-check the form.",
-            )
-    else:
-        form = ProductForm()
+    def get_success_url(self):
+        return reverse("product_detail", args=[self.object.slug])
 
-    template = "products/add_product.html"
-    context = {
-        "form": form,
-    }
-
-    return render(request, template, context)
-
-
-@login_required
-@require_http_methods(["GET", "POST"])
-def update_product(request, product_id):
-    if not request.user.is_superuser:
+    def form_invalid(self, form):
         messages.error(
-            request, "You need proper authorisation to visit this page."
+            self.request,
+            "Oops, something went wrong! Please double-check the form.",
         )
-        return redirect(reverse("home"))
-
-    product = get_object_or_404(Product, pk=product_id)
-    if request.method == "POST":
-        form = ProductForm(request.POST, request.FILES, instance=product)
-        if form.is_valid():
-            form.save()
-            messages.success(request, "Successfully updated product!")
-            return redirect(reverse("product_detail", args=[product.slug]))
-        else:
-            messages.error(
-                request,
-                "Oops, something went wrong! Please double-check the form.",
-            )
-    else:
-        form = ProductForm(instance=product)
-
-    template = "products/update_product.html"
-    context = {
-        "form": form,
-        "product": product,
-    }
-
-    return render(request, template, context)
+        return super().form_invalid(form)
 
 
-@login_required
-@require_http_methods(["GET", "POST"])
-def delete_product(request, product_id):
-    if not request.user.is_superuser:
+class UpdateProduct(
+    UserPassesTestMixin, SuccessMessageMixin, generic.UpdateView
+):
+    """
+    A view to display the product form.
+    To update products. Restricted to superusers only.
+    """
+
+    model = Product
+    form_class = ProductForm
+    success_message = "Successfully updated product!"
+
+    def test_func(self):
+        return self.request.user.is_superuser
+
+    def handle_no_permission(self):
         messages.error(
-            request, "You need proper authorisation to visit this page."
+            self.request, "You need proper authorisation to do that."
         )
-        return redirect(reverse("home"))
+        return redirect("home")
 
-    product = get_object_or_404(Product, pk=product_id)
-    product.delete()
-    messages.success(request, "Successfully deleted product!")
-    return redirect(reverse("products"))
+    def get_success_url(self):
+        return reverse("product_detail", args=[self.object.slug])
+
+    def form_invalid(self, form):
+        messages.error(
+            self.request,
+            "Oops, something went wrong! Please double-check the form.",
+        )
+        return super().form_invalid(form)
+
+
+class DeleteProduct(
+    UserPassesTestMixin, SuccessMessageMixin, generic.DeleteView
+):
+    """
+    A view to delete products.
+    Restricted to superusers only.
+    """
+
+    model = Product
+    template = "products/products.html"
+    success_message = "Successfully deleted product!"
+    success_url = reverse_lazy("products")
+
+    def test_func(self):
+        return self.request.user.is_superuser
+
+    def handle_no_permission(self):
+        messages.error(
+            self.request, "You need proper authorisation to do that."
+        )
+        return redirect("home")
