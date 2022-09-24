@@ -1,12 +1,5 @@
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import (
-    Button,
-    Layout,
-    Fieldset,
-    Div,
-    HTML,
-    ButtonHolder,
-)
+from crispy_forms.layout import HTML, Div, Fieldset, Layout
 from django import forms
 
 from .models import OrderDetail
@@ -58,19 +51,24 @@ class OrderDetailForm(forms.ModelForm):
                 "postcode",
                 "country",
                 HTML(
-                    """<div class="form-check form-check-inline float-right mr-0">
-                        <!-- If customer is logged in, allow them to save details to their profile -->
+                    """
+                    <div class="form-check form-check-inline float-right mr-0">
                         {% if user.is_authenticated %}
-                            <label for="id-save-info" class="form-check-label">Save to profile</label>
-                            <input type="checkbox" name="save-info" id="id-save-info" class="form-check-input ml-2 mr-0" checked>
-                        <!-- Else offer them the option to register or login -->
+                        <label for="id-save-info" class="form-check-label">Save to profile</label>
+                        <input type="checkbox" name="save-info" id="id-save-info" \
+                            class="form-check-input ml-2 mr-0" checked>
                         {% else %}
-                            <label for="id-save-info" class="form-check-label">
-                                <a href="{% url 'account_signup' %}" class="text-info">Create an account</a> or
-                                <a href="{% url 'account_login' %}" class="text-info">login</a> to save this info.
-                            </label>
+                        <label for="id-save-info" class="form-check-label">
+                            <a href="{% url 'account_signup' %}" class="text-info">
+                                Create an account
+                            </a> or
+                            <a href="{% url 'account_login' %}" class="text-info">
+                                login
+                            </a> to save this info.
+                        </label>
                         {% endif %}
-                    </div>"""
+                    </div>
+                    """
                 ),
             ),
             Fieldset(
@@ -85,21 +83,35 @@ class OrderDetailForm(forms.ModelForm):
                     role="alert",
                 ),
                 HTML(
-                    """<input type="hidden" value="{{ client_secret }}" name="client_secret">"""
+                    """
+                    <input type="hidden" value="{{ client_secret }}" name="client_secret">
+                    """
                 ),
             ),
             Div(
                 Div(
                     HTML(
-                        """<a href="{% url 'view_bag' %}" class="btn btn-brand-pink rounded-0 py-2 theme-btn"><i class="icon fa-solid fa-arrow-left px-1" aria-hidden="true"></i> Return to Bag</a>"""
+                        """
+                        <a href="{% url 'view_bag' %}" class="btn btn-brand-pink rounded-0 py-2 theme-btn">
+                        <i class="icon fa-solid fa-arrow-left px-1" aria-hidden="true"></i> Return to Bag</a>
+                        """
                     ),
                     HTML(
-                        """<button id="submit-button" class="btn btn-primary rounded-0 py-2 theme-btn"><i class="icon fa-solid fa-lock px-1" aria-hidden="true"></i> Pay Now <i class="icon fa-solid fa-arrow-right px-1" aria-hidden="true"></i></button>"""
+                        """
+                        <button id="submit-button" class="btn btn-primary rounded-0 py-2 theme-btn">
+                        <i class="icon fa-solid fa-lock px-1" aria-hidden="true"></i> Pay Now \
+                        <i class="icon fa-solid fa-arrow-right px-1" aria-hidden="true"></i></button>
+                        """
                     ),
                     css_class="d-flex align-items-start justify-content-between",
                 ),
                 HTML(
-                    """<p class="small mt-2 text-danger text-end">Your card will be charged £{{ grand_total|floatformat:2 }}</p>"""
+                    """
+                    <p class="small mt-2 text-danger text-end">
+                        Your card will be charged \
+                            £{{ grand_total|floatformat:2 }}
+                    </p>
+                    """
                 ),
                 css_class="mt-5 mb-2",
             ),
