@@ -1,3 +1,5 @@
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import HTML, Div, Fieldset, Layout
 from django import forms
 from django.contrib.auth.models import User
 
@@ -18,6 +20,11 @@ class UserForm(forms.ModelForm):
         Set placeholders, remove labels and set autofocus on first field
         """
         super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.label_class = "sr-only"
+        self.helper.form_tag = False
+        self.helper.disable_csrf = True
+
         placeholders = {
             "first_name": "First name",
             "last_name": "Last name",
@@ -34,7 +41,6 @@ class UserForm(forms.ModelForm):
             self.fields[field].widget.attrs[
                 "class"
             ] = "border border-dark rounded-0"
-            self.fields[field].label = False
 
 
 class ProfileForm(forms.ModelForm):
@@ -51,6 +57,11 @@ class ProfileForm(forms.ModelForm):
         Set placeholders and remove labels
         """
         super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.label_class = "sr-only"
+        self.helper.form_tag = False
+        self.helper.disable_csrf = True
+
         placeholders = {
             "default_phone_number": "Phone number",
             "default_street_address1": "Street address 1",

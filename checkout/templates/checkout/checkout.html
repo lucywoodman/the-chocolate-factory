@@ -27,37 +27,7 @@
             <div class="col-sm-12 col-lg-5 offset-lg-1 order-2">
                 <!-- Checkout form -->
                 <form action="{% url 'checkout' %}" method="POST" id="payment-form">
-                    {% csrf_token %}
-                    <fieldset class="mb-3">
-                        <!-- Customer details -->
-                        <legend class="fieldset-label small px-2 w-auto">Contact Information</legend>
-                        {{ order_form.full_name | as_crispy_field }}
-                        {{ order_form.email | as_crispy_field }}
-                        {{ order_form.phone_number | as_crispy_field }}
-                    </fieldset>
-                    <fieldset class="mb-3">
-                        <!-- Shipping details -->
-                        <legend class="fieldset-label small px-2 w-auto">Shipping</legend>
-                        {{ order_form.street_address1 | as_crispy_field }}
-                        {{ order_form.street_address2 | as_crispy_field }}
-                        {{ order_form.town_or_city | as_crispy_field }}
-                        {{ order_form.county | as_crispy_field }}
-                        {{ order_form.postcode | as_crispy_field }}
-                        {{ order_form.country | as_crispy_field }}
-                        <div class="form-check form-check-inline float-right mr-0">
-                            <!-- If customer is logged in, allow them to save details to their profile -->
-                            {% if user.is_authenticated %}
-                                <label for="id-save-info" class="form-check-label">Save to profile</label>
-                                <input type="checkbox" name="save-info" id="id-save-info" class="form-check-input ml-2 mr-0" checked>
-                            <!-- Else offer them the option to register or login -->
-                            {% else %}
-                                <label for="id-save-info" class="form-check-label">
-                                    <a href="{% url 'account_signup' %}" class="text-info">Create an account</a> or
-                                    <a href="{% url 'account_login' %}" class="text-info">login</a> to save this info.
-                                </label>
-                            {% endif %}
-                        </div>
-                    </fieldset>
+                    {% crispy order_form %}
                     <fieldset>
                         <!-- Payment details -->
                         <legend class="fieldset-label small px-2 w-auto">Payment</legend>

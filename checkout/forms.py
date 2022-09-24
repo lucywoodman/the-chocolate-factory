@@ -1,3 +1,5 @@
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import HTML, Div, Fieldset, Layout
 from django import forms
 
 from .models import OrderDetail
@@ -27,6 +29,49 @@ class OrderDetailForm(forms.ModelForm):
         Set placeholders, remove labels and set autofocus on first field
         """
         super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.label_class = "sr-only"
+        self.helper.form_tag = False
+        self.helper.layout = Layout(
+            Fieldset(
+                "Contact Information",
+                "full_name",
+                "email",
+                "phone_number",
+                css_class="mb-3",
+            ),
+            Fieldset(
+                "Shipping",
+                "street_address1",
+                "street_address2",
+                "town_or_city",
+                "county",
+                "postcode",
+                "country",
+                HTML(
+                    """
+                    <div class="form-check form-check-inline float-right mr-0">
+                        {% if user.is_authenticated %}
+                        <label for="id-save-info" class="form-check-label">Save to profile</label>
+                        <input type="checkbox" name="save-info" id="id-save-info" \
+                            class="form-check-input ml-2 mr-0" checked>
+                        {% else %}
+                        <label for="id-save-info" class="form-check-label">
+                            <a href="{% url 'account_signup' %}" class="text-info">
+                                Create an account
+                            </a> or
+                            <a href="{% url 'account_login' %}" class="text-info">
+                                login
+                            </a> to save this info.
+                        </label>
+                        {% endif %}
+                    </div>
+                    """
+                ),
+                css_class="mb-3",
+            ),
+        )
+
         placeholders = {
             "full_name": "Full name",
             "email": "Email address",
@@ -47,4 +92,3 @@ class OrderDetailForm(forms.ModelForm):
                 placeholder = placeholders[field]
             self.fields[field].widget.attrs["placeholder"] = placeholder
             self.fields[field].widget.attrs["class"] = "stripe-style-input"
-            self.fields[field].label = False
