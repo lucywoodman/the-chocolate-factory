@@ -24,7 +24,7 @@
 
 ## Google's Lighthouse Performance
 
-[Google Lighthouse](https://developers.google.com/web/tools/lighthouse) was used to test the performance of the website.
+[Google Lighthouse](https://developers.google.com/web/tools/lighthouse) was used to test the performance of the website. There are a couple of issues due to Bootstrap, Stripe and general Heroku slowness.
 
 <details><summary>Home</summary>
 <img src="docs/testing/lighthouse/lighthouse-home.png">
@@ -44,6 +44,9 @@
 <details><summary>Bag</summary>
 <img src="docs/testing/lighthouse/lighthouse-bag.png">
 </details>
+<details><summary>Checkout</summary>
+<img src="docs/testing/lighthouse/lighthouse-checkout.png">
+</details>
 <details><summary>Privacy Policy</summary>
 <img src="docs/testing/lighthouse/lighthouse-privacy.png">
 </details>
@@ -59,7 +62,35 @@
 
 ## Accessibility Validation
 
-The [WAVE WebAIM web accessibility evaluation tool](https://wave.webaim.org/) was used to ensure the website met high accessibility standards. All pages pass with 0 errors, except for the Profile page and Checkout page. This is due to the forms not using labels. With more time I can dig into this, however, for now it has been saved as an open issue on the Github repository.
+The [WAVE WebAIM web accessibility evaluation tool](https://wave.webaim.org/) was used to ensure the website met high accessibility standards. All pages pass with 0 errors, except for the checkout page that has a contrast error. This is only for placeholder text.
+
+<details><summary>Home</summary>
+<img src="docs/testing/wave/wave-home.png">
+</details>
+<details><summary>Register</summary>
+<img src="docs/testing/wave/wave-register.png">
+</details>
+<details><summary>Products</summary>
+<img src="docs/testing/wave/wave-products.png">
+</details>
+<details><summary>Product Detail</summary>
+<img src="docs/testing/wave/wave-product-detail.png">
+</details>
+<details><summary>Producers</summary>
+<img src="docs/testing/wave/wave-producers.png">
+</details>
+<details><summary>Bag</summary>
+<img src="docs/testing/wave/wave-bag.png">
+</details>
+<details><summary>Checkout</summary>
+<img src="docs/testing/wave/wave-checkout.png">
+</details>
+<details><summary>Privacy Policy</summary>
+<img src="docs/testing/wave/wave-privacy.png">
+</details>
+<details><summary>Terms & Conditions</summary>
+<img src="docs/testing/wave/wave-privacy.png">
+</details>
 
 *Go back to the [top](#table-of-contents)*
 
@@ -139,9 +170,14 @@ The [W3C Jigsaw CSS Validation Service](https://jigsaw.w3.org/css-validator/vali
 
 ## PEP8 Validation
 
-A combination of the following Python packages was used to ensure the code is PEP8 compliant: flake8, autopep8 and black. After which `flake8 --statistics` was ran in VSCode terminal and the final flagged files were checked in [PEP8 Online](http://pep8online.com). The only issues found were a few longer lines in the project's settings.py.
+A combination of the following Python packages was used to ensure the code is PEP8 compliant: flake8, autopep8 and black. After which `flake8 --statistics` was ran in VSCode terminal and the final flagged files were checked in [PEP8 Online](http://pep8online.com). The only issues found were a few longer lines in the base project's settings.py and checkout's forms.py due to HTML blocks.
 
-![PEP8 valudation](docs/testing/validation/pep8.png)
+<details><summary>settings.py</summary>
+<img src="docs/testing/validation/pep8-settings.png">
+</details>
+<details><summary>checkout/forms.py</summary>
+<img src="docs/testing/validation/pep8-checkout-form.png">
+</details>
 
 *Go back to the [top](#table-of-contents)*
 
