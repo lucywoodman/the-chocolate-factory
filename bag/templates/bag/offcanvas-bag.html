@@ -24,10 +24,10 @@
                         <div>
                             <!-- Display an image if it has one... -->
                             {% if item.product.image %}
-                                <img class="w-100" src="{{ item.product.image.url }}" alt="{{ item.product.name }}" width="350" height="450">
+                                <img class="img-fluid" src="{{ item.product.image.url }}" alt="{{ item.product.name }}" width="350" height="450">
                             <!-- Else show the fallback image -->
                             {% else %}
-                                <img class="w-100" src="{{ MEDIA_URL }}default.webp" alt="{{ item.product.name }}" width="350" height="450">
+                                <img class="img-fluid" src="{{ MEDIA_URL }}default.webp" alt="{{ item.product.name }}" width="350" height="450">
                             {% endif %}
                         </div>
                     </div>
