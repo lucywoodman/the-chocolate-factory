@@ -269,6 +269,8 @@ Resolved | Bug | Fix | Commit
 :green_circle: | Redirect fails since updating HTTP methods | Update the HTTP method and retest | [commit](https://github.com/lucywoodman/the-chocolate-factory/commit/303b393a4607cbc7b52fd46c8363767f6f0b0c42)
 :green_circle: | Checkout success / Order history details missing | Update template tags | [commit](https://github.com/lucywoodman/the-chocolate-factory/commit/74e8649155ddfef847cf0af71c0093e085dcddf1)
 :green_circle: | Orders are created twice on Heroku (take 2) | Search by order PID only | [commit](https://github.com/lucywoodman/the-chocolate-factory/commit/da6e13edc86cb0c73170b7ad4810a151549456c0)
+:orange_circle: | Already subscribed message is not user-friendly | Message comes from Mailchimp API | [issue](https://github.com/lucywoodman/the-chocolate-factory/issues/4)
+:orange_circle: | Image aspect ratio isn't constant | This looks to be a Boostrap bug | [issue](https://github.com/lucywoodman/the-chocolate-factory/issues/6)
 
 *Go back to the [top](#table-of-contents)*
 
