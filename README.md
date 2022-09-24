@@ -209,8 +209,11 @@ Thanks to DrawSQL for helping me to create the diagram of the models.
 
 The website uses a well-known and well-experienced web design pattern, to provide a comforting and predictable experience to users. With the logo in the top left, navigation in the middle and important links in the top right. Each page has a large title, except for the product detail page. The header and footer on each of the longer pages matches, allowing users to quickly find their way around. The main page wireframes, with help from Balsamiq, are shown below.
 
-<details><summary>Home - [Home mobile](docs/planning/wireframes/wireframe-home-mobile.png)</summary>
+<details><summary>Home</summary>
 <img src="docs/planning/wireframes/wireframe-home.png">
+</details>
+<details><summary>Home mobile (warning - it's long!)</summary>
+<img src="docs/planning/wireframes/wireframe-home-mobile.png">
 </details>
 <details><summary>Products</summary>
 <img src="docs/planning/wireframes/wireframe-products.png">
