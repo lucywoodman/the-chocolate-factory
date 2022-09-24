@@ -45,9 +45,9 @@
                                 <!-- Form to handle the quantity adjustments -->
                                 <form class="form update-form" action="{% url 'adjust_bag' item.item_id %}" method="POST">
                                     {% csrf_token %}
-                                    <label class="col-lg-1 col-form-label d-none" for="id_qty_{{ item.item_id }}">QTY</label>
                                     <div class="form-group">
                                         <div class="input-group">
+                                            <label class="col-lg-1 col-form-label sr-only" for="id_qty_{{ item.item_id }}">QTY</label>
                                             <div class="input-group-prepend">
                                                 <button class="decrement-qty btn btn-sm btn-outline-dark rounded-0 theme-btn" data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}" aria-label="Decrement quantity button" title="Decrement quantity button">
                                                     <i class="fa-solid fa-minus fa-sm" aria-hidden="true" aria-hidden="true"></i>
