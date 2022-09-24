@@ -30,10 +30,8 @@ class OrderDetailForm(forms.ModelForm):
         """
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
-        self.helper.form_id = "payment-form"
         self.helper.label_class = "sr-only"
-        self.helper.form_method = "POST"
-        self.helper.form_action = "checkout"
+        self.helper.form_tag = False
         self.helper.layout = Layout(
             Fieldset(
                 "Contact Information",
@@ -70,50 +68,7 @@ class OrderDetailForm(forms.ModelForm):
                     </div>
                     """
                 ),
-            ),
-            Fieldset(
-                "Payment",
-                Div(
-                    css_id="card-element",
-                    css_class="mb-3",
-                ),
-                Div(
-                    css_id="card-errors",
-                    css_class="mb-3 text-danger",
-                    role="alert",
-                ),
-                HTML(
-                    """
-                    <input type="hidden" value="{{ client_secret }}" name="client_secret">
-                    """
-                ),
-            ),
-            Div(
-                Div(
-                    HTML(
-                        """
-                        <a href="{% url 'view_bag' %}" class="btn btn-brand-pink rounded-0 py-2 theme-btn">
-                        <i class="icon fa-solid fa-arrow-left px-1" aria-hidden="true"></i> Return to Bag</a>
-                        """
-                    ),
-                    HTML(
-                        """
-                        <button id="submit-button" class="btn btn-primary rounded-0 py-2 theme-btn">
-                        <i class="icon fa-solid fa-lock px-1" aria-hidden="true"></i> Pay Now \
-                        <i class="icon fa-solid fa-arrow-right px-1" aria-hidden="true"></i></button>
-                        """
-                    ),
-                    css_class="d-flex align-items-start justify-content-between",
-                ),
-                HTML(
-                    """
-                    <p class="small mt-2 text-danger text-end">
-                        Your card will be charged \
-                            £{{ grand_total|floatformat:2 }}
-                    </p>
-                    """
-                ),
-                css_class="mt-5 mb-2",
+                css_class="mb-3",
             ),
         )
 
