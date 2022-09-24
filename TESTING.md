@@ -26,8 +26,29 @@
 
 [Google Lighthouse](https://developers.google.com/web/tools/lighthouse) was used to test the performance of the website.
 
-<details><summary>Home page</summary>
-<img src="docs/testing/lighthouse-home.png">
+<details><summary>Home</summary>
+<img src="docs/testing/lighthouse/lighthouse-home.png">
+</details>
+<details><summary>Register</summary>
+<img src="docs/testing/lighthouse/lighthouse-register.png">
+</details>
+<details><summary>Products</summary>
+<img src="docs/testing/lighthouse/lighthouse-products.png">
+</details>
+<details><summary>Product Detail</summary>
+<img src="docs/testing/lighthouse/lighthouse-product-detail.png">
+</details>
+<details><summary>Producers</summary>
+<img src="docs/testing/lighthouse/lighthouse-producers.png">
+</details>
+<details><summary>Bag</summary>
+<img src="docs/testing/lighthouse/lighthouse-bag.png">
+</details>
+<details><summary>Privacy Policy</summary>
+<img src="docs/testing/lighthouse/lighthouse-privacy.png">
+</details>
+<details><summary>Terms & Conditions</summary>
+<img src="docs/testing/lighthouse/lighthouse-privacy.png">
 </details>
 
 *Go back to the [top](#table-of-contents)*
