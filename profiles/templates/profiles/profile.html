@@ -34,10 +34,10 @@
                 <form action="{% url 'profile' %}" method="POST" id="profile-form">
                     {% csrf_token %}
                     <!-- User form (name + email)-->
-                    {{ user_form|crispy }}
+                    {% crispy user_form %}
                     <p class="fw-bold mb-4 mt-4">Your default delivery details</p>
                     <!-- Profile form (address)-->
-                    {{ profile_form|crispy }}
+                    {% crispy profile_form %}
                     <button class="btn btn-primary rounded-0 py-2 theme-btn">Update profile</button>
                 </form>
             </div>
