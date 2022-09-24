@@ -41,11 +41,17 @@
 <details><summary>Producers</summary>
 <img src="docs/testing/lighthouse/lighthouse-producers.png">
 </details>
+<details><summary>Profile</summary>
+<img src="docs/testing/lighthouse/lighthouse-profile.png">
+</details>
 <details><summary>Bag</summary>
 <img src="docs/testing/lighthouse/lighthouse-bag.png">
 </details>
 <details><summary>Checkout</summary>
 <img src="docs/testing/lighthouse/lighthouse-checkout.png">
+</details>
+<details><summary>Order Confirmation</summary>
+<img src="docs/testing/lighthouse/lighthouse-order.png">
 </details>
 <details><summary>Privacy Policy</summary>
 <img src="docs/testing/lighthouse/lighthouse-privacy.png">
@@ -79,11 +85,17 @@ The [WAVE WebAIM web accessibility evaluation tool](https://wave.webaim.org/) wa
 <details><summary>Producers</summary>
 <img src="docs/testing/wave/wave-producers.png">
 </details>
+<details><summary>Profile</summary>
+<img src="docs/testing/wave/wave-profile.png">
+</details>
 <details><summary>Bag</summary>
 <img src="docs/testing/wave/wave-bag.png">
 </details>
 <details><summary>Checkout</summary>
 <img src="docs/testing/wave/wave-checkout.png">
+</details>
+<details><summary>Order Confirmation</summary>
+<img src="docs/testing/wave/wave-order.png">
 </details>
 <details><summary>Privacy Policy</summary>
 <img src="docs/testing/wave/wave-privacy.png">
@@ -100,16 +112,13 @@ The [WAVE WebAIM web accessibility evaluation tool](https://wave.webaim.org/) wa
 
 ## HTML Validation
 
-The [W3C Markup Validation Service](https://validator.w3.org/) was used to validate the HTML of the website. For logged in pages, the page source was copied and pasted into the validator. All pages pass with 0 errors and 0 warnings.
+The [W3C Markup Validation Service](https://validator.w3.org/) was used to validate the HTML of the website. For logged in pages, the page source was copied and pasted into the validator. All pages pass with 0 errors and 0 warnings. Except for the profile and checkout pages, which have an error due to a placeholder attribute in a select element. This looks to be coming from the `CountryField` class from `django-countries`.
 
 <details><summary>Home</summary>
 <img src="docs/testing/validation/html-home.png">
 </details>
 <details><summary>Register</summary>
 <img src="docs/testing/validation/html-register.png">
-</details>
-<details><summary>Login</summary>
-<img src="docs/testing/validation/html-login.png">
 </details>
 <details><summary>Products</summary>
 <img src="docs/testing/validation/html-products.png">
@@ -120,8 +129,17 @@ The [W3C Markup Validation Service](https://validator.w3.org/) was used to valid
 <details><summary>Producers</summary>
 <img src="docs/testing/validation/html-producers.png">
 </details>
+<details><summary>Profile</summary>
+<img src="docs/testing/validation/html-profile.png">
+</details>
 <details><summary>Bag</summary>
 <img src="docs/testing/validation/html-bag.png">
+</details>
+<details><summary>Checkout</summary>
+<img src="docs/testing/validation/html-checkout.png">
+</details>
+<details><summary>Order Confirmation</summary>
+<img src="docs/testing/validation/html-order.png">
 </details>
 <details><summary>Privacy Policy</summary>
 <img src="docs/testing/validation/html-privacy.png">
@@ -136,7 +154,7 @@ The [W3C Markup Validation Service](https://validator.w3.org/) was used to valid
 
 ## CSS Validation
 
-The [W3C Jigsaw CSS Validation Service](https://jigsaw.w3.org/css-validator/validator) was used to validate the CSS of the website. The CSS passes with 0 errors.
+The [W3C Jigsaw CSS Validation Service](https://jigsaw.w3.org/css-validator/) was used to validate the CSS of the website. The CSS passes with 0 errors.
 
 ![CSS validation](docs/testing/validation/css.png)
 
@@ -170,7 +188,7 @@ The [W3C Jigsaw CSS Validation Service](https://jigsaw.w3.org/css-validator/vali
 
 ## PEP8 Validation
 
-A combination of the following Python packages was used to ensure the code is PEP8 compliant: flake8, autopep8 and black. After which `flake8 --statistics` was ran in VSCode terminal and the final flagged files were checked in [PEP8 Online](http://pep8online.com). The only issues found were a few longer lines in the base project's settings.py and checkout's forms.py due to HTML blocks.
+A combination of the following Python packages was used to ensure the code is PEP8 compliant: flake8, autopep8 and black. After which `flake8 --statistics` was ran in VSCode terminal and the final flagged files were checked in [PEP8 Online](http://pep8online.com). The only issues found were a few longer lines in the base project's settings.py and checkout's forms.py due to HTML blocks, shown below.
 
 <details><summary>settings.py</summary>
 <img src="docs/testing/validation/pep8-settings.png">
