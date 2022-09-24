@@ -31,7 +31,7 @@
         {% for producer in producers %}
             <div class="row py-5">
                 <!-- Check if loop counter is divisible by 2, to alternate layout -->
-                <div class="col-lg-6 {% if forloop.counter|divisibleby:2 %}order-0{% else %}order-1{% endif %}">
+                <div class="col-lg-6 {% if forloop.counter|divisibleby:2 %}order-lg-first{% else %}order-lg-second{% endif %} d-flex justify-content-center">
                     <!-- Display an image if they have one... -->
                     {% if producer.photo %}
                         <img src="{{ producer.photo.url }}" alt="{{ producer.name }}" class="card-img-top img-fluid" width="700" height="450">
@@ -41,7 +41,7 @@
                     {% endif %}
                 </div>
                 <!-- Check if loop counter is divisible by 2, to alternate layout -->
-                <div class="col-lg-6 p-5 {% if forloop.counter|divisibleby:2 %}order-1{% else %}order-0{% endif %}">
+                <div class="col-lg-6 p-5 {% if forloop.counter|divisibleby:2 %}order-lg-second{% else %}order-lg-first{% endif %}">
                     <!-- Producer name + location -->
                     <h2>{{ producer.name }}, <span class="text-secondary">{{ producer.location }}</span></h2>
                     <!-- If user is a superuser, show buttons to update/delete this producer -->
