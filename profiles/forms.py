@@ -16,7 +16,8 @@ class UserForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         """
-        Set placeholders, remove labels and set autofocus on first field
+        Set crispy form helpers and placeholders
+        and set autofocus on first field
         """
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
@@ -53,7 +54,7 @@ class ProfileForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         """
-        Set placeholders and remove labels
+        Set crispy form helpers and placeholders
         """
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
@@ -80,4 +81,3 @@ class ProfileForm(forms.ModelForm):
             self.fields[field].widget.attrs[
                 "class"
             ] = "border border-dark rounded-0"
-            self.fields[field].label = False

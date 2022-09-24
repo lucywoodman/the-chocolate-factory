@@ -26,7 +26,8 @@ class OrderDetailForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         """
-        Set placeholders, remove labels and set autofocus on first field
+        Set crispy form helpers, layout and placeholders
+        and set autofocus on first field
         """
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
