@@ -57,10 +57,10 @@ class OrderDetailForm(forms.ModelForm):
                             class="form-check-input ml-2 mr-0" checked>
                         {% else %}
                         <label for="id-save-info" class="form-check-label">
-                            <a href="{% url 'account_signup' %}" class="text-info">
+                            <a href="{% url 'account_signup' %}" class="text-brand-dblue">
                                 Create an account
                             </a> or
-                            <a href="{% url 'account_login' %}" class="text-info">
+                            <a href="{% url 'account_login' %}" class="text-brand-dblue">
                                 login
                             </a> to save this info.
                         </label>
