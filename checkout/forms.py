@@ -1,5 +1,5 @@
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import HTML, Div, Fieldset, Layout
+from crispy_forms.layout import HTML, Fieldset, Layout
 from django import forms
 
 from .models import OrderDetail
